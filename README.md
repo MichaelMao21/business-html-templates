@@ -4,7 +4,7 @@ Reusable HTML templates for formal Chinese business presentations, reports, plan
 
 ![Business HTML Templates Gallery](assets/readme/hero-gallery.png)
 
-Use this repository when a plain slide deck is too static, but a full web app is unnecessary: KPI dashboards, BLM strategy planning, industry research, business plans, OKR calendars, and executive-facing one-page reports.
+Use this repository when a plain slide deck is too static, but a full web app is unnecessary: KPI dashboards, BLM strategy planning, industry research, business plans, weekly reports, OKR calendars, and executive-facing one-page reports.
 
 ## Install As A Codex Skill
 
@@ -50,6 +50,12 @@ Best for BLM strategy planning, gap analysis, market insight, strategic intent, 
 
 Best for business plans that need to answer "who is my user", buyer roles, first use case, pricing entry point, go-to-market path, and financial logic.
 
+### Weekly Report Brief
+
+![Weekly Report](weekly-report-brief/screenshots/cover.png)
+
+Best for personal weekly reports, team updates, project status reports, progress summaries, risks, next-week plans, and management asks.
+
 ### Industry Research Report
 
 ![Industry Research](industry-research-report/screenshots/cover.png)
@@ -68,6 +74,7 @@ Best for OKR planning, monthly calendars, weekly agendas, project cadence, owner
 | --- | --- | --- |
 | Data dashboard | [`data-dashboard-infographic`](data-dashboard-infographic/template.html) | KPI reviews, financial summaries, operating dashboards, growth dashboards |
 | Business plan | [`business-plan-brief`](business-plan-brief/template.html) | User personas, buyer roles, first use case, go-to-market path, investment-style business cases |
+| Weekly report | [`weekly-report-brief`](weekly-report-brief/template.html) | Weekly summaries, progress updates, risks, next-week plans, support requests |
 | Strategy planning | [`strategy-planning-brief`](strategy-planning-brief/template.html) | BLM strategy planning, gap analysis, market insight, strategic intent, strategy decoding |
 | Industry research | [`industry-research-report`](industry-research-report/template.html) | Market sizing, industry chain, trend analysis, competition matrix, conclusions |
 | Goals and agenda | [`goals-calendar-agenda`](goals-calendar-agenda/template.html) | OKR planning, monthly calendars, weekly agendas, project cadence |
@@ -88,6 +95,10 @@ Best for OKR planning, monthly calendars, weekly agendas, project cadence, owner
 
 ```text
 使用 business-html-templates，基于 business-plan-brief，生成一页 AI 销售助手商业计划书。
+```
+
+```text
+使用 business-html-templates，基于 weekly-report-brief，生成一页本周项目周报。
 ```
 
 ## How To Use
@@ -113,6 +124,7 @@ Best for OKR planning, monthly calendars, weekly agendas, project cadence, owner
   _shared/
   data-dashboard-infographic/
   business-plan-brief/
+  weekly-report-brief/
   strategy-planning-brief/
   industry-research-report/
   goals-calendar-agenda/

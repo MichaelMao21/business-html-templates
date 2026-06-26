@@ -1,0 +1,27 @@
+{
+  "slug": "weekly-report-brief",
+  "name": "Weekly Report Brief",
+  "category": "weekly-report",
+  "tagline": "Chinese-friendly weekly work report template for progress updates, risks, next-week plans, and management asks.",
+  "best_for": "Team weekly reports, personal work updates, project progress reports, management status updates, and recurring operating summaries.",
+  "avoid_for": "Long research papers, investor pitch decks, or highly visual brand narratives.",
+  "tone": [
+    "concise",
+    "actionable",
+    "status-led",
+    "manager-ready"
+  ],
+  "formality": "medium-high",
+  "density": "high",
+  "chart_readiness": "medium",
+  "animation_level": "none",
+  "recommended_sections": [
+    "本周结论",
+    "关键指标",
+    "本周进展",
+    "目标进度",
+    "风险阻塞",
+    "下周计划",
+    "需要支持"
+  ]
+}

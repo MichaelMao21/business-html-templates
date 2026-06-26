@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-26T08:03:55.555Z",
+  "generated_at": "2026-06-26T00:00:00.000Z",
   "root": ".",
-  "count": 5,
+  "count": 6,
   "templates": [
     {
       "slug": "business-plan-brief",
@@ -182,6 +182,39 @@
         "strategy-planning-brief/screenshots/market-insight.png",
         "strategy-planning-brief/screenshots/strategic-intent.png",
         "strategy-planning-brief/screenshots/three-year-goals.png"
+      ]
+    },
+    {
+      "slug": "weekly-report-brief",
+      "name": "Weekly Report Brief",
+      "category": "weekly-report",
+      "tagline": "Chinese-friendly weekly work report template for progress updates, risks, next-week plans, and management asks.",
+      "best_for": "Team weekly reports, personal work updates, project progress reports, management status updates, and recurring operating summaries.",
+      "avoid_for": "Long research papers, investor pitch decks, or highly visual brand narratives.",
+      "tone": [
+        "concise",
+        "actionable",
+        "status-led",
+        "manager-ready"
+      ],
+      "formality": "medium-high",
+      "density": "high",
+      "chart_readiness": "medium",
+      "animation_level": "none",
+      "template_file": "weekly-report-brief/template.html",
+      "metadata_file": "weekly-report-brief/template.json",
+      "docs_file": "weekly-report-brief/design.md",
+      "design_file": "weekly-report-brief/design.md",
+      "example_files": [
+        "weekly-report-brief/examples/product-growth-weekly-report.html"
+      ],
+      "layout_files": [
+        "weekly-report-brief/layouts/summary.html",
+        "weekly-report-brief/layouts/progress-list.html",
+        "weekly-report-brief/layouts/next-week-plan.html"
+      ],
+      "screenshots": [
+        "weekly-report-brief/screenshots/cover.png"
       ]
     }
   ]

@@ -8,6 +8,7 @@ Start from `index.json`. It is the source of truth for available templates, exam
 
 - `data-dashboard-infographic`: KPI reviews, financial summaries, operating dashboards, growth dashboards.
 - `business-plan-brief`: business plans, internal proposals, pitch-style investment memos.
+- `weekly-report-brief`: personal weekly reports, team updates, project status, progress risks, next-week plans.
 - `strategy-planning-brief`: BLM-inspired strategy planning, gap analysis, market insight, strategic intent, strategy decoding.
 - `industry-research-report`: market sizing, industry chain, trend and competition research.
 - `goals-calendar-agenda`: OKR planning, calendar agenda, meeting cadence, goal tracking.
