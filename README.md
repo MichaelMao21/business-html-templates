@@ -73,6 +73,28 @@ The validators check template metadata, required files, complete examples, broke
 
 `SKILL.md` turns this repository into a reusable Codex skill. It tells Codex when to use the library, how to choose a template, and what quality checks to run before delivering HTML.
 
+## Install As A Codex Skill
+
+Clone this repository into your Codex skills directory:
+
+```bash
+cd ~/.codex/skills
+git clone https://github.com/MichaelMao21/business-html-templates.git
+```
+
+Then ask Codex to use it:
+
+```text
+使用 business-html-templates，帮我生成一页战略规划汇报 HTML。
+```
+
+You can also ask Codex directly:
+
+```text
+请把这个 GitHub 仓库安装为 Codex skill：
+https://github.com/MichaelMao21/business-html-templates.git
+```
+
 ## Contributing
 
 Read [SPEC.md](SPEC.md) and [CONTRIBUTING.md](CONTRIBUTING.md) before adding templates. A useful template should include a real example, reusable layout fragments, screenshots, metadata, design notes, and validation coverage.
