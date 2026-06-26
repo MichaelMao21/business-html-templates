@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中国家电行业研究报告 2026</title>
+  <link rel="stylesheet" href="../../_shared/editable-runtime/editable.css">
+  <style>
+    :root {
+      --paper: #f8f6f0;
+      --ink: #222222;
+      --muted: #5f5b54;
+      --red: #c9433d;
+      --line: #2a2a2a;
+      --soft: #ece7dd;
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #dedbd2; color: var(--ink); }
+    .poster {
+      width: min(1440px, 100%);
+      min-height: 100vh;
+      margin: auto;
+      padding: 34px 42px 30px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0,0,0,.03) 1px, transparent 1px),
+        var(--paper);
+      background-size: 34px 34px;
+    }
+    header { display: grid; grid-template-columns: 1fr 380px; gap: 28px; align-items: start; border-bottom: 5px solid var(--line); padding-bottom: 18px; }
+    h1 { margin: 0; font-size: 62px; line-height: .94; letter-spacing: 1px; text-transform: uppercase; }
+    h1 span { display: block; color: var(--red); }
+    h2, h3, p { margin-top: 0; }
+    .source { text-align: right; color: var(--muted); font-size: 13px; line-height: 1.45; font-weight: 700; }
+    .lead { max-width: 700px; margin: 18px 0 0; color: var(--muted); font-size: 18px; line-height: 1.42; font-weight: 750; }
+    .anatomy { display: grid; grid-template-columns: 300px minmax(420px, 1fr) 330px; gap: 24px; min-height: 720px; padding-top: 24px; }
+    .section-title { display: inline-block; margin: 0 0 14px; padding: 6px 10px; background: var(--line); color: #fff; font-size: 22px; line-height: 1; font-weight: 950; text-transform: uppercase; }
+    .chain { display: grid; gap: 18px; }
+    .chain-step { display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: start; padding-bottom: 14px; border-bottom: 2px dotted rgba(201,67,61,.5); }
+    .chain-step i { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--red); color: #fff; font-style: normal; font-weight: 950; }
+    .chain-step h3 { margin: 0 0 4px; font-size: 18px; }
+    .chain-step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.35; font-weight: 700; }
+    .center { position: relative; min-height: 720px; display: grid; place-items: center; }
+    .appliance-visual { position: relative; width: min(620px, 100%); height: 610px; border: 5px solid var(--line); background: linear-gradient(180deg, #fff, #eee8dc); box-shadow: 22px 24px 0 rgba(34,34,34,.16); overflow: hidden; }
+    .appliance-visual::before { content: ""; position: absolute; inset: 28px; border: 2px solid rgba(34,34,34,.22); background: repeating-linear-gradient(90deg, transparent 0 28px, rgba(201,67,61,.09) 28px 30px); }
+    .shelf { position: absolute; left: 44px; right: 44px; height: 5px; background: var(--line); }
+    .shelf.one { top: 182px; } .shelf.two { top: 350px; }
+    .ac { position: absolute; left: 80px; top: 70px; width: 420px; height: 86px; border: 4px solid var(--line); background: #fff; box-shadow: 10px 10px 0 rgba(201,67,61,.22); }
+    .ac::after { content: ""; position: absolute; left: 28px; right: 28px; bottom: 18px; height: 12px; background: repeating-linear-gradient(90deg, var(--line) 0 18px, transparent 18px 30px); }
+    .fridge { position: absolute; left: 70px; top: 220px; width: 150px; height: 270px; border: 4px solid var(--line); background: #fefefe; }
+    .fridge::before { content: ""; position: absolute; left: 0; right: 0; top: 96px; height: 4px; background: var(--line); }
+    .washer { position: absolute; left: 270px; top: 260px; width: 190px; height: 190px; border: 4px solid var(--line); background: #fff; border-radius: 8px; }
+    .washer::before { content: ""; position: absolute; left: 47px; top: 48px; width: 88px; height: 88px; border: 10px solid var(--red); border-radius: 50%; }
+    .smart { position: absolute; right: 54px; bottom: 44px; width: 160px; height: 120px; border: 4px solid var(--line); background: #222; color: #fff; display: grid; place-items: center; font-weight: 950; text-align: center; }
+    .wire { position: absolute; left: 202px; top: 174px; width: 230px; height: 210px; border: 0 solid var(--red); border-left-width: 4px; border-bottom-width: 4px; border-radius: 0 0 0 28px; opacity: .75; }
+    .callout { position: absolute; display: grid; place-items: center; width: 154px; height: 154px; border-radius: 50%; background: #fff; border: 6px solid rgba(201,67,61,.72); text-align: center; box-shadow: 0 14px 30px rgba(0,0,0,.12); font-weight: 950; }
+    .callout strong { display: block; color: var(--red); font-size: 34px; line-height: 1; }
+    .callout small { color: var(--muted); font-size: 13px; }
+    .callout.one { left: 34px; top: 312px; }
+    .callout.two { right: 28px; top: 116px; }
+    .right { display: grid; gap: 22px; align-content: start; }
+    .benefits ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .benefits li { padding-left: 14px; border-left: 5px solid var(--red); color: var(--muted); font-size: 15px; line-height: 1.35; font-weight: 750; }
+    .big-stat strong { display: block; color: var(--red); font-size: 64px; line-height: .9; }
+    .big-stat p { margin: 6px 0 0; color: var(--muted); font-weight: 800; }
+    .bar-row { display: grid; grid-template-columns: 96px 1fr 54px; gap: 10px; align-items: center; font-size: 14px; font-weight: 850; }
+    .bar { height: 12px; background: var(--line); }
+    .bar span { display: block; height: 100%; background: var(--red); }
+    .regions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center; font-weight: 900; }
+    .regions b { display: block; color: var(--red); font-size: 28px; }
+    footer { display: grid; grid-template-columns: 220px repeat(4, 1fr); gap: 18px; align-items: stretch; margin-top: 18px; padding-top: 16px; border-top: 4px solid var(--line); }
+    footer h2 { margin: 0; padding: 12px; background: var(--line); color: #fff; font-size: 22px; line-height: 1.1; text-transform: uppercase; }
+    .path-card { padding: 16px; border: 1px solid var(--line); background: rgba(255,255,255,.55); }
+    .path-card b { color: var(--red); font-size: 28px; }
+    .path-card p { margin: 8px 0 0; color: var(--muted); font-weight: 750; line-height: 1.35; }
+    @media (max-width: 900px) {
+      header, .anatomy, footer { grid-template-columns: 1fr; }
+      .poster { padding: 24px; }
+      h1 { font-size: 42px; }
+      .source { text-align: left; }
+      .center { min-height: auto; }
+      .appliance-visual { height: 500px; }
+      .callout { position: static; width: auto; height: auto; min-height: 96px; border-radius: 8px; margin-top: 12px; }
+      .regions { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster" data-edit-root>
+    <header>
+      <div>
+        <h1><span>Home Appliance</span> Industry Anatomy</h1>
+        <p class="lead">中国家电行业进入“存量换新 + 出海再定价 + AI 智能化”的下半场。内销短期受补贴高基数与耐用品换新透支影响承压，但高端化、服务化和海外渠道重构仍在创造结构性机会。</p>
+      </div>
+      <p class="source">Source: 奥维云网、国家发改委、中国家用电器协会、公开行业报道<br>Generated with industry-research-report</p>
+    </header>
+
+    <section class="anatomy">
+      <aside>
+        <h2 class="section-title">Supply Chain</h2>
+        <div class="chain">
+          <article class="chain-step"><i>1</i><div><h3>上游材料</h3><p>铜、铝、钢、塑料和压缩机决定成本弹性。</p></div></article>
+          <article class="chain-step"><i>2</i><div><h3>核心部件</h3><p>压缩机、电机、控制器、热泵和变频模块。</p></div></article>
+          <article class="chain-step"><i>3</i><div><h3>整机制造</h3><p>空冰洗、厨电、清洁电器和全屋智能套系。</p></div></article>
+          <article class="chain-step"><i>4</i><div><h3>渠道零售</h3><p>线下门店、电商、即时零售和内容电商并行。</p></div></article>
+          <article class="chain-step"><i>5</i><div><h3>服务闭环</h3><p>安装、清洗、维修、以旧换新成为新利润入口。</p></div></article>
+        </div>
+      </aside>
+
+      <section class="center">
+        <div class="appliance-visual" aria-label="家电产业解剖主视觉">
+          <span class="shelf one"></span><span class="shelf two"></span>
+          <span class="ac"></span><span class="fridge"></span><span class="washer"></span><span class="smart">AI<br>HOME</span><span class="wire"></span>
+          <div class="callout one"><span><strong>1726亿</strong><small>2026Q1零售规模</small></span></div>
+          <div class="callout two"><span><strong>8000亿</strong><small>未来稳定中枢</small></span></div>
+        </div>
+      </section>
+
+      <aside class="right">
+        <section class="benefits">
+          <h2 class="section-title">Key Drivers</h2>
+          <ul>
+            <li><strong>存量换新：</strong>补贴效应递减后，企业必须从价格刺激转向服务触发。</li>
+            <li><strong>高端结构：</strong>嵌入式、健康、节能、全屋套系仍能对冲总量下滑。</li>
+            <li><strong>AI 智能化：</strong>家电从单品控制走向场景协同和主动服务。</li>
+          </ul>
+        </section>
+        <section class="big-stat"><strong>-6.2%</strong><p>2026Q1 中国家电产业零售规模同比下滑，行业进入高基数后的再平衡。</p></section>
+        <section><h2 class="section-title">Category Pressure</h2>
+          <div class="bar-row"><span>空调</span><div class="bar"><span style="width:92%"></span></div><b>-13.8%</b></div>
+          <div class="bar-row"><span>厨卫</span><div class="bar"><span style="width:68%"></span></div><b>-10.1%</b></div>
+          <div class="bar-row"><span>冰箱</span><div class="bar"><span style="width:44%"></span></div><b>-5.3%</b></div>
+          <div class="bar-row"><span>洗护</span><div class="bar"><span style="width:28%"></span></div><b>-3.0%</b></div>
+        </section>
+        <section><h2 class="section-title">Growth Pockets</h2><div class="regions"><span>服务<b>清洗</b></span><span>高端<b>套系</b></span><span>海外<b>渠道</b></span><span>AI<b>场景</b></span></div></section>
+      </aside>
+    </section>
+
+    <footer>
+      <h2>From Product<br>To Service</h2>
+      <article class="path-card"><b>1</b><p>存量市场不再只靠新品，而靠换新触发。</p></article>
+      <article class="path-card"><b>2</b><p>渠道从卖货节点变成用户运营入口。</p></article>
+      <article class="path-card"><b>3</b><p>AI 从语音控制升级为环境和健康服务。</p></article>
+      <article class="path-card"><b>4</b><p>海外从代工出口转向品牌和服务网络。</p></article>
+    </footer>
+  </main>
+  <script src="../../_shared/editable-runtime/editable.js" data-filename="china-home-appliance-industry-2026"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>格力电器 2026Q1 经营数据看板</title>
+  <link rel="stylesheet" href="../themes.css">
+  <style>
+    :root { --body-bg:#dedbd4; --bg:#f7f4ee; --paper:#fff; --panel-soft:#fbfcfe; --ink:#20242a; --muted:#67707c; --line:#d9dee7; --track:#eef2f7; --blue:#2f80ed; --red:#dc3f5f; --yellow:#f4c542; --green:#18a06a; --green-soft:rgba(24,160,106,.12); --red-soft:rgba(220,63,95,.12); --dark:#30343f; --on-dark:#fff; --shadow:0 18px 45px rgba(32,36,42,.08); font-family:Inter,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif; }
+    *{box-sizing:border-box} body{margin:0;padding-top:72px;background:var(--body-bg);color:var(--ink)}
+    .dashboard{--radius:8px;width:1440px;min-height:1800px;margin:0 auto;padding:42px;background:linear-gradient(90deg,rgba(47,128,237,.08) 1px,transparent 1px),linear-gradient(180deg,rgba(47,128,237,.06) 1px,transparent 1px),var(--bg);background-size:48px 48px}
+    .topbar{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;padding-bottom:22px;border-bottom:3px solid var(--ink)}
+    .eyebrow{margin:0 0 10px;color:var(--blue);font-size:20px;font-weight:850;text-transform:uppercase} h1{max-width:900px;margin:0;font-size:54px;line-height:1.06;font-weight:900}
+    .meta{min-width:300px;padding:14px 20px;border:2px solid var(--ink);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
+    .meta p{display:flex;justify-content:space-between;gap:28px;margin:0;padding:7px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:16px;font-weight:650}.meta p:last-child{border-bottom:0}.meta strong{color:var(--ink);font-weight:850}
+    .summary{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-top:22px}.panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
+    .summary-text{padding:24px 30px;font-size:22px;line-height:1.55;font-weight:560}.mark{color:var(--red);font-weight:900}
+    .verdict{display:grid;grid-template-columns:112px 1fr;align-items:stretch;overflow:hidden}.verdict-label{display:grid;place-items:center;background:var(--dark);color:var(--on-dark);font-size:20px;font-weight:850;writing-mode:vertical-rl}.verdict-body{padding:22px 26px}.score{margin:0 0 12px;color:var(--green);font-size:48px;line-height:1;font-weight:900}.verdict-body p{margin:0;color:var(--muted);font-size:18px;line-height:1.45;font-weight:600}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:22px}.kpi{padding:18px 20px 17px;min-height:152px}.kpi .label{margin:0 0 13px;color:var(--muted);font-size:18px;font-weight:750}.kpi .value{margin:0;font-size:44px;line-height:1;font-weight:900}.delta{display:inline-flex;align-items:center;height:30px;margin-top:12px;padding:0 12px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:16px;font-weight:850}.delta.warn{background:var(--red-soft);color:var(--red)}.kpi .note{margin:10px 0 0;color:var(--muted);font-size:17px;line-height:1.35;font-weight:600}
+    .section-title{display:flex;align-items:center;gap:14px;margin:28px 0 14px;font-size:26px;line-height:1;font-weight:900}.section-title::before{content:"";width:12px;height:34px;border-radius:3px;background:var(--yellow);box-shadow:16px 0 0 var(--blue)}
+    .charts{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}.chart-card{padding:20px}.card-head{display:flex;justify-content:space-between;gap:20px;align-items:start;margin-bottom:18px}.card-head h2{margin:0;font-size:24px;line-height:1.2;font-weight:900}.card-head span{color:var(--muted);font-size:15px;font-weight:750;white-space:nowrap}
+    .bar-chart{display:grid;gap:13px}.bar-row{display:grid;grid-template-columns:132px 1fr 72px;gap:16px;align-items:center}.bar-row .name,.bar-row .num{font-size:18px;font-weight:800}.bar-track{height:22px;border:1px solid var(--line);border-radius:999px;background:var(--track);overflow:hidden}.bar-fill{width:var(--v);height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),var(--red))}
+    .split{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:center}.donut{width:214px;height:214px;border-radius:50%;background:conic-gradient(var(--blue) 0 35%,var(--red) 35% 70%,var(--yellow) 70% 86%,#cbd5e1 86% 100%);display:grid;place-items:center;margin:0 auto}.donut::after{content:"14.2%";display:grid;place-items:center;width:118px;height:118px;border-radius:50%;background:var(--paper);color:var(--ink);font-size:34px;font-weight:900}.legend{display:grid;gap:11px}.legend p{display:grid;grid-template-columns:16px 1fr auto;gap:12px;align-items:center;margin:0;color:var(--muted);font-size:18px;font-weight:700}.dot{width:16px;height:16px;border-radius:4px;background:var(--c)}
+    .wide{grid-column:1/-1}.trend-legend{display:flex;justify-content:flex-end;gap:22px;margin:-6px 0 12px;color:var(--muted);font-size:15px;font-weight:800}.trend-legend span{display:inline-flex;align-items:center;gap:8px}.trend-legend i{width:22px;height:4px;border-radius:999px;background:var(--c)}
+    .trend-wrap{position:relative;height:250px;padding:16px 18px 42px 70px;border:1px solid var(--line);background:linear-gradient(180deg,transparent 24%,var(--line) 24% 24.5%,transparent 24.5% 49%,var(--line) 49% 49.5%,transparent 49.5% 74%,var(--line) 74% 74.5%,transparent 74.5%);border-radius:var(--radius)}.y-axis{position:absolute;top:18px;bottom:48px;left:16px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;width:42px;color:var(--muted);font-size:13px;font-weight:750}.trend-line{position:absolute;inset:18px 24px 48px 72px}.trend-line svg{display:block;width:100%;height:100%;overflow:visible}.axis{position:absolute;left:72px;right:18px;bottom:14px;display:grid;grid-template-columns:repeat(4,1fr);color:var(--muted);font-size:15px;font-weight:750;text-align:center}
+    .bottom-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;margin-top:20px}.rank-list{display:grid;gap:12px}.rank-item{display:grid;grid-template-columns:46px 1fr auto;gap:16px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel-soft)}.rank-no{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--dark);color:#fff;font-size:18px;font-weight:900}.rank-item h3{margin:0 0 5px;font-size:20px;font-weight:900}.rank-item p{margin:0;color:var(--muted);font-size:16px;font-weight:650}.rank-value{color:var(--red);font-size:26px;font-weight:900}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.action{padding:18px;border-left:6px solid var(--blue);background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow)}.action:nth-child(2){border-left-color:var(--yellow)}.action:nth-child(3){border-left-color:var(--green)}.action h3{margin:0 0 8px;font-size:22px}.action p{margin:0;color:var(--muted);font-size:17px;line-height:1.42;font-weight:650}.source-note{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.45;font-weight:650;text-align:right}
+    .dashboard-tools{position:fixed;right:22px;top:18px;z-index:20;display:flex;gap:8px;padding:10px;border:1px solid rgba(32,36,42,.14);border-radius:8px;background:rgba(255,255,255,.94);box-shadow:0 12px 30px rgba(32,36,42,.14)}.dashboard-tools button{height:34px;padding:0 12px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);font:850 13px/1 Inter,"PingFang SC","Microsoft YaHei",Arial,sans-serif;cursor:pointer}.dashboard-tools button[aria-pressed=true],.dashboard-tools button:last-child{background:var(--ink);color:#fff}.dashboard-tools span{display:inline-grid;align-items:center;color:var(--muted);font-size:12px;font-weight:800}
+    body.is-editing [contenteditable=true]{outline:2px solid rgba(47,128,237,.28);outline-offset:3px;background:rgba(47,128,237,.06)}
+    @media(max-width:900px){body{padding-top:0}.dashboard{width:100%;min-height:auto;padding:22px}.topbar,.summary,.kpis,.charts,.split,.bottom-grid,.actions{grid-template-columns:1fr}h1{font-size:38px}.source-note{text-align:left}}
+  </style>
+</head>
+<body>
+  <nav class="dashboard-tools" aria-label="编辑工具">
+    <button type="button" data-edit-toggle aria-pressed="false">编辑关</button>
+    <button type="button" data-save-html>保存</button>
+    <button type="button" data-export-html>导出HTML</button>
+    <span data-edit-status></span>
+  </nav>
+  <main class="dashboard theme-blue-black" data-edit-root>
+    <header class="topbar"><div><p class="eyebrow">GREE ELECTRIC / 2026 Q1</p><h1>格力电器一季度经营数据看板：营收利润修复，现金流与主业质量仍需观察</h1></div><aside class="meta"><p><span>报告期</span><strong>2026Q1</strong></p><p><span>公司</span><strong>格力电器 000651</strong></p><p><span>口径</span><strong>公开披露 / 未审计</strong></p></aside></header>
+    <section class="summary"><article class="summary-text panel">2026Q1 格力实现营业收入 <span class="mark">429.66 亿元</span>，同比增长 <span class="mark">3.52%</span>；归母净利润 <span class="mark">60.82 亿元</span>，同比增长 <span class="mark">3.01%</span>。但扣非净利润同比微降，经营现金流同比下降近三成，说明收入回温仍需转化为更强的主业质量和回款效率。</article><article class="verdict panel"><div class="verdict-label">经营判断</div><div class="verdict-body"><p class="score">稳中偏弱</p><p>增长重新转正，但空调行业一季度下行、现金流承压、扣非利润微降，下一步重点是结构升级和海外/工业业务增量。</p></div></article></section>
+    <section class="kpis"><article class="kpi panel"><p class="label">营业收入</p><p class="value">429.66亿</p><span class="delta">+3.52%</span><p class="note">收入端修复，重回小幅增长。</p></article><article class="kpi panel"><p class="label">归母净利润</p><p class="value">60.82亿</p><span class="delta">+3.01%</span><p class="note">利润增长基本同步收入。</p></article><article class="kpi panel"><p class="label">扣非净利润</p><p class="value">57.02亿</p><span class="delta warn">-0.27%</span><p class="note">主业利润弹性仍需修复。</p></article><article class="kpi panel"><p class="label">经营现金流</p><p class="value">77.99亿</p><span class="delta warn">-29.11%</span><p class="note">回款与营运资金压力上升。</p></article></section>
+    <h2 class="section-title">核心经营拆解</h2>
+    <section class="charts"><article class="chart-card panel"><div class="card-head"><h2>同比表现：收入利润转正，现金流下滑</h2><span>单位：%</span></div><div class="bar-chart"><div class="bar-row"><span class="name">收入增速</span><div class="bar-track"><span class="bar-fill" style="--v:58%"></span></div><span class="num">+3.52</span></div><div class="bar-row"><span class="name">归母净利</span><div class="bar-track"><span class="bar-fill" style="--v:55%"></span></div><span class="num">+3.01</span></div><div class="bar-row"><span class="name">扣非净利</span><div class="bar-track"><span class="bar-fill" style="--v:32%"></span></div><span class="num">-0.27</span></div><div class="bar-row"><span class="name">经营现金流</span><div class="bar-track"><span class="bar-fill" style="--v:18%"></span></div><span class="num">-29.11</span></div></div></article><article class="chart-card panel"><div class="card-head"><h2>净利率速算</h2><span>归母净利 / 营业收入</span></div><div class="split"><div class="donut"></div><div class="legend"><p><i class="dot" style="--c:var(--blue)"></i><span>净利润</span><b>60.82亿</b></p><p><i class="dot" style="--c:var(--red)"></i><span>收入基数</span><b>429.66亿</b></p><p><i class="dot" style="--c:var(--yellow)"></i><span>速算净利率</span><b>14.2%</b></p><p><i class="dot" style="--c:#cbd5e1"></i><span>非经营口径</span><b>仅供经营观察</b></p></div></div></article><article class="chart-card panel wide"><div class="card-head"><h2>可比指标趋势指数：2025Q1 = 100</h2><span>不同单位统一指数化</span></div><div class="trend-legend"><span><i style="--c:var(--blue)"></i>收入</span><span><i style="--c:var(--red)"></i>归母净利</span><span><i style="--c:var(--green)"></i>经营现金流</span></div><div class="trend-wrap"><div class="y-axis"><span>110</span><span>100</span><span>80</span><span>60</span></div><div class="trend-line"><svg viewBox="0 0 1000 210" preserveAspectRatio="none"><polyline points="0,118 333,100 666,94 1000,92" fill="none" stroke="var(--blue)" stroke-width="6"/><polyline points="0,116 333,102 666,96 1000,94" fill="none" stroke="var(--red)" stroke-width="6"/><polyline points="0,76 333,112 666,148 1000,172" fill="none" stroke="var(--green)" stroke-width="6"/><circle cx="1000" cy="92" r="8" fill="var(--blue)"/><circle cx="1000" cy="94" r="8" fill="var(--red)"/><circle cx="1000" cy="172" r="8" fill="var(--green)"/></svg></div><div class="axis"><span>2025Q1</span><span>2025H1</span><span>2025FY</span><span>2026Q1</span></div></div></article></section>
+    <section class="bottom-grid"><article class="chart-card panel"><div class="card-head"><h2>经营关注点</h2><span>优先级</span></div><div class="rank-list"><article class="rank-item"><span class="rank-no">1</span><div><h3>主业利润质量</h3><p>扣非净利微降，需关注价格、成本和产品结构。</p></div><span class="rank-value">P0</span></article><article class="rank-item"><span class="rank-no">2</span><div><h3>现金流修复</h3><p>经营现金流同比下降，需关注回款和渠道库存。</p></div><span class="rank-value">P0</span></article><article class="rank-item"><span class="rank-no">3</span><div><h3>第二增长曲线</h3><p>工业、海外、全品类智能家居需要证明增量。</p></div><span class="rank-value">P1</span></article></div></article><article class="chart-card panel"><div class="card-head"><h2>下一步经营动作</h2><span>Action Notes</span></div><div class="actions"><article class="action"><h3>稳空调基本盘</h3><p>以节能、健康、细分人群产品对冲行业下行。</p></article><article class="action"><h3>压库存和回款</h3><p>渠道政策从压货转向动销、安装与服务转化。</p></article><article class="action"><h3>放大海外营销</h3><p>把品牌、服务网点和本地内容作为新增量抓手。</p></article></div></article></section>
+    <p class="source-note">资料口径：格力电器 2026 年第一季度报告；行业背景参考奥维云网、中国家电网、公开报道。页面为经营分析模板，不构成投资建议。</p>
+  </main>
+  <script>
+    const root = document.querySelector("[data-edit-root]");
+    const editToggle = document.querySelector("[data-edit-toggle]");
+    const saveButton = document.querySelector("[data-save-html]");
+    const exportButton = document.querySelector("[data-export-html]");
+    const editStatus = document.querySelector("[data-edit-status]");
+    const storageKey = "gree-2026-q1-dashboard";
+    const editableSelectors = "h1,h2,h3,p,strong,span,b,em,li,.value,.label,.note,.name,.num";
+
+    function editableElements() {
+      return root.querySelectorAll(editableSelectors);
+    }
+
+    function setEditMode(enabled) {
+      document.body.classList.toggle("is-editing", enabled);
+      editToggle.setAttribute("aria-pressed", String(enabled));
+      editToggle.textContent = enabled ? "编辑开" : "编辑关";
+      editStatus.textContent = enabled ? "可编辑" : "";
+      editableElements().forEach((el) => el.setAttribute("contenteditable", String(enabled)));
+    }
+
+    const saved = localStorage.getItem(`${storageKey}:html`);
+    if (saved) root.innerHTML = saved;
+
+    editToggle.addEventListener("click", () => setEditMode(editToggle.getAttribute("aria-pressed") !== "true"));
+    saveButton.addEventListener("click", () => {
+      localStorage.setItem(`${storageKey}:html`, root.innerHTML);
+      editStatus.textContent = "已保存";
+      setTimeout(() => { if (editToggle.getAttribute("aria-pressed") === "true") editStatus.textContent = "可编辑"; else editStatus.textContent = ""; }, 1400);
+    });
+    exportButton.addEventListener("click", () => {
+      const clone = document.documentElement.cloneNode(true);
+      clone.querySelectorAll("[contenteditable]").forEach((el) => el.setAttribute("contenteditable", "false"));
+      clone.querySelector("[data-edit-toggle]")?.setAttribute("aria-pressed", "false");
+      clone.querySelector("[data-edit-status]").textContent = "";
+      const html = `<!doctype html>\n${clone.outerHTML}`;
+      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "gree-2026-q1-dashboard.html";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+    setEditMode(false);
+  </script>
+</body>
+</html>

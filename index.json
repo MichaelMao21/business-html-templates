@@ -26,7 +26,8 @@
       "docs_file": "business-plan-brief/design.md",
       "design_file": "business-plan-brief/design.md",
       "example_files": [
-        "business-plan-brief/examples/ai-sales-assistant-business-plan.html"
+        "business-plan-brief/examples/ai-sales-assistant-business-plan.html",
+        "business-plan-brief/examples/gree-overseas-marketing-business-plan.html"
       ],
       "layout_files": [
         "business-plan-brief/layouts/cover.html",
@@ -62,6 +63,7 @@
       "design_file": "data-dashboard-infographic/design.md",
       "example_files": [
         "data-dashboard-infographic/examples/catl-2026-q1-report.html",
+        "data-dashboard-infographic/examples/gree-2026-q1-dashboard.html",
         "data-dashboard-infographic/examples/q2-ecommerce-review.html"
       ],
       "layout_files": [
@@ -132,7 +134,8 @@
       "docs_file": "industry-research-report/design.md",
       "design_file": "industry-research-report/design.md",
       "example_files": [
-        "industry-research-report/examples/enterprise-ai-industry-research.html"
+        "industry-research-report/examples/enterprise-ai-industry-research.html",
+        "industry-research-report/examples/china-home-appliance-industry-2026.html"
       ],
       "layout_files": [
         "industry-research-report/layouts/market-sizing.html",
@@ -165,7 +168,8 @@
       "docs_file": "strategy-planning-brief/README.md",
       "design_file": "strategy-planning-brief/design.md",
       "example_files": [
-        "strategy-planning-brief/examples/ai-customer-ops-saas-2026-blm.html"
+        "strategy-planning-brief/examples/ai-customer-ops-saas-2026-blm.html",
+        "strategy-planning-brief/examples/gree-electric-2026-strategy-planning.html"
       ],
       "layout_files": [
         "strategy-planning-brief/layouts/blm-model.html",
