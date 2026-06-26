@@ -40,7 +40,7 @@ Best for KPI reviews, financial summaries, operating dashboards, growth dashboar
 
 ### Strategy Planning Brief
 
-![Strategy Planning](strategy-planning-brief/screenshots/cover.png)
+![Strategy Planning](strategy-planning-brief/screenshots/blm-model.png)
 
 Best for BLM strategy planning, gap analysis, market insight, strategic intent, business design, strategy decoding, and capability reviews.
 

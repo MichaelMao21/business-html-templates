@@ -574,23 +574,23 @@
     }
 
     .blm-panel {
-      padding: 26px;
+      padding: 22px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--paper);
       box-shadow: var(--shadow);
     }
 
-    .five-look {
+    .blm-details {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 20px;
+      gap: 8px;
+      margin-top: 14px;
     }
 
-    .five-look article,
+    .blm-details article,
     .design-item {
-      padding: 16px 18px;
+      padding: 12px 14px;
       border: 1px solid var(--line);
       border-left: 5px solid var(--blm);
       border-radius: 8px;
@@ -598,18 +598,19 @@
       box-shadow: var(--shadow);
     }
 
-    .five-look article {
+    .blm-details article {
       min-height: auto;
     }
 
-    .five-look h3 {
-      margin-bottom: 4px;
-      font-size: 19px;
+    .blm-details h3 {
+      margin-bottom: 3px;
+      font-size: 17px;
     }
 
-    .five-look p {
+    .blm-details p {
       margin-bottom: 0;
-      font-size: 15px;
+      font-size: 13px;
+      line-height: 1.42;
     }
 
     .business-design {
@@ -841,7 +842,7 @@
       .insight-summary,
       .insight-matrix,
       .intent-row,
-      .five-look,
+      .blm-details,
       .business-design,
       .design-grid,
       .matrix,
@@ -1054,7 +1055,7 @@
             <rect x="80" y="140" width="320" height="330" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="240" y="178" fill="var(--blm)" font-size="25" font-weight="900" text-anchor="middle">战略</text>
             <rect x="420" y="140" width="310" height="330" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="575" y="178" fill="var(--blm)" font-size="25" font-weight="900" text-anchor="middle">执行</text>
             <rect x="80" y="494" width="650" height="54" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="405" y="528" fill="var(--blm)" font-size="26" font-weight="900" text-anchor="middle">价值观</text>
-            <g class="blm-node primary is-active" data-blm-title="市场洞察" data-blm-text="用五看确保洞察全面性：环境、行业、客户、竞争、自己。"><rect x="184" y="198" width="120" height="58"/><text x="244" y="228">市场洞察</text></g>
+            <g class="blm-node primary is-active" data-blm-title="市场洞察" data-blm-text="围绕环境、行业、客户、竞争和自身能力形成战略判断：不是罗列信息，而是找出会改变战略选择的关键变量、机会窗口、约束条件和必须打赢的战役。" data-blm-details="[[&quot;看环境&quot;,&quot;不只列 PEST，而要判断哪类外部变化会改变战略窗口：政策监管是否收紧，AI 与智能终端技术是否降低进入门槛，资本周期是否影响渠道和供应链投入，全球合规与地缘风险是否改变出海节奏。输出应是 2-3 个必须响应的外部变量。&quot;],[&quot;看行业&quot;,&quot;拆解行业利润池和增长结构：哪些环节仍在增长，哪些环节已经进入价格竞争，产业链话语权向平台、渠道、供应链还是生态服务迁移。重点不是行业大不大，而是公司在哪个环节能建立可持续优势。&quot;],[&quot;看客户&quot;,&quot;按用户价值和场景频次分层，识别高端用户、车主、家庭用户、开发者和生态伙伴的不同需求。重点看跨设备连续体验、服务可靠性、购买决策链和复购触发点，而不是只写客户有需求。&quot;],[&quot;看竞争&quot;,&quot;比较竞争方式是否从单品参数转向操作系统、服务网络、生态协同和渠道效率。要明确谁是直接竞争者、谁是替代方案、谁在重塑客户预期，并判断公司当前差距是产品、交付、品牌还是组织速度。&quot;],[&quot;看自己&quot;,&quot;回到自身可调用资产：用户规模、设备连接、供应链、品牌流量、AI 与操作系统能力、线下渠道和组织协同。既要写优势，也要写约束，例如汽车交付经验、全球合规、服务网络和跨业务资源争夺。&quot;]]"><rect x="184" y="198" width="120" height="58"/><text x="244" y="228">市场洞察</text></g>
             <g class="blm-node" data-blm-title="战略意图" data-blm-text="明确未来要赢在哪里、为什么赢、阶段性目标是什么。"><rect x="120" y="285" width="118" height="58"/><text x="179" y="315">战略意图</text></g>
             <g class="blm-node" data-blm-title="业务设计" data-blm-text="优先选择制造和金融行业客户，以客户健康度提升、续费增长和销售预测准确率作为价值主张。"><rect x="250" y="285" width="118" height="58"/><text x="309" y="315">业务设计</text></g>
             <g class="blm-node" data-blm-title="创新焦点" data-blm-text="识别需要突破的产品、服务、渠道、组织或商业模式创新。"><rect x="184" y="382" width="120" height="58"/><text x="244" y="412">创新焦点</text></g>
@@ -1072,14 +1073,8 @@
         <aside class="blm-panel">
           <p class="eyebrow">Selected Node</p>
           <h3 id="blm-title">市场洞察</h3>
-          <p id="blm-text">用五看确保洞察全面性：环境、行业、客户、竞争、自己。</p>
-          <div class="five-look">
-            <article><h3>看环境</h3><p>PEST / Steepil</p></article>
-            <article><h3>看行业</h3><p>规模、利润、产业链</p></article>
-            <article><h3>看客户</h3><p>痛点、购买、流程</p></article>
-            <article><h3>看竞争</h3><p>格局、差距、替代</p></article>
-            <article><h3>看自己</h3><p>能力、资源、约束</p></article>
-          </div>
+          <p id="blm-text">围绕环境、行业、客户、竞争和自身能力形成战略判断：不是罗列信息，而是找出会改变战略选择的关键变量、机会窗口、约束条件和必须打赢的战役。</p>
+          <div class="blm-details" id="blm-details"></div>
         </aside>
       </div>
     </section>
@@ -1154,14 +1149,20 @@
     document.querySelectorAll(".matrix button").forEach((button) => {
       button.addEventListener("click", () => document.querySelectorAll(".matrix button").forEach((item) => item.setAttribute("aria-pressed", String(item === button))));
     });
+    function selectBlmNode(node) {
+      const detailRoot = document.getElementById("blm-details");
+      const details = JSON.parse(node.dataset.blmDetails || "[]");
+      document.querySelectorAll(".blm-node").forEach((item) => item.classList.remove("is-active"));
+      node.classList.add("is-active");
+      document.getElementById("blm-title").textContent = node.dataset.blmTitle;
+      document.getElementById("blm-text").textContent = node.dataset.blmText;
+      if (detailRoot) detailRoot.innerHTML = details.map(([title, body]) => `<article><h3>${title}</h3><p>${body}</p></article>`).join("");
+    }
     document.querySelectorAll(".blm-node").forEach((node) => {
-      node.addEventListener("click", () => {
-        document.querySelectorAll(".blm-node").forEach((item) => item.classList.remove("is-active"));
-        node.classList.add("is-active");
-        document.getElementById("blm-title").textContent = node.dataset.blmTitle;
-        document.getElementById("blm-text").textContent = node.dataset.blmText;
-      });
+      node.addEventListener("click", () => selectBlmNode(node));
     });
+    const initialBlmNode = document.querySelector(".blm-node.is-active") || document.querySelector(".blm-node");
+    if (initialBlmNode) selectBlmNode(initialBlmNode);
   </script>
   <script src="../../_shared/editable-runtime/editable.js" data-filename="ai-customer-ops-saas-2026-blm"></script>
 </body>

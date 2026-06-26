@@ -31,7 +31,7 @@
 
     .planner {
       width: min(1440px, 100%);
-      min-height: 1800px;
+      min-height: 100vh;
       margin: 0 auto;
       padding: 42px;
       background:
@@ -277,6 +277,137 @@
       min-height: 420px;
     }
 
+
+    .cadence-board {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .planning-hero {
+      min-height: 390px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 24px;
+    }
+
+    .hero-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .hero-stat {
+      min-height: 110px;
+      padding: 16px;
+      border-radius: 8px;
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+    }
+
+    .hero-stat span,
+    .milestone span,
+    .cadence-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .hero-stat strong {
+      display: block;
+      margin: 8px 0;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .cadence-panel {
+      display: grid;
+      gap: 14px;
+    }
+
+    .cadence-item {
+      display: grid;
+      grid-template-columns: 86px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 118px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .cadence-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .cadence-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.42;
+      font-weight: 650;
+    }
+
+    .cadence-item em {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .milestone-strip {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .milestone {
+      min-height: 132px;
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow);
+      border-top: 5px solid var(--green);
+    }
+
+    .milestone:nth-child(2) { border-top-color: var(--blue); }
+    .milestone:nth-child(3) { border-top-color: var(--gold); }
+    .milestone:nth-child(4) { border-top-color: var(--orange); }
+
+    .milestone strong {
+      display: block;
+      margin: 10px 0 8px;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .milestone p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.42;
+      font-weight: 650;
+    }
+
     @keyframes rise-in {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
@@ -286,6 +417,10 @@
       .planner { padding: 22px; }
       .topline,
       .header-block,
+      .cadence-board,
+      .hero-stat-row,
+      .cadence-item,
+      .milestone-strip,
       .goal-grid,
       .review-grid,
       .agenda-item {
@@ -313,35 +448,36 @@
     </header>
 
     <section class="view active" data-panel="overview">
-      <div class="header-block">
-        <section class="hero">
+      <div class="cadence-board">
+        <section class="planning-hero">
           <div>
             <p class="eyebrow">Quarterly Planning / 2026 Q3</p>
-            <h1>增长团队 Q3 目标规划与月度议程</h1>
-            <p class="lead">把季度目标、关键结果、月度节奏和会议输出放在同一个可编辑页面中，适合管理层周会和项目推进会。</p>
+            <h1>增长团队 Q3 目标节奏与会议作战图</h1>
+            <p class="lead">把季度目标、月度节奏、关键会议和待决策事项放在同一张横版看板里，适合管理层周会、项目推进会和 OKR 复盘。</p>
           </div>
-        </section>
-        <section class="panel gauge-wrap">
-          <h3>季度目标完成率</h3>
-          <svg class="svg-chart" viewBox="0 0 520 340" role="img" aria-label="目标完成率仪表盘">
-            <path class="gauge-track" d="M 110 250 A 150 150 0 0 1 410 250"/>
-            <path class="gauge-value" style="--value: 68" d="M 110 250 A 150 150 0 0 1 410 250"/>
-            <text class="gauge-label" x="260" y="218">68%</text>
-            <text class="gauge-caption" x="260" y="252">关键结果综合进度</text>
-          </svg>
+          <div class="hero-stat-row">
+            <article class="hero-stat"><span>综合进度</span><strong>68%</strong><p>关键结果推进中</p></article>
+            <article class="hero-stat"><span>本月会议</span><strong>4场</strong><p>评审、复盘、决策会</p></article>
+            <article class="hero-stat"><span>待决策</span><strong>6项</strong><p>预算、名单、实验口径</p></article>
+          </div>
           <div class="component-actions">
             <button type="button" data-gauge-value="38">启动</button>
             <button type="button" data-gauge-value="68" aria-pressed="true">推进</button>
             <button type="button" data-gauge-value="92">冲刺</button>
           </div>
         </section>
+        <section class="cadence-panel" aria-label="季度节奏">
+          <article class="cadence-item"><em>01</em><div><span>Objective 01</span><strong>新增 120 个高质量商机</strong><p>聚焦企业服务、制造、金融三个行业，SQL 转化率不低于 32%。</p></div><span class="owner">销售</span></article>
+          <article class="cadence-item"><em>02</em><div><span>Objective 02</span><strong>完成 3 条标准化增长路径</strong><p>沉淀内容投放、行业活动、销售外呼三类可复制打法。</p></div><span class="owner">增长</span></article>
+          <article class="cadence-item"><em>03</em><div><span>Objective 03</span><strong>把周会决策延迟降至 24 小时内</strong><p>每次会议必须输出负责人、截止日和下一步验证口径。</p></div><span class="owner">PMO</span></article>
+        </section>
+        <section class="milestone-strip" aria-label="月度关键节点">
+          <article class="milestone"><span>Week 1</span><strong>目标拆解</strong><p>确认 KR、Owner、验收口径和风险清单。</p></article>
+          <article class="milestone"><span>Week 2</span><strong>渠道实验</strong><p>启动内容投放、活动邀约和销售外呼 A/B 测试。</p></article>
+          <article class="milestone"><span>Week 3</span><strong>经营评审</strong><p>复盘 SQL 质量、预算消耗和重点客户推进。</p></article>
+          <article class="milestone"><span>Week 4</span><strong>月度复盘</strong><p>沉淀可复制打法，并锁定下月资源倾斜。</p></article>
+        </section>
       </div>
-      <h2>SMART 目标卡</h2>
-      <section class="goal-grid">
-        <article class="goal-card"><span>Objective 01</span><strong>新增 120 个高质量商机</strong><p>聚焦企业服务、制造、金融三个行业，SQL 转化率不低于 32%。</p></article>
-        <article class="goal-card"><span>Objective 02</span><strong>完成 3 条标准化增长路径</strong><p>沉淀内容投放、行业活动、销售外呼三类可复制打法。</p></article>
-        <article class="goal-card"><span>Objective 03</span><strong>把周会决策延迟降至 24 小时内</strong><p>每次会议必须输出负责人、截止日和下一步验证口径。</p></article>
-      </section>
     </section>
 
     <section class="view" data-panel="calendar">
