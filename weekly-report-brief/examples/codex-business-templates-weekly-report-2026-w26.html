@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex 模板库建设周报 2026 W26</title>
+  <style>
+    :root {
+      --bg: #eef3f1;
+      --paper: #ffffff;
+      --soft: #f7faf8;
+      --ink: #17322a;
+      --muted: #68766f;
+      --line: #cfddd6;
+      --green: #008a5b;
+      --blue: #2c68c5;
+      --gold: #d69b2b;
+      --red: #c84a3f;
+      --shadow: 0 16px 38px rgba(23, 50, 42, 0.1);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #dfe8e4; color: var(--ink); }
+    .deck {
+      width: min(1440px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 34px;
+      background:
+        linear-gradient(90deg, rgba(23, 50, 42, 0.055) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(23, 50, 42, 0.05) 1px, transparent 1px),
+        var(--bg);
+      background-size: 48px 48px;
+    }
+    .topbar { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding-bottom: 18px; border-bottom: 3px solid var(--ink); }
+    .brand { display: flex; align-items: center; gap: 14px; font-size: 19px; font-weight: 950; }
+    .brand-mark { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 8px; background: var(--green); color: #fff; font-weight: 950; }
+    .week-meta { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+    .week-meta span, .tag { border-radius: 6px; padding: 9px 12px; background: var(--paper); border: 1px solid var(--line); font-size: 13px; font-weight: 900; }
+    .hero { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 20px; margin-top: 24px; }
+    .summary-card, .panel, .metric, .task, .risk-card { border: 1px solid var(--line); border-radius: 8px; background: var(--paper); box-shadow: var(--shadow); }
+    .summary-card { min-height: 360px; padding: 34px; display: flex; flex-direction: column; justify-content: space-between; }
+    .eyebrow { margin: 0 0 12px; color: var(--green); font-size: 15px; font-weight: 950; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 780px; margin-bottom: 18px; font-size: 54px; line-height: 1.06; letter-spacing: 0; }
+    .lead { max-width: 780px; color: var(--muted); font-size: 21px; line-height: 1.55; font-weight: 700; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .metric { min-height: 172px; padding: 22px; }
+    .metric span { display: block; color: var(--muted); font-size: 14px; font-weight: 900; }
+    .metric strong { display: block; margin: 10px 0; font-size: 42px; line-height: 1; }
+    .metric em { color: var(--green); font-style: normal; font-size: 14px; font-weight: 950; }
+    .main-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; margin-top: 20px; }
+    .panel { padding: 24px; }
+    .section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    h2 { margin: 0; font-size: 26px; line-height: 1.16; }
+    .progress-list { display: grid; gap: 16px; }
+    .progress-item { display: grid; grid-template-columns: 130px 1fr 52px; gap: 14px; align-items: center; color: var(--muted); font-weight: 850; }
+    .bar { height: 12px; border-radius: 999px; background: #e1ebe6; overflow: hidden; }
+    .bar i { display: block; width: var(--p); height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--green), var(--blue)); }
+    .task-list { display: grid; gap: 12px; }
+    .task { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; min-height: 76px; padding: 16px; box-shadow: none; }
+    .status { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%; background: var(--green); color: #fff; font-size: 13px; font-weight: 950; }
+    .status.warn { background: var(--gold); }
+    .status.risk { background: var(--red); }
+    .task strong { display: block; margin-bottom: 5px; font-size: 18px; }
+    .task p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; font-weight: 650; }
+    .owner { color: var(--muted); font-size: 13px; font-weight: 900; white-space: nowrap; }
+    .side-stack { display: grid; gap: 20px; }
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .risk-card { min-height: 132px; padding: 16px; box-shadow: none; border-top: 5px solid var(--green); }
+    .risk-card:nth-child(2) { border-top-color: var(--gold); }
+    .risk-card:nth-child(3) { border-top-color: var(--red); }
+    .risk-card strong { display: block; margin-bottom: 8px; font-size: 17px; }
+    .risk-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; font-weight: 650; }
+    .next-plan { display: grid; gap: 12px; counter-reset: plan; }
+    .next-plan article { position: relative; min-height: 72px; padding: 15px 16px 15px 58px; border-radius: 8px; background: var(--soft); border: 1px solid var(--line); counter-increment: plan; }
+    .next-plan article::before { content: counter(plan, decimal-leading-zero); position: absolute; left: 16px; top: 16px; color: var(--green); font-size: 15px; font-weight: 950; }
+    .next-plan strong { display: block; margin-bottom: 6px; font-size: 17px; }
+    .next-plan p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; font-weight: 650; }
+    @media (max-width: 920px) {
+      .deck { padding: 22px; }
+      .topbar, .hero, .main-grid, .metrics, .risk-grid { grid-template-columns: 1fr; }
+      .week-meta { justify-content: flex-start; }
+      h1 { font-size: 38px; }
+      .progress-item { grid-template-columns: 1fr; gap: 8px; }
+      .task { grid-template-columns: 1fr; }
+      .owner { white-space: normal; }
+    }
+  </style>
+  <link rel="stylesheet" href="../../_shared/editable-runtime/editable.css">
+</head>
+<body>
+  <main class="deck" data-edit-root>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">WR</span>
+        <span>Codex 模板库建设周报</span>
+      </div>
+      <div class="week-meta">
+        <span>2026 W26</span>
+        <span>6.22-6.26</span>
+        <span>Owner: Michael / Codex</span>
+      </div>
+    </header>
+    <section class="hero">
+      <article class="summary-card">
+        <div>
+          <p class="eyebrow">Weekly Summary</p>
+          <h1>Business HTML Templates 从想法推进到可安装 Skill</h1>
+          <p class="lead">本周围绕“正式商务场景的 HTML 模板库”完成从模板沉淀、示例生成、GitHub 发布到本机 Skill 安装同步的闭环。当前已覆盖数据看板、战略规划、商业计划、行业研究、目标议程和周报六类高频场景。</p>
+        </div>
+        <div class="tags">
+          <span class="tag">模板库上线</span>
+          <span class="tag">GitHub 已发布</span>
+          <span class="tag">Skill 已安装</span>
+          <span class="tag">可在线预览</span>
+        </div>
+      </article>
+      <section class="metrics" aria-label="本周关键指标">
+        <article class="metric"><span>模板数量</span><strong>6套</strong><em>已接入 index</em></article>
+        <article class="metric"><span>验证页面</span><strong>14页</strong><em>render 校验通过</em></article>
+        <article class="metric"><span>GitHub 仓库</span><strong>1个</strong><em>公开可访问</em></article>
+        <article class="metric"><span>代表案例</span><strong>3类</strong><em>财报、战略、周报</em></article>
+      </section>
+    </section>
+    <section class="main-grid">
+      <article class="panel">
+        <div class="section-title"><h2>本周重点进展</h2><span class="tag">Progress</span></div>
+        <div class="task-list">
+          <article class="task"><span class="status">OK</span><div><strong>完成 Business HTML Templates 技能化</strong><p>把模板库整理为可安装的 Codex Skill，补齐 SKILL.md、index.json、gallery、README、验证脚本和本机安装同步流程。</p></div><span class="owner">模板库</span></article>
+          <article class="task"><span class="status">OK</span><div><strong>沉淀六类正式商务模板</strong><p>覆盖数据看板、商业计划、战略规划、行业研究、目标议程和周报，并持续调整版式差异，避免模板之间过度相似。</p></div><span class="owner">设计系统</span></article>
+          <article class="task"><span class="status">OK</span><div><strong>生成并迭代真实示例</strong><p>基于宁德时代季报生成财报速览，基于小米集团公开信息生成 BLM 战略规划报告，并多轮修正图表、注释和版式口径。</p></div><span class="owner">示例报告</span></article>
+          <article class="task"><span class="status warn">优</span><div><strong>持续优化 GitHub 展示与预览图</strong><p>README 顶部图库从模板截图改为重叠横版预览，修正竖版留白、Business Plan 用户画像、Industry Research 解剖图和 Goals Agenda 版式。</p></div><span class="owner">发布展示</span></article>
+        </div>
+      </article>
+      <div class="side-stack">
+        <article class="panel">
+          <div class="section-title"><h2>关键目标进度</h2><span class="tag">KPI</span></div>
+          <div class="progress-list">
+            <div class="progress-item"><span>模板完整度</span><div class="bar"><i style="--p: 88%"></i></div><strong>88%</strong></div>
+            <div class="progress-item"><span>GitHub 可用性</span><div class="bar"><i style="--p: 92%"></i></div><strong>92%</strong></div>
+            <div class="progress-item"><span>示例丰富度</span><div class="bar"><i style="--p: 76%"></i></div><strong>76%</strong></div>
+            <div class="progress-item"><span>贡献友好度</span><div class="bar"><i style="--p: 64%"></i></div><strong>64%</strong></div>
+          </div>
+        </article>
+        <article class="panel">
+          <div class="section-title"><h2>风险与阻塞</h2><span class="tag">Risks</span></div>
+          <div class="risk-grid">
+            <article class="risk-card"><strong>模板同质化</strong><p>部分模板仍可能共享相似网格和卡片语言，需要继续拉开场景差异。</p></article>
+            <article class="risk-card"><strong>案例覆盖</strong><p>目前真实示例仍偏财报和战略规划，商业计划、行业研究和周报还可补更多行业样例。</p></article>
+            <article class="risk-card"><strong>安装认知</strong><p>用户可能误以为 Slash 菜单能直接找到 Skill，需要在 README 和使用说明里解释调用方式。</p></article>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="main-grid">
+      <article class="panel">
+        <div class="section-title"><h2>下周计划</h2><span class="tag">Next Week</span></div>
+        <div class="next-plan">
+          <article><strong>补齐更多业务场景示例</strong><p>优先为商业计划、行业研究和周报补 2-3 个不同风格的完整 HTML 示例。</p></article>
+          <article><strong>继续拉开模板视觉差异</strong><p>重点优化 Business Plan、Industry Research、Goals Agenda 的版式语言，减少“同一套卡片换内容”的感觉。</p></article>
+          <article><strong>完善用户安装和使用文档</strong><p>把“如何安装 Skill、如何指定模板、如何导出 HTML、为何 Slash 找不到 Skill”写成更直观的 README 小节。</p></article>
+        </div>
+      </article>
+      <article class="panel">
+        <div class="section-title"><h2>需要支持</h2><span class="tag">Ask</span></div>
+        <div class="next-plan">
+          <article><strong>确定优先补充的模板类别</strong><p>建议从“汇报周报、行业研究、商业计划”中选择一个继续深挖，避免一次性扩太散。</p></article>
+          <article><strong>提供更多正式商务参考图</strong><p>如果有新的参考图，可以继续按场景归档，用来扩充模板视觉库和 README 展示图。</p></article>
+          <article><strong>决定是否发布版本号</strong><p>如果准备给更多人使用，可以创建 GitHub release，明确当前是 v0.1 模板库。</p></article>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="../../_shared/editable-runtime/editable.js" data-filename="codex-business-templates-weekly-report-2026-w26"></script>
+</body>
+</html>
