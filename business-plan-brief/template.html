@@ -194,6 +194,54 @@
       font-weight: 900;
     }
 
+    .user-map {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .user-card {
+      min-height: 170px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--gold);
+      border-radius: 8px;
+      background: var(--paper-soft);
+    }
+
+    .user-card:nth-child(2) {
+      border-top-color: var(--green);
+    }
+
+    .user-card:nth-child(3) {
+      border-top-color: var(--blue);
+    }
+
+    .user-card span {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .user-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+
+    .user-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.48;
+      font-weight: 650;
+    }
+
     .hero-metrics {
       display: grid;
       gap: 0;
@@ -463,10 +511,12 @@
       .two-col,
       .component-grid,
       .kpi-grid,
+      .user-map,
       .overview-strip,
       .roadmap {
         min-height: auto;
         display: grid;
+        grid-template-columns: 1fr;
         gap: 16px;
       }
 
@@ -510,47 +560,64 @@
       <div class="hero-copy">
         <div>
           <p class="eyebrow">Business Plan / 2026</p>
-          <h1>面向 B2B 销售团队的 AI 销售助理商业计划</h1>
-          <p class="lead">用结构化客户画像、跟进建议和成交预测，帮助销售团队缩短线索判断时间，提高重点客户转化效率。</p>
+          <h1>谁是我的用户：面向 B2B 增长团队的 AI 销售助理</h1>
+          <p class="lead">先定义最容易付费、最频繁使用、最能带来复购的用户群，再倒推产品入口、定价方式和销售路径。</p>
+          <div class="user-map" aria-label="目标用户画像">
+            <article class="user-card">
+              <span>Primary User</span>
+              <strong>一线销售代表</strong>
+              <p>每天处理线索、写跟进记录、准备客户沟通，需要更快判断谁值得优先推进。</p>
+            </article>
+            <article class="user-card">
+              <span>Economic Buyer</span>
+              <strong>销售负责人</strong>
+              <p>关心转化率、预测准确性和团队执行质量，是预算和续费的关键决策人。</p>
+            </article>
+            <article class="user-card">
+              <span>Influencer</span>
+              <strong>销售运营 / CRM 管理员</strong>
+              <p>负责数据字段、流程配置和系统集成，决定产品是否能低成本落地。</p>
+            </article>
+          </div>
         </div>
         <div class="hero-actions">
-          <span>种子轮沟通版</span>
-          <span>保密材料</span>
+          <span>用户画像优先</span>
+          <span>付费路径清晰</span>
           <span>HTML 可编辑模板</span>
         </div>
       </div>
       <aside class="hero-metrics">
         <article>
-          <span>目标市场</span>
-          <strong>86亿</strong>
-          <em>2026 SAM 估算</em>
+          <span>优先切入客群</span>
+          <strong>50-300人</strong>
+          <em>B2B 销售组织</em>
         </article>
         <article>
-          <span>首年 ARR</span>
-          <strong>2,400万</strong>
-          <em>Base case</em>
+          <span>首个高频场景</span>
+          <strong>线索优先级</strong>
+          <em>日常工作流入口</em>
         </article>
         <article>
-          <span>回本周期</span>
-          <strong>14个月</strong>
-          <em>销售投入回收</em>
+          <span>购买触发点</span>
+          <strong>预测失准</strong>
+          <em>管理层最易感知</em>
         </article>
       </aside>
       <div class="overview-strip">
         <article>
-          <span>Investment Thesis</span>
-          <strong>先做 CRM 增强层，降低进入阻力</strong>
-          <p>不替换客户现有系统，优先解决线索判断和跟进建议两个高频痛点。</p>
+          <span>User Pain</span>
+          <strong>销售时间被低质量线索消耗</strong>
+          <p>用户不是缺工具，而是缺少能直接告诉他“下一步找谁、怎么跟”的判断层。</p>
         </article>
         <article>
-          <span>Use of Funds</span>
-          <strong>产品研发 45% / 销售 35% / 运营 20%</strong>
-          <p>资金优先投入行业模板、CRM 集成、设计伙伴转付费和渠道验证。</p>
+          <span>Product Wedge</span>
+          <strong>先做 CRM 增强层，不替换主系统</strong>
+          <p>从 Chrome 插件、CRM 侧栏或周报机器人进入，降低 IT 审批和迁移阻力。</p>
         </article>
         <article>
-          <span>Key Risk</span>
-          <strong>数据接入和销售团队采用率</strong>
-          <p>通过轻量插件、标准字段映射和周度复盘机制降低部署与使用成本。</p>
+          <span>Go-To-Market</span>
+          <strong>从设计伙伴到团队扩席</strong>
+          <p>先用 3-5 个销售小组验证，再按团队席位和管理看板扩展合同金额。</p>
         </article>
       </div>
     </section>

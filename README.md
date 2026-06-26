@@ -48,7 +48,7 @@ Best for BLM strategy planning, gap analysis, market insight, strategic intent, 
 
 ![Business Plan](business-plan-brief/screenshots/cover.png)
 
-Best for startup pitches, internal proposals, investment-style business cases, roadmap planning, and financial path explanations.
+Best for business plans that need to answer "who is my user", buyer roles, first use case, pricing entry point, go-to-market path, and financial logic.
 
 ### Industry Research Report
 
@@ -67,7 +67,7 @@ Best for OKR planning, monthly calendars, weekly agendas, project cadence, owner
 | Scenario | Template | Best For |
 | --- | --- | --- |
 | Data dashboard | [`data-dashboard-infographic`](data-dashboard-infographic/template.html) | KPI reviews, financial summaries, operating dashboards, growth dashboards |
-| Business plan | [`business-plan-brief`](business-plan-brief/template.html) | Startup pitches, internal proposals, investment-style business cases |
+| Business plan | [`business-plan-brief`](business-plan-brief/template.html) | User personas, buyer roles, first use case, go-to-market path, investment-style business cases |
 | Strategy planning | [`strategy-planning-brief`](strategy-planning-brief/template.html) | BLM strategy planning, gap analysis, market insight, strategic intent, strategy decoding |
 | Industry research | [`industry-research-report`](industry-research-report/template.html) | Market sizing, industry chain, trend analysis, competition matrix, conclusions |
 | Goals and agenda | [`goals-calendar-agenda`](goals-calendar-agenda/template.html) | OKR planning, monthly calendars, weekly agendas, project cadence |
