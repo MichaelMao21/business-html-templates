@@ -1,0 +1,41 @@
+<!--
+Usage:
+Copy this wide chart card into a .charts grid. Replace legend labels, y-axis ticks, x-axis labels, and SVG polyline points.
+Use two or three polylines for comparable time-series metrics. Keep colors mapped consistently with the rest of the dashboard.
+Requires the template.html CSS classes: .panel, .chart-card, .wide, .card-head, .trend-legend, .trend-wrap, .y-axis, .trend-line, .axis.
+-->
+<article class="panel chart-card wide">
+  <div class="card-head">
+    <h2>周度收入与 ROI 趋势</h2>
+    <span>归一化指数，最高点 = 100</span>
+  </div>
+  <div class="trend-legend" aria-label="趋势图图例">
+    <span><i style="--c: var(--blue)"></i>收入指数</span>
+    <span><i style="--c: var(--red)"></i>ROI 指数</span>
+    <span><i style="--c: var(--green)"></i>转化率指数</span>
+  </div>
+  <div class="trend-wrap">
+    <div class="y-axis" aria-label="纵轴刻度">
+      <span>100</span><span>75</span><span>50</span><span>25</span>
+    </div>
+    <div class="trend-line">
+      <svg viewBox="0 0 1120 220" role="img" aria-label="趋势折线图">
+        <polyline points="0,158 180,120 360,138 540,62 720,82 900,44 1120,70" fill="none" stroke="var(--blue)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="0,178 180,152 360,132 540,146 720,108 900,126 1120,94" fill="none" stroke="var(--red)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="0,188 180,166 360,150 540,136 720,118 900,102 1120,86" fill="none" stroke="var(--green)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <g fill="var(--blue)">
+          <circle cx="0" cy="158" r="10"/><circle cx="180" cy="120" r="10"/><circle cx="360" cy="138" r="10"/><circle cx="540" cy="62" r="10"/><circle cx="720" cy="82" r="10"/><circle cx="900" cy="44" r="10"/><circle cx="1120" cy="70" r="10"/>
+        </g>
+        <g fill="var(--red)">
+          <circle cx="0" cy="178" r="10"/><circle cx="180" cy="152" r="10"/><circle cx="360" cy="132" r="10"/><circle cx="540" cy="146" r="10"/><circle cx="720" cy="108" r="10"/><circle cx="900" cy="126" r="10"/><circle cx="1120" cy="94" r="10"/>
+        </g>
+        <g fill="var(--green)">
+          <circle cx="0" cy="188" r="10"/><circle cx="180" cy="166" r="10"/><circle cx="360" cy="150" r="10"/><circle cx="540" cy="136" r="10"/><circle cx="720" cy="118" r="10"/><circle cx="900" cy="102" r="10"/><circle cx="1120" cy="86" r="10"/>
+        </g>
+      </svg>
+    </div>
+    <div class="axis">
+      <span>W01</span><span>W02</span><span>W03</span><span>W04</span><span>W05</span><span>W06</span><span>W07</span>
+    </div>
+  </div>
+</article>

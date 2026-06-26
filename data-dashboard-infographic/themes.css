@@ -1,0 +1,147 @@
+/*
+Theme usage:
+Add one class to the dashboard root:
+<main class="dashboard theme-blue-black">
+
+Available themes:
+- theme-default: blue/red business dashboard
+- theme-blue-black: formal executive report
+- theme-green-gold: strategy and industry research
+- theme-dark-neon: technology analytics dashboard
+*/
+
+.theme-default {
+  --body-bg: #dedbd4;
+  --bg: #f8f3ea;
+  --paper: #ffffff;
+  --panel-soft: #f9fbfc;
+  --ink: #1f2933;
+  --muted: #657181;
+  --line: #d7dee8;
+  --track: #edf3f7;
+  --neutral: #c8d4df;
+  --blue: #0e9fb5;
+  --red: #d73a6f;
+  --yellow: #f2b84b;
+  --green: #168a64;
+  --green-soft: rgba(22, 138, 100, 0.13);
+  --red-soft: rgba(215, 58, 111, 0.13);
+  --dark: #23313f;
+  --on-dark: #ffffff;
+  --on-dark-muted: rgba(255, 255, 255, 0.78);
+  --tag-ink: #1f2933;
+  --grid-x: rgba(14, 159, 181, 0.09);
+  --grid-y: rgba(242, 184, 75, 0.06);
+  --focus-ring: rgba(14, 159, 181, 0.25);
+  --focus-bg: rgba(14, 159, 181, 0.09);
+  --switch-line: rgba(31, 41, 51, 0.16);
+  --switch-bg: rgba(255, 255, 255, 0.92);
+  --switch-button-bg: #ffffff;
+  --switch-button-ink: #1f2933;
+  --switch-active-bg: #23313f;
+  --switch-active-ink: #ffffff;
+  --shadow: 0 18px 45px rgba(31, 41, 51, 0.08);
+  --switch-shadow: 0 12px 30px rgba(31, 41, 51, 0.14);
+}
+
+.theme-blue-black {
+  --body-bg: #cfd8e6;
+  --bg: #eef4fb;
+  --paper: #fbfdff;
+  --panel-soft: #eaf1f8;
+  --ink: #08111f;
+  --muted: #526377;
+  --line: #c5d2e1;
+  --track: #dbe6f1;
+  --neutral: #aebdcc;
+  --blue: #0b3a75;
+  --red: #ff6b35;
+  --yellow: #f6c85f;
+  --green: #118c7e;
+  --green-soft: rgba(17, 140, 126, 0.14);
+  --red-soft: rgba(255, 107, 53, 0.15);
+  --dark: #07111f;
+  --on-dark: #ffffff;
+  --on-dark-muted: rgba(255, 255, 255, 0.76);
+  --tag-ink: #07111f;
+  --grid-x: rgba(11, 58, 117, 0.10);
+  --grid-y: rgba(255, 107, 53, 0.05);
+  --focus-ring: rgba(11, 58, 117, 0.25);
+  --focus-bg: rgba(11, 58, 117, 0.08);
+  --switch-line: rgba(8, 17, 31, 0.18);
+  --switch-bg: rgba(251, 253, 255, 0.92);
+  --switch-button-bg: #fbfdff;
+  --switch-button-ink: #08111f;
+  --switch-active-bg: #07111f;
+  --switch-active-ink: #ffffff;
+  --shadow: 0 18px 45px rgba(8, 17, 31, 0.10);
+  --switch-shadow: 0 12px 30px rgba(8, 17, 31, 0.16);
+}
+
+.theme-green-gold {
+  --body-bg: #d8cfb8;
+  --bg: #f4efe1;
+  --paper: #fffaf0;
+  --panel-soft: #f5ecd7;
+  --ink: #18251c;
+  --muted: #68705f;
+  --line: #d8cba9;
+  --track: #e7dcc1;
+  --neutral: #b9aa83;
+  --blue: #2d6a4f;
+  --red: #a44a3f;
+  --yellow: #c99936;
+  --green: #52796f;
+  --green-soft: rgba(82, 121, 111, 0.15);
+  --red-soft: rgba(164, 74, 63, 0.14);
+  --dark: #1f3328;
+  --on-dark: #fffdf6;
+  --on-dark-muted: rgba(255, 255, 255, 0.78);
+  --tag-ink: #18251c;
+  --grid-x: rgba(45, 106, 79, 0.08);
+  --grid-y: rgba(201, 153, 54, 0.10);
+  --focus-ring: rgba(45, 106, 79, 0.24);
+  --focus-bg: rgba(45, 106, 79, 0.09);
+  --switch-line: rgba(24, 37, 28, 0.16);
+  --switch-bg: rgba(255, 250, 240, 0.92);
+  --switch-button-bg: #fffaf0;
+  --switch-button-ink: #18251c;
+  --switch-active-bg: #1f3328;
+  --switch-active-ink: #fffdf6;
+  --shadow: 0 18px 45px rgba(24, 37, 28, 0.10);
+  --switch-shadow: 0 12px 30px rgba(24, 37, 28, 0.15);
+}
+
+.theme-dark-neon {
+  --body-bg: #070b16;
+  --bg: #0b1020;
+  --paper: #121a2e;
+  --panel-soft: #0f172a;
+  --ink: #eef4ff;
+  --muted: #94a3b8;
+  --line: #26344f;
+  --track: #1e293b;
+  --neutral: #475569;
+  --blue: #38bdf8;
+  --red: #fb7185;
+  --yellow: #facc15;
+  --green: #34d399;
+  --green-soft: rgba(52, 211, 153, 0.16);
+  --red-soft: rgba(251, 113, 133, 0.16);
+  --dark: #070b16;
+  --on-dark: #eef4ff;
+  --on-dark-muted: rgba(238, 244, 255, 0.78);
+  --tag-ink: #07111f;
+  --grid-x: rgba(56, 189, 248, 0.12);
+  --grid-y: rgba(250, 204, 21, 0.05);
+  --focus-ring: rgba(56, 189, 248, 0.32);
+  --focus-bg: rgba(56, 189, 248, 0.12);
+  --switch-line: rgba(148, 163, 184, 0.3);
+  --switch-bg: rgba(15, 23, 42, 0.94);
+  --switch-button-bg: #121a2e;
+  --switch-button-ink: #eef4ff;
+  --switch-active-bg: #38bdf8;
+  --switch-active-ink: #07111f;
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+  --switch-shadow: 0 12px 30px rgba(0, 0, 0, 0.34);
+}

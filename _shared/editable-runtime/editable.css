@@ -1,0 +1,58 @@
+.template-edit-toolbar {
+  position: fixed;
+  z-index: 9999;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.16);
+  backdrop-filter: blur(10px);
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}
+
+.template-edit-toolbar button {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  border-radius: 6px;
+  background: #ffffff;
+  color: #17212f;
+  font: 850 13px/1 Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  cursor: pointer;
+}
+
+.template-edit-toolbar button[aria-pressed="true"],
+.template-edit-toolbar button.primary {
+  border-color: #17212f;
+  background: #17212f;
+  color: #ffffff;
+}
+
+.template-edit-toolbar span {
+  min-width: 54px;
+  color: #657181;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+body.template-editing [contenteditable="true"] {
+  outline: 2px dashed rgba(0, 191, 114, 0.36);
+  outline-offset: 3px;
+  cursor: text;
+}
+
+body.template-editing [contenteditable="true"]:focus {
+  outline-color: rgba(0, 191, 114, 0.8);
+  background: rgba(0, 191, 114, 0.07);
+}
+
+@media print {
+  .template-edit-toolbar {
+    display: none;
+  }
+}

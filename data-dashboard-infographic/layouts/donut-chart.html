@@ -1,0 +1,21 @@
+<!--
+Usage:
+Copy this chart card into a .charts grid. Replace legend labels and values.
+For the donut itself, edit the conic-gradient stops in the .donut CSS or override background inline.
+Requires the template.html CSS classes: .panel, .chart-card, .card-head, .split, .donut, .legend, .dot.
+-->
+<article class="panel chart-card">
+  <div class="card-head">
+    <h2>客户结构</h2>
+    <span>按收入占比</span>
+  </div>
+  <div class="split">
+    <div class="donut" aria-label="客户结构占比图"></div>
+    <div class="legend">
+      <p><span class="dot" style="--c: var(--blue)"></span><span>老客复购</span><strong>46%</strong></p>
+      <p><span class="dot" style="--c: var(--red)"></span><span>新客首购</span><strong>26%</strong></p>
+      <p><span class="dot" style="--c: var(--yellow)"></span><span>会员增购</span><strong>15%</strong></p>
+      <p><span class="dot" style="--c: #cbd5e1"></span><span>其他来源</span><strong>13%</strong></p>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Industry Research Report Template</title>
+  <link rel="stylesheet" href="../_shared/svg-chart-components/svg-components.css">
+  <style>
+    :root {
+      --bg: #f3f5f7;
+      --paper: #ffffff;
+      --paper-soft: #f8fafc;
+      --ink: #111f35;
+      --muted: #5f6b7a;
+      --line: #d8dee7;
+      --blue: #1f5ea8;
+      --gold: #b8893a;
+      --green: #17765a;
+      --orange: #b64a3c;
+      --shadow: 0 18px 42px rgba(17, 31, 53, 0.1);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #dce2e8;
+      color: var(--ink);
+    }
+
+    .report {
+      width: min(1440px, 100%);
+      min-height: 1800px;
+      margin: 0 auto;
+      padding: 42px;
+      background: var(--bg);
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 18px;
+      border-bottom: 4px solid var(--ink);
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tabs button,
+    .matrix button,
+    .component-actions button {
+      height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--ink);
+      font: 850 14px/1 Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    .tabs button[aria-selected="true"],
+    .matrix button[aria-pressed="true"],
+    .component-actions button[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .page {
+      display: none;
+      animation: rise-in 0.35s ease both;
+    }
+
+    .page.active { display: block; }
+
+    .cover {
+      display: none;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .cover.active { display: grid; }
+
+    .hero,
+    .panel,
+    .evidence-card,
+    .chain-node {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      min-height: 520px;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 17px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 22px;
+      font-size: 62px;
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 30px 0 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 42px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .lead,
+    .panel p,
+    .evidence-card p,
+    .chain-node p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.52;
+      font-weight: 650;
+    }
+
+    .lead {
+      font-size: 24px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .kpi-grid,
+    .evidence-grid,
+    .chain {
+      display: grid;
+      gap: 18px;
+    }
+
+    .kpi-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .evidence-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 22px;
+    }
+
+    .summary-strip {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .evidence-card,
+    .summary-card {
+      min-height: 190px;
+      padding: 22px;
+      border-top: 6px solid var(--gold);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .summary-card:nth-child(2) { border-top-color: var(--blue); }
+    .summary-card:nth-child(3) { border-top-color: var(--orange); }
+
+    .chain {
+      grid-template-columns: repeat(5, 1fr);
+      align-items: stretch;
+    }
+
+    .chain-node {
+      min-height: 180px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .chain-node::after {
+      content: ">";
+      position: absolute;
+      top: 50%;
+      right: -18px;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 26px;
+      font-weight: 950;
+    }
+
+    .chain-node:last-child::after { display: none; }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .matrix button {
+      height: 190px;
+      padding: 18px;
+      text-align: left;
+      white-space: normal;
+      line-height: 1.45;
+      font-size: 19px;
+    }
+
+    .matrix button span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .matrix button[aria-pressed="true"] span { color: rgba(255, 255, 255, 0.78); }
+
+    .conclusion {
+      display: grid;
+      gap: 18px;
+    }
+
+    .conclusion .panel {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .rank {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 950;
+    }
+
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 920px) {
+      .report { padding: 22px; }
+      .topline,
+      .cover.active,
+      .kpi-grid,
+      .evidence-grid,
+      .summary-strip,
+      .chain,
+      .matrix,
+      .conclusion .panel {
+        grid-template-columns: 1fr;
+      }
+      .chain-node::after { display: none; }
+      h1 { font-size: 40px; }
+      h2 { font-size: 30px; }
+    }
+  </style>
+  <link rel="stylesheet" href="../_shared/editable-runtime/editable.css">
+</head>
+<body>
+  <main class="report" data-edit-root>
+    <header class="topline">
+      <div class="brand">Industry Research Report</div>
+      <nav class="tabs" aria-label="行业研究页面切换">
+        <button type="button" data-open-panel="summary" aria-selected="true">摘要</button>
+        <button type="button" data-open-panel="market" aria-selected="false">市场</button>
+        <button type="button" data-open-panel="chain" aria-selected="false">产业链</button>
+        <button type="button" data-open-panel="competition" aria-selected="false">竞争</button>
+        <button type="button" data-open-panel="conclusion" aria-selected="false">结论</button>
+      </nav>
+    </header>
+
+    <section class="page cover active" data-panel="summary">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">2026 Industry Research</p>
+          <h1>企业级 AI 应用行业研究与市场进入判断</h1>
+          <p class="lead">本模板用于呈现市场规模、产业链、竞争格局、趋势判断和投资启示，适合正式行业研究与管理层汇报。</p>
+        </div>
+      </section>
+      <section class="kpi-grid">
+        <article class="svg-kpi"><p>市场规模</p><strong>1,280亿</strong><span>2026E</span></article>
+        <article class="svg-kpi"><p>复合增速</p><strong>28%</strong><span>2024-2028E</span></article>
+        <article class="svg-kpi"><p>渗透率</p><strong>16%</strong><span>仍处早期</span></article>
+      </section>
+      <section class="summary-strip">
+        <article class="summary-card"><h3>核心判断</h3><p>企业级 AI 应用将从通用工具竞争转向行业工作流竞争，交付效率成为关键门槛。</p></article>
+        <article class="summary-card"><h3>增长来源</h3><p>销售、客服、研发三类高频场景率先形成预算，行业模板决定规模化速度。</p></article>
+        <article class="summary-card"><h3>主要风险</h3><p>数据权限、ROI 证明和组织采用率仍会限制短期渗透率提升。</p></article>
+      </section>
+    </section>
+
+    <section class="page" data-panel="market">
+      <h2>市场规模与渗透率趋势</h2>
+      <article class="panel">
+        <div class="legend-row">
+          <span><i style="--c: var(--blue)"></i>市场规模指数</span>
+          <span><i style="--c: var(--gold)"></i>付费客户指数</span>
+          <span><i style="--c: var(--green)"></i>渗透率指数</span>
+        </div>
+        <svg class="svg-chart" viewBox="0 0 1240 360" role="img" aria-label="市场规模趋势图">
+          <line class="grid-line" x1="70" y1="70" x2="1190" y2="70"/><line class="grid-line" x1="70" y1="150" x2="1190" y2="150"/><line class="grid-line" x1="70" y1="230" x2="1190" y2="230"/>
+          <text class="tick-label" x="32" y="75">220</text><text class="tick-label" x="32" y="155">160</text><text class="tick-label" x="32" y="235">100</text>
+          <polyline class="series-line" data-series="size" style="--c: var(--blue)" points="70,230 350,202 630,160 910,116 1190,74"/>
+          <polyline class="series-line" data-series="paid" style="--c: var(--gold)" points="70,230 350,210 630,176 910,132 1190,92"/>
+          <polyline class="series-line" data-series="penetration" style="--c: var(--green)" points="70,230 350,218 630,198 910,172 1190,146"/>
+          <g data-series="size"><circle class="series-point" style="--c: var(--blue)" cx="70" cy="230" r="8" data-tip="市场规模指数 2024: 100"/><circle class="series-point" style="--c: var(--blue)" cx="1190" cy="74" r="8" data-tip="市场规模指数 2028E: 218"/></g>
+          <g data-series="paid"><circle class="series-point" style="--c: var(--gold)" cx="70" cy="230" r="8" data-tip="付费客户指数 2024: 100"/><circle class="series-point" style="--c: var(--gold)" cx="1190" cy="92" r="8" data-tip="付费客户指数 2028E: 203"/></g>
+          <g data-series="penetration"><circle class="series-point" style="--c: var(--green)" cx="70" cy="230" r="8" data-tip="渗透率指数 2024: 100"/><circle class="series-point" style="--c: var(--green)" cx="1190" cy="146" r="8" data-tip="渗透率指数 2028E: 161"/></g>
+          <text class="axis-label" x="54" y="320">2024</text><text class="axis-label" x="334" y="320">2025</text><text class="axis-label" x="614" y="320">2026E</text><text class="axis-label" x="894" y="320">2027E</text><text class="axis-label" x="1174" y="320">2028E</text>
+        </svg>
+        <div class="component-actions"><button type="button" data-toggle-series="size" aria-pressed="true">规模</button><button type="button" data-toggle-series="paid" aria-pressed="true">客户</button><button type="button" data-toggle-series="penetration" aria-pressed="true">渗透</button></div>
+      </article>
+      <section class="evidence-grid">
+        <article class="evidence-card"><h3>需求侧</h3><p>企业预算从试点走向部门级采购，销售、客服、研发是最早落地场景。</p></article>
+        <article class="evidence-card"><h3>供给侧</h3><p>模型能力趋同后，行业数据、工作流集成和交付效率成为差异化来源。</p></article>
+        <article class="evidence-card"><h3>风险侧</h3><p>ROI 证明、数据权限和组织采用率仍是规模化扩张的主要约束。</p></article>
+      </section>
+    </section>
+
+    <section class="page" data-panel="chain">
+      <h2>产业链结构</h2>
+      <div class="chain">
+        <article class="chain-node"><h3>基础模型</h3><p>通用能力、推理成本、多模态能力。</p></article>
+        <article class="chain-node"><h3>数据层</h3><p>行业知识库、客户数据、权限治理。</p></article>
+        <article class="chain-node"><h3>应用层</h3><p>销售、客服、研发、运营等场景工具。</p></article>
+        <article class="chain-node"><h3>集成层</h3><p>CRM、ERP、OA、BI 的工作流连接。</p></article>
+        <article class="chain-node"><h3>交付层</h3><p>行业模板、实施服务、成功指标。</p></article>
+      </div>
+    </section>
+
+    <section class="page" data-panel="competition">
+      <h2>竞争格局矩阵</h2>
+      <div class="matrix">
+        <button type="button" aria-pressed="true">高场景深度 / 高交付能力<span>头部行业应用，适合重点跟踪。</span></button>
+        <button type="button" aria-pressed="false">高场景深度 / 低交付能力<span>产品能力强，但规模化复制仍需验证。</span></button>
+        <button type="button" aria-pressed="false">低场景深度 / 高交付能力<span>咨询和集成商优势明显，产品壁垒较弱。</span></button>
+        <button type="button" aria-pressed="false">低场景深度 / 低交付能力<span>通用工具竞争激烈，价格压力较大。</span></button>
+      </div>
+    </section>
+
+    <section class="page" data-panel="conclusion">
+      <h2>关键结论</h2>
+      <div class="conclusion">
+        <article class="panel"><span class="rank">01</span><div><h3>行业仍处渗透早期</h3><p>预算增长确定，但企业更关注可验证 ROI，而不是单纯模型能力。</p></div></article>
+        <article class="panel"><span class="rank">02</span><div><h3>场景深度决定付费能力</h3><p>越贴近收入、成本和效率指标，越容易形成部门级采购。</p></div></article>
+        <article class="panel"><span class="rank">03</span><div><h3>行业模板是规模化关键</h3><p>标准模板可以降低交付成本，并提升销售复制效率。</p></div></article>
+      </div>
+    </section>
+  </main>
+  <div class="tooltip"></div>
+  <script src="../_shared/svg-chart-components/svg-components.js"></script>
+  <script>
+    document.querySelectorAll("[data-open-panel]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.openPanel;
+        document.querySelectorAll("[data-open-panel]").forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+        document.querySelectorAll("[data-panel]").forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === key));
+      });
+    });
+    document.querySelectorAll(".matrix button").forEach((button) => {
+      button.addEventListener("click", () => document.querySelectorAll(".matrix button").forEach((item) => item.setAttribute("aria-pressed", String(item === button))));
+    });
+  </script>
+  <script src="../_shared/editable-runtime/editable.js" data-filename="industry-research-report"></script>
+</body>
+</html>

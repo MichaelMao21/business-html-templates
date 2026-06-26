@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "data-dashboard-infographic",
+  "name": "Data Dashboard Infographic",
+  "tagline": "Chinese-friendly business dashboard infographic for KPI reviews, growth summaries, and operating reports.",
+  "language_support": ["zh-CN", "en", "bilingual"],
+  "mood": ["professional", "clear", "analytical", "business"],
+  "occasion": [
+    "business review",
+    "growth report",
+    "operations recap",
+    "marketing performance report",
+    "executive dashboard",
+    "one-page data infographic"
+  ],
+  "tone": ["structured", "data-led", "formal", "concise"],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "chart_readiness": "high",
+  "image_dependency": "none",
+  "animation_level": "none",
+  "export_targets": ["html", "png", "pdf"],
+  "best_for": "One-page business dashboards that need many KPIs, compact charts, comparisons, and action notes while staying readable in Chinese.",
+  "avoid_for": "Highly emotional storytelling, photo-heavy decks, or brand manifesto presentations where data is secondary.",
+  "layout_types": [
+    "header summary",
+    "metric cards",
+    "bar chart",
+    "donut chart",
+    "trend chart",
+    "ranked comparison",
+    "action notes"
+  ],
+  "layout_files": [
+    "layouts/metric-card.html",
+    "layouts/bar-chart.html",
+    "layouts/donut-chart.html",
+    "layouts/trend-line.html"
+  ],
+  "theme_file": "themes.css",
+  "theme_classes": [
+    "theme-default",
+    "theme-blue-black",
+    "theme-green-gold",
+    "theme-dark-neon"
+  ],
+  "recommended_size": {
+    "width": 1440,
+    "height": 1800,
+    "ratio": "4:5"
+  },
+  "source_inspiration": [
+    "TikTok 增长看板",
+    "电商数据看板",
+    "运营效果复盘"
+  ]
+}

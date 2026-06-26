@@ -1,0 +1,1168 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strategy Planning Brief Template</title>
+  <link rel="stylesheet" href="../_shared/svg-chart-components/svg-components.css">
+  <style>
+    :root {
+      --bg: #f3f7f5;
+      --paper: #ffffff;
+      --paper-soft: #f4fbf7;
+      --ink: #17362f;
+      --muted: #62756f;
+      --line: #cfe0d8;
+      --blue: #0b6a88;
+      --blm: #00bf72;
+      --blm-dark: #00572f;
+      --blm-deep: #00875a;
+      --deep-blue: #0b6682;
+      --gold: #c9a142;
+      --green: #1f8a5b;
+      --orange: #bf4b45;
+      --lime: #cde82a;
+      --shadow: 0 18px 42px rgba(0, 87, 47, 0.12);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #ddebe4;
+      color: var(--ink);
+    }
+
+    .strategy {
+      width: min(1440px, 100%);
+      min-height: 1800px;
+      margin: 0 auto;
+      padding: 42px;
+      background:
+        linear-gradient(90deg, rgba(0, 87, 47, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0, 87, 47, 0.04) 1px, transparent 1px),
+        var(--bg);
+      background-size: 52px 52px;
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--blm-dark);
+      color: #fff;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tabs button,
+    .matrix button {
+      height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--ink);
+      font: 850 14px/1 Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    .tabs button[aria-selected="true"],
+    .matrix button[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .insight-summary {
+      display: grid;
+      grid-template-columns: 430px minmax(0, 1fr);
+      min-height: 720px;
+      border: 1px solid var(--blm);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .insight-left {
+      position: relative;
+      padding: 48px 34px;
+      background:
+        linear-gradient(140deg, rgba(0, 87, 47, 0.98), rgba(0, 191, 114, 0.95));
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .insight-left h3 {
+      margin: 22px 0 0;
+      max-width: 300px;
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+
+    .insight-icon {
+      width: 104px;
+      height: 104px;
+      margin-bottom: 26px;
+    }
+
+    .swot-rail {
+      position: absolute;
+      right: -46px;
+      top: 110px;
+      display: grid;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .swot-rail span {
+      display: grid;
+      width: 96px;
+      height: 118px;
+      place-items: center;
+      background: var(--blm-dark);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 950;
+      box-shadow: 12px 12px 22px rgba(0, 0, 0, 0.18);
+    }
+
+    .swot-rail span:nth-child(3),
+    .swot-rail span:nth-child(4) {
+      background: var(--blm);
+    }
+
+    .insight-matrix {
+      padding: 38px 30px 34px 76px;
+      display: grid;
+      grid-template-columns: 150px minmax(420px, 1fr) 168px;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .strategy-list {
+      display: grid;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .strategy-list strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--deep-blue);
+      font-size: 19px;
+      font-weight: 950;
+    }
+
+    .strategy-list ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .strategy-list li::marker {
+      color: var(--blm);
+    }
+
+    .quadrant {
+      min-width: 0;
+    }
+
+    .quadrant svg {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .intent-board {
+      display: grid;
+      gap: 22px;
+    }
+
+    .intent-row {
+      display: grid;
+      grid-template-columns: 170px 0.9fr 1.25fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .intent-badge {
+      display: grid;
+      width: 150px;
+      height: 150px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blm);
+      color: #fff;
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .intent-row:nth-child(2) .intent-badge {
+      background: var(--deep-blue);
+    }
+
+    .intent-card,
+    .intent-example {
+      min-height: 142px;
+      border: 1px solid var(--blm);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .intent-card h3 {
+      margin: 0;
+      padding: 14px 18px;
+      background: var(--blm);
+      color: #fff;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .intent-row:nth-child(2) .intent-card,
+    .intent-row:nth-child(2) .intent-example {
+      border-color: var(--deep-blue);
+    }
+
+    .intent-row:nth-child(2) .intent-card h3 {
+      background: var(--deep-blue);
+    }
+
+    .intent-card p,
+    .intent-example p {
+      margin: 0;
+      padding: 18px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .intent-example {
+      padding: 20px 24px;
+    }
+
+    .intent-example ul {
+      margin: 0;
+      padding-left: 22px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .intent-example li::marker {
+      color: var(--blm);
+    }
+
+    .three-year {
+      position: relative;
+      min-height: 720px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .goal-lane {
+      display: grid;
+      grid-template-columns: 1fr 260px 230px;
+      gap: 30px;
+      align-items: center;
+      min-height: 150px;
+      border-bottom: 1px dashed #b7c7c0;
+    }
+
+    .goal-lane:last-child {
+      border-bottom: 0;
+    }
+
+    .goal-block {
+      justify-self: start;
+      max-width: 480px;
+      min-height: 96px;
+      padding: 22px;
+      background: var(--blm);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 950;
+    }
+
+    .goal-lane:nth-child(2) .goal-block {
+      margin-left: 180px;
+      background: #04aa86;
+    }
+
+    .goal-lane:nth-child(3) .goal-block {
+      margin-left: 360px;
+      background: var(--blm-deep);
+    }
+
+    .goal-lane:nth-child(4) .goal-block {
+      margin-left: 540px;
+      background: var(--blm-dark);
+    }
+
+    .goal-thumb {
+      height: 102px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(0, 191, 114, 0.16), rgba(11, 102, 130, 0.08)),
+        var(--paper-soft);
+      display: grid;
+      place-items: center;
+      color: var(--deep-blue);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .goal-dim {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #4b4f55;
+      font-size: 28px;
+      line-height: 1.14;
+      font-weight: 950;
+    }
+
+    .goal-dim::before {
+      content: "<";
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blm);
+      color: #fff;
+      font-size: 26px;
+    }
+
+    .page {
+      display: none;
+      animation: rise-in 0.35s ease both;
+    }
+
+    .page.active { display: block; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .panel,
+    .hero-copy,
+    .map-node,
+    .path-node {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      min-height: 500px;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 17px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 22px;
+      font-size: 62px;
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 30px 0 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 42px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .lead,
+    .panel p,
+    .map-node p,
+    .path-node p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .lead {
+      font-size: 24px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .scorecards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .strategy-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .strategy-strip article {
+      min-height: 190px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--blue);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .strategy-strip article:nth-child(2) { border-top-color: var(--gold); }
+    .strategy-strip article:nth-child(3) { border-top-color: var(--orange); }
+    .strategy-strip article:nth-child(4) { border-top-color: var(--blm); }
+
+    .gap-board {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .gap-chart {
+      min-height: 620px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .gap-note {
+      display: grid;
+      gap: 18px;
+    }
+
+    .gap-note article {
+      padding: 24px;
+      border-left: 6px solid var(--blm);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .blm-board {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .blm-model {
+      min-height: 650px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .blm-model svg {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .blm-node {
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .blm-node:hover,
+    .blm-node.is-active {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .blm-node rect {
+      fill: #fff;
+      stroke: var(--blm);
+      stroke-width: 3;
+      rx: 6;
+    }
+
+    .blm-node.primary rect {
+      fill: var(--deep-blue);
+      stroke: var(--deep-blue);
+    }
+
+    .blm-node text {
+      fill: var(--ink);
+      font-size: 26px;
+      font-weight: 900;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    .blm-node.primary text {
+      fill: #fff;
+    }
+
+    .blm-panel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .five-look {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .five-look article,
+    .design-item {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blm);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .five-look article {
+      min-height: auto;
+    }
+
+    .five-look h3 {
+      margin-bottom: 4px;
+      font-size: 19px;
+    }
+
+    .five-look p {
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+
+    .business-design {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .design-list {
+      display: grid;
+      gap: 12px;
+      padding: 26px;
+      border: 4px solid var(--blm);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .design-list span {
+      display: block;
+      color: var(--blm);
+      font-size: 34px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .decode-path {
+      position: relative;
+      min-height: 650px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .decode-path svg {
+      position: absolute;
+      inset: 42px 42px auto;
+      width: calc(100% - 84px);
+      height: 360px;
+      overflow: visible;
+    }
+
+    .decode-stage {
+      position: absolute;
+      width: 285px;
+      min-height: 180px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .decode-stage::before {
+      content: attr(data-step);
+      display: grid;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 14px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blm);
+      color: #fff;
+      font-weight: 950;
+    }
+
+    .decode-stage:nth-of-type(1) { left: 102px; top: 308px; }
+    .decode-stage:nth-of-type(2) { left: 424px; top: 194px; }
+    .decode-stage:nth-of-type(3) { right: 372px; top: 308px; }
+    .decode-stage:nth-of-type(4) { right: 74px; top: 194px; }
+
+    .decode-banner {
+      position: absolute;
+      left: 74px;
+      right: 74px;
+      bottom: 48px;
+      padding: 22px 26px;
+      background: var(--blm);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+      text-align: center;
+      clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%);
+    }
+
+    .strategy-map {
+      position: relative;
+      min-height: 640px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .map-axis {
+      position: absolute;
+      inset: 70px;
+      border-left: 3px solid rgba(23, 33, 47, 0.28);
+      border-bottom: 3px solid rgba(23, 33, 47, 0.28);
+    }
+
+    .map-node {
+      position: absolute;
+      width: 300px;
+      min-height: 150px;
+      padding: 20px;
+      border-top: 6px solid var(--blue);
+    }
+
+    .map-node:nth-of-type(1) { left: 96px; bottom: 90px; border-top-color: var(--green); }
+    .map-node:nth-of-type(2) { left: 430px; top: 268px; border-top-color: var(--gold); }
+    .map-node:nth-of-type(3) { right: 110px; top: 94px; border-top-color: var(--blue); }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .matrix button {
+      height: 210px;
+      padding: 20px;
+      text-align: left;
+      white-space: normal;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .matrix span {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .matrix button[aria-pressed="true"] span { color: rgba(255, 255, 255, 0.78); }
+
+    .path {
+      position: relative;
+      min-height: 650px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .path svg {
+      position: absolute;
+      inset: 30px;
+      width: calc(100% - 60px);
+      height: calc(100% - 60px);
+      overflow: visible;
+    }
+
+    .path-track {
+      fill: none;
+      stroke: rgba(23, 33, 47, 0.14);
+      stroke-width: 30;
+      stroke-linecap: round;
+    }
+
+    .path-line {
+      fill: none;
+      stroke: var(--blue);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 1700;
+      stroke-dashoffset: 1700;
+      animation: draw-line 1.1s ease forwards;
+    }
+
+    .path-node {
+      position: absolute;
+      width: 300px;
+      min-height: 168px;
+      padding: 20px;
+    }
+
+    .path-node::before {
+      content: attr(data-step);
+      display: grid;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 14px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 950;
+    }
+
+    .path-node:nth-of-type(1) { left: 78px; top: 84px; }
+    .path-node:nth-of-type(2) { left: 390px; top: 330px; }
+    .path-node:nth-of-type(3) { right: 330px; top: 96px; }
+    .path-node:nth-of-type(4) { right: 70px; bottom: 74px; }
+
+    .capability {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+    }
+
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 920px) {
+      .strategy { padding: 22px; }
+      .topline,
+      .hero,
+      .scorecards,
+      .strategy-strip,
+      .gap-board,
+      .blm-board,
+      .insight-summary,
+      .insight-matrix,
+      .intent-row,
+      .five-look,
+      .business-design,
+      .design-grid,
+      .matrix,
+      .capability {
+        grid-template-columns: 1fr;
+      }
+      .strategy-map,
+      .path,
+      .decode-path { min-height: auto; display: grid; gap: 16px; }
+      .map-axis,
+      .path svg,
+      .decode-path svg { display: none; }
+      .map-node,
+      .path-node,
+      .decode-stage { position: static; width: auto; }
+      .decode-banner { position: static; clip-path: none; }
+      .swot-rail { position: static; grid-template-columns: repeat(4, 1fr); margin-top: 24px; }
+      .swot-rail span { width: auto; height: 56px; }
+      .insight-matrix { padding: 22px; }
+      .intent-badge { width: 120px; height: 120px; }
+      .goal-lane { grid-template-columns: 1fr; }
+      .goal-lane .goal-block { margin-left: 0; }
+      h1 { font-size: 40px; }
+      h2 { font-size: 30px; }
+    }
+  </style>
+  <link rel="stylesheet" href="../_shared/editable-runtime/editable.css">
+</head>
+<body>
+  <main class="strategy" data-edit-root>
+    <header class="topline">
+      <div class="brand"><span class="brand-mark">ST</span><span>Strategy Planning Brief</span></div>
+      <nav class="tabs" aria-label="BLM战略规划页面切换">
+        <button type="button" data-open-panel="overview" aria-selected="true">总览</button>
+        <button type="button" data-open-panel="gap" aria-selected="false">差距</button>
+        <button type="button" data-open-panel="blm" aria-selected="false">BLM模型</button>
+        <button type="button" data-open-panel="insight" aria-selected="false">洞察</button>
+        <button type="button" data-open-panel="intent" aria-selected="false">意图</button>
+        <button type="button" data-open-panel="goals" aria-selected="false">目标</button>
+        <button type="button" data-open-panel="design" aria-selected="false">业务设计</button>
+        <button type="button" data-open-panel="decode" aria-selected="false">解码路径</button>
+        <button type="button" data-open-panel="capability" aria-selected="false">能力</button>
+      </nav>
+    </header>
+
+    <section class="page active" data-panel="overview">
+      <div class="hero">
+        <section class="hero-copy">
+          <div>
+            <p class="eyebrow">Annual Strategy / 2026</p>
+            <h1>BLM 战略规划与解码汇报</h1>
+            <p class="lead">从差距出发，沉淀市场洞察总结，明确使命、愿景与三年战略目标，再通过 BLM 模型、业务设计和解码路径形成可落地的战略闭环。</p>
+          </div>
+        </section>
+        <section class="scorecards">
+          <article class="svg-kpi"><p>业绩差距</p><strong>0.8亿</strong><span>执行补齐</span></article>
+          <article class="svg-kpi"><p>机会差距</p><strong>1.6亿</strong><span>业务设计</span></article>
+          <article class="svg-kpi"><p>关键任务</p><strong>9项</strong><span>3 个 P0</span></article>
+          <article class="svg-kpi"><p>组织能力</p><strong>72%</strong><span>目标匹配度</span></article>
+        </section>
+      </div>
+      <section class="strategy-strip">
+        <article><h3>战略起点</h3><p>识别愿景、五年战略目标和现有业务前景之间的差距，明确哪些靠执行补齐，哪些需要新业务设计。</p></article>
+        <article><h3>市场洞察总结</h3><p>用优势、劣势、机会、威胁形成战略象限，判断当前应选择增长型、防御型、扭转型还是多种经营型战略。</p></article>
+        <article><h3>战略意图与目标</h3><p>把 Why、Where、What 讲清楚，并拆成财务、客户、内部运营、学习成长四个维度的三年战略目标。</p></article>
+        <article><h3>业务设计与解码</h3><p>围绕六要素设计业务系统，再用准备、激发团队、激发组织的路径推动业务突破。</p></article>
+      </section>
+    </section>
+
+    <section class="page" data-panel="gap">
+      <h2>差距分析：战略制定来自目标和理想之间的差距</h2>
+      <div class="gap-board">
+        <article class="gap-chart">
+          <svg class="svg-chart" viewBox="0 0 760 560" role="img" aria-label="愿景与现实业务前景差距图">
+            <line class="grid-line" x1="80" y1="470" x2="700" y2="470"/>
+            <line class="grid-line" x1="80" y1="470" x2="80" y2="80"/>
+            <text class="axis-label" x="40" y="88">发展水平</text>
+            <text class="axis-label" x="130" y="520">现在</text>
+            <text class="axis-label" x="380" y="520">五年目标</text>
+            <text class="axis-label" x="610" y="520">愿景</text>
+            <path d="M 140 455 C 270 386, 360 318, 470 250" fill="none" stroke="rgba(23,33,47,.28)" stroke-width="10" stroke-linecap="round"/>
+            <path d="M 140 455 C 270 420, 360 388, 470 360" fill="none" stroke="var(--deep-blue)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 470 250 C 540 190, 586 142, 650 105" fill="none" stroke="var(--blm)" stroke-width="8" stroke-linecap="round"/>
+            <line x1="470" y1="360" x2="470" y2="250" stroke="var(--orange)" stroke-width="8" stroke-linecap="round"/>
+            <text x="492" y="312" fill="var(--orange)" font-size="28" font-weight="900">差距</text>
+            <circle cx="140" cy="455" r="12" fill="var(--ink)"/>
+            <circle cx="470" cy="360" r="12" fill="var(--deep-blue)"/>
+            <circle cx="470" cy="250" r="12" fill="var(--gold)"/>
+            <circle cx="650" cy="105" r="14" fill="var(--blm)"/>
+            <foreignObject x="100" y="336" width="220" height="108"><div xmlns="http://www.w3.org/1999/xhtml" style="font:800 18px Inter, sans-serif;color:#245f7f;">五年后现实业务前景<br><small style="font-weight:650;color:#657181;">假定现有业务组合和趋势不变</small></div></foreignObject>
+            <foreignObject x="360" y="156" width="250" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="font:800 18px Inter, sans-serif;color:#17212f;">五年战略目标<br><small style="font-weight:650;color:#657181;">为达成远期目标需要达到的水平</small></div></foreignObject>
+            <foreignObject x="562" y="44" width="150" height="72"><div xmlns="http://www.w3.org/1999/xhtml" style="font:900 20px Inter, sans-serif;color:#27b873;">愿景<br><small style="font-weight:650;color:#657181;">十年或更久</small></div></foreignObject>
+          </svg>
+        </article>
+        <aside class="gap-note">
+          <article><h3>业绩差距</h3><p>现有经营结果和期望值之间的差距，通常可以通过高效执行填补，不一定改变业务设计。</p></article>
+          <article><h3>机会差距</h3><p>现有经营结果和新的业务设计所能带来的结果之间的差距，填补它需要新的业务设计。</p></article>
+          <article><h3>模板用法</h3><p>先判断差距类型，再决定是加强执行、调整业务设计，还是同时重构战略与组织能力。</p></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page" data-panel="insight">
+      <h2>市场洞察总结：用大战略矩阵圈定战略坐标</h2>
+      <div class="insight-summary">
+        <aside class="insight-left">
+          <svg class="insight-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="36" cy="82" r="18" fill="none" stroke="#fff" stroke-width="8"/>
+            <circle cx="62" cy="58" r="18" fill="none" stroke="#fff" stroke-width="8"/>
+            <circle cx="88" cy="82" r="18" fill="none" stroke="#fff" stroke-width="8"/>
+            <path d="M35 28 L35 58 M62 22 L62 36 M88 28 L88 58 M24 48 L35 58 L46 48 M51 26 L62 37 L73 26 M77 48 L88 58 L99 48" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>市场洞察总结：运用大战略矩阵，通过市场增长和行业竞争两个维度，圈定公司当前战略坐标。</h3>
+          <div class="swot-rail">
+            <span>优势</span>
+            <span>劣势</span>
+            <span>机会</span>
+            <span>威胁</span>
+          </div>
+        </aside>
+        <section class="insight-matrix">
+          <div class="strategy-list">
+            <div><strong>扭转型战略</strong><ul><li>市场开发</li><li>市场渗透</li><li>产品开发</li><li>横向一体化</li><li>剥离 / 清算</li></ul></div>
+            <div><strong>防御型战略</strong><ul><li>收割战略</li><li>多元化战略</li><li>剥离 / 清算</li></ul></div>
+          </div>
+          <div class="quadrant">
+            <svg viewBox="0 0 560 520" role="img" aria-label="市场洞察大战略矩阵">
+              <defs>
+                <marker id="axis-arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#11a8d8"/></marker>
+              </defs>
+              <line x1="80" y1="270" x2="500" y2="270" stroke="#11a8d8" stroke-width="5" marker-end="url(#axis-arrow)"/>
+              <line x1="300" y1="450" x2="300" y2="74" stroke="#11a8d8" stroke-width="5" marker-end="url(#axis-arrow)"/>
+              <text x="20" y="277" fill="#555" font-size="22" font-weight="900">竞争地位弱</text>
+              <text x="410" y="277" fill="#555" font-size="22" font-weight="900">竞争地位强</text>
+              <text x="235" y="64" fill="#555" font-size="22" font-weight="900">市场增长迅速</text>
+              <text x="235" y="486" fill="#555" font-size="22" font-weight="900">市场增长缓慢</text>
+              <text x="142" y="160" fill="var(--deep-blue)" font-size="25" font-weight="950">扭转型战略</text>
+              <text x="354" y="160" fill="var(--deep-blue)" font-size="25" font-weight="950">增长型战略</text>
+              <text x="142" y="380" fill="var(--deep-blue)" font-size="25" font-weight="950">防御型战略</text>
+              <text x="352" y="380" fill="var(--deep-blue)" font-size="25" font-weight="950">多种经营型战略</text>
+              <ellipse cx="390" cy="185" rx="92" ry="52" fill="none" stroke="#ff8500" stroke-width="9"/>
+              <text x="338" y="194" fill="var(--deep-blue)" font-size="28" font-weight="950">增长型战略</text>
+              <text x="347" y="231" fill="#ff0050" font-size="28" font-weight="950">G→</text>
+              <text x="64" y="298" fill="#555" font-size="18">0</text><text x="178" y="298" fill="#555" font-size="18">1.5</text><text x="292" y="298" fill="#555" font-size="18">2.5</text><text x="420" y="298" fill="#555" font-size="18">4.5</text>
+              <text x="310" y="446" fill="#555" font-size="18">0</text><text x="310" y="345" fill="#555" font-size="18">1.5</text><text x="310" y="245" fill="#555" font-size="18">3</text><text x="310" y="145" fill="#555" font-size="18">4.5</text><text x="310" y="92" fill="#555" font-size="18">5</text>
+              <circle cx="360" cy="212" r="10" fill="#ff0050"/><path d="M360 212 L396 212" stroke="#ff0050" stroke-width="5" marker-end="url(#axis-arrow)"/>
+            </svg>
+          </div>
+          <div class="strategy-list">
+            <div><strong>增长型战略</strong><ul><li>市场开发</li><li>市场渗透</li><li>产品开发</li><li>横向一体化</li><li>纵向一体化</li><li>集中多元化</li></ul></div>
+            <div><strong>多种经营型战略</strong><ul><li>收割战略</li><li>跨界发展</li><li>合资经营</li></ul></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" data-panel="intent">
+      <h2>战略意图举例：使命、愿景与目标逐层具体化</h2>
+      <div class="intent-board">
+        <article class="intent-row">
+          <div class="intent-badge">1.使命<br>Why</div>
+          <div class="intent-card"><h3>我们为什么存在<br>10年以上</h3><p>我们为什么存在，存在意义是什么？</p></div>
+          <div class="intent-example"><ul><li>腾讯：用户为本，科技向善</li><li>微软：予力全球每一人、每一组织，成就不凡</li></ul></div>
+        </article>
+        <article class="intent-row">
+          <div class="intent-badge">2.愿景<br>Where</div>
+          <div class="intent-card"><h3>我们要到哪里去<br>5-10年</h3><p>未来我们将成为怎样的企业？企业成功时是什么样子？</p></div>
+          <div class="intent-example"><ul><li>成为用户企业</li><li>成为一家世界级的科技型零售企业</li></ul></div>
+        </article>
+        <article class="intent-row">
+          <div class="intent-badge">3.目标<br>What</div>
+          <div class="intent-card"><h3>使命愿景的具象化<br>3-5年</h3><p>期望达到的市场表现与经营结果是什么？</p></div>
+          <div class="intent-example"><ul><li>从财务、客户、内部运营、学习成长等维度描述</li><li>定量与定性结合，内容需要激励人心、凝聚斗志</li></ul></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" data-panel="goals">
+      <h2>三年战略目标示例：从四个维度解码经营结果</h2>
+      <div class="three-year">
+        <div class="goal-lane">
+          <div class="goal-block">收入 XX-XX 亿，利润 XX 亿</div>
+          <div class="goal-thumb">财务曲线 / 阶梯增长</div>
+          <div class="goal-dim">财务<br>维度</div>
+        </div>
+        <div class="goal-lane">
+          <div class="goal-block">让客户享受更丰富、更安全有效的产品，终端市场覆盖率达到 XX</div>
+          <div class="goal-thumb">区域覆盖 / 客户地图</div>
+          <div class="goal-dim">客户<br>维度</div>
+        </div>
+        <div class="goal-lane">
+          <div class="goal-block">持续保持核心技术领先优势，建立规模化与标准化的交付能力</div>
+          <div class="goal-thumb">协同交付 / 伙伴网络</div>
+          <div class="goal-dim">内部<br>运营<br>维度</div>
+        </div>
+        <div class="goal-lane">
+          <div class="goal-block">建立复合型精英团队，形成高效协同的动车型组织</div>
+          <div class="goal-thumb">人才梯队 / 学习成长</div>
+          <div class="goal-dim">学习<br>成长<br>维度</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" data-panel="blm">
+      <h2>BLM 模型：战略与执行之间的闭环</h2>
+      <div class="blm-board">
+        <article class="blm-model">
+          <svg viewBox="0 0 850 600" role="img" aria-label="BLM业务领先模型">
+            <rect x="80" y="58" width="650" height="54" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="405" y="91" fill="var(--blm)" font-size="26" font-weight="900" text-anchor="middle">领导力</text>
+            <rect x="80" y="140" width="320" height="330" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="240" y="178" fill="var(--blm)" font-size="25" font-weight="900" text-anchor="middle">战略</text>
+            <rect x="420" y="140" width="310" height="330" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="575" y="178" fill="var(--blm)" font-size="25" font-weight="900" text-anchor="middle">执行</text>
+            <rect x="80" y="494" width="650" height="54" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="405" y="528" fill="var(--blm)" font-size="26" font-weight="900" text-anchor="middle">价值观</text>
+            <g class="blm-node primary is-active" data-blm-title="市场洞察" data-blm-text="用五看确保洞察全面性：环境、行业、客户、竞争、自己。"><rect x="184" y="198" width="120" height="58"/><text x="244" y="228">市场洞察</text></g>
+            <g class="blm-node" data-blm-title="战略意图" data-blm-text="明确未来要赢在哪里、为什么赢、阶段性目标是什么。"><rect x="120" y="285" width="118" height="58"/><text x="179" y="315">战略意图</text></g>
+            <g class="blm-node" data-blm-title="业务设计" data-blm-text="定义客户选择、价值主张、盈利模式、活动范围、持续价值与风险管理。"><rect x="250" y="285" width="118" height="58"/><text x="309" y="315">业务设计</text></g>
+            <g class="blm-node" data-blm-title="创新焦点" data-blm-text="识别需要突破的产品、服务、渠道、组织或商业模式创新。"><rect x="184" y="382" width="120" height="58"/><text x="244" y="412">创新焦点</text></g>
+            <g class="blm-node" data-blm-title="关键任务" data-blm-text="把战略转化为少数关键任务，并明确依赖关系和责任人。"><rect x="450" y="285" width="118" height="58"/><text x="509" y="315">关键任务</text></g>
+            <g class="blm-node" data-blm-title="正式组织" data-blm-text="检查组织结构、流程、机制是否支持关键任务完成。"><rect x="586" y="285" width="118" height="58"/><text x="645" y="315">正式组织</text></g>
+            <g class="blm-node" data-blm-title="人才" data-blm-text="识别战略所需的人才、角色、能力和激励机制。"><rect x="518" y="382" width="118" height="58"/><text x="577" y="412">人才</text></g>
+            <g class="blm-node" data-blm-title="氛围与文化" data-blm-text="保障组织氛围与文化支持战略执行，而不是抵消战略。"><rect x="518" y="198" width="118" height="58"/><text x="577" y="228">氛围与文化</text></g>
+            <path d="M304 228 L518 228 M238 314 L250 314 M244 256 L244 382 M368 314 L450 314 M568 314 L586 314 M577 256 L577 382" stroke="rgba(23,33,47,.32)" stroke-width="2" fill="none"/>
+            <polygon points="402,305 422,325 402,345 382,325" fill="var(--blm)"/>
+            <polygon points="740,285 780,325 740,365" fill="var(--blm)"/>
+            <text x="806" y="302" fill="var(--blm)" font-size="24" font-weight="900">市场结果</text>
+            <ellipse cx="810" cy="348" rx="44" ry="24" fill="none" stroke="var(--blm)" stroke-width="2"/><text x="810" y="356" fill="var(--ink)" font-size="22" font-weight="900" text-anchor="middle">差距</text>
+          </svg>
+        </article>
+        <aside class="blm-panel">
+          <p class="eyebrow">Selected Node</p>
+          <h3 id="blm-title">市场洞察</h3>
+          <p id="blm-text">用五看确保洞察全面性：环境、行业、客户、竞争、自己。</p>
+          <div class="five-look">
+            <article><h3>看环境</h3><p>PEST / Steepil</p></article>
+            <article><h3>看行业</h3><p>规模、利润、产业链</p></article>
+            <article><h3>看客户</h3><p>痛点、购买、流程</p></article>
+            <article><h3>看竞争</h3><p>格局、差距、替代</p></article>
+            <article><h3>看自己</h3><p>能力、资源、约束</p></article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page" data-panel="design">
+      <h2>业务设计：把战略落到可运营的业务系统</h2>
+      <div class="business-design">
+        <aside class="design-list">
+          <span>1. 客户选择</span>
+          <span>2. 价值主张</span>
+          <span>3. 盈利模式</span>
+          <span>4. 活动范围</span>
+          <span>5. 持续价值</span>
+          <span>6. 风险管理</span>
+        </aside>
+        <section class="design-grid">
+          <article class="design-item"><h3>客户选择</h3><p>明确目标客户、细分场景、优先级和不服务对象。</p></article>
+          <article class="design-item"><h3>价值主张</h3><p>说明客户为什么选择你，以及为什么现在需要改变。</p></article>
+          <article class="design-item"><h3>盈利模式</h3><p>定义收入来源、价格机制、毛利结构和回款路径。</p></article>
+          <article class="design-item"><h3>活动范围</h3><p>确定自建、合作、外包和生态边界。</p></article>
+          <article class="design-item"><h3>持续价值</h3><p>建立复购、续费、交叉销售和客户成功机制。</p></article>
+          <article class="design-item"><h3>风险管理</h3><p>识别战略假设、资源约束、组织阻力和外部风险。</p></article>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" data-panel="decode">
+      <h2>战略解码路径：心脑结合，导向业务突破</h2>
+      <div class="decode-path">
+        <svg viewBox="0 0 1280 360" role="img" aria-label="战略解码路径">
+          <path d="M 70 185 C 214 48, 328 48, 460 185 S 706 322, 838 185 S 1068 48, 1210 185" fill="none" stroke="rgba(36,95,127,.16)" stroke-width="34" stroke-linecap="round"/>
+          <path d="M 70 185 C 214 48, 328 48, 460 185 S 706 322, 838 185 S 1068 48, 1210 185" fill="none" stroke="var(--blm)" stroke-width="8" stroke-linecap="round" class="path-line"/>
+          <text x="34" y="72" fill="var(--blm)" font-size="26" font-weight="900">情感线</text>
+          <text x="34" y="298" fill="var(--deep-blue)" font-size="26" font-weight="900">逻辑线</text>
+        </svg>
+        <article class="decode-stage" data-step="01"><h3>准备阶段</h3><p>打开心扉、认知彼此、共鸣情感，形成研讨基础。</p></article>
+        <article class="decode-stage" data-step="02"><h3>激发团队</h3><p>链接使命、澄清解码、共识战役，形成共同语言。</p></article>
+        <article class="decode-stage" data-step="03"><h3>激发组织</h3><p>行动分解、群策群力、定期复盘，让战略进入组织动作。</p></article>
+        <article class="decode-stage" data-step="04"><h3>业务突破</h3><p>用关键任务、组织能力和人才机制承接战略目标。</p></article>
+        <div class="decode-banner">持续辅导：心脑结合、人事兼修的陪伴式旅程</div>
+      </div>
+    </section>
+
+    <section class="page" data-panel="capability">
+      <h2>能力差距雷达</h2>
+      <div class="capability">
+        <article class="panel"><h3>解读</h3><p>雷达图用于对比现状与目标能力，适合战略规划中的组织能力、产品能力和市场能力分析。</p></article>
+        <article class="panel">
+          <svg class="svg-chart" viewBox="0 0 520 420" role="img" aria-label="能力差距雷达图">
+            <polygon class="radar-grid" points="260,42 450,150 410,350 110,350 70,150"/>
+            <polygon class="radar-grid" points="260,104 386,176 360,308 160,308 134,176"/>
+            <polygon class="radar-grid" points="260,166 322,202 310,266 210,266 198,202"/>
+            <line class="grid-line" x1="260" y1="42" x2="260" y2="350"/><line class="grid-line" x1="450" y1="150" x2="110" y2="350"/><line class="grid-line" x1="70" y1="150" x2="410" y2="350"/>
+            <polygon class="radar-area" points="260,78 410,168 366,312 156,318 112,174"/>
+            <polygon class="radar-area alt" points="260,132 360,190 330,286 190,300 150,204"/>
+            <text class="axis-label" x="238" y="26">产品</text><text class="axis-label" x="454" y="148">销售</text><text class="axis-label" x="396" y="386">交付</text><text class="axis-label" x="80" y="386">数据</text><text class="axis-label" x="16" y="148">组织</text>
+          </svg>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div class="tooltip"></div>
+  <script src="../_shared/svg-chart-components/svg-components.js"></script>
+  <script>
+    document.querySelectorAll("[data-open-panel]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.openPanel;
+        document.querySelectorAll("[data-open-panel]").forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+        document.querySelectorAll("[data-panel]").forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === key));
+      });
+    });
+    document.querySelectorAll(".matrix button").forEach((button) => {
+      button.addEventListener("click", () => document.querySelectorAll(".matrix button").forEach((item) => item.setAttribute("aria-pressed", String(item === button))));
+    });
+    document.querySelectorAll(".blm-node").forEach((node) => {
+      node.addEventListener("click", () => {
+        document.querySelectorAll(".blm-node").forEach((item) => item.classList.remove("is-active"));
+        node.classList.add("is-active");
+        document.getElementById("blm-title").textContent = node.dataset.blmTitle;
+        document.getElementById("blm-text").textContent = node.dataset.blmText;
+      });
+    });
+  </script>
+  <script src="../_shared/editable-runtime/editable.js" data-filename="strategy-planning-brief"></script>
+</body>
+</html>

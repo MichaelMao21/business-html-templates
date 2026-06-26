@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>增长团队 Q3 目标规划完整示例</title>
+  <link rel="stylesheet" href="../../_shared/svg-chart-components/svg-components.css">
+  <style>
+    :root {
+      --bg: #edf3ef;
+      --paper: #ffffff;
+      --paper-soft: #f7faf7;
+      --ink: #123b35;
+      --muted: #657672;
+      --line: #ccd9d3;
+      --blue: #3478c5;
+      --gold: #d8a23a;
+      --green: #1d8a61;
+      --orange: #e65f4f;
+      --shadow: 0 18px 42px rgba(18, 59, 53, 0.1);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #dfe8e3;
+      color: var(--ink);
+    }
+
+    .planner {
+      width: min(1440px, 100%);
+      min-height: 1800px;
+      margin: 0 auto;
+      padding: 42px;
+      background:
+        linear-gradient(90deg, rgba(18, 59, 53, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(18, 59, 53, 0.04) 1px, transparent 1px),
+        var(--bg);
+      background-size: 48px 48px;
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 19px;
+      font-weight: 950;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tabs button,
+    .component-actions button {
+      height: 38px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--ink);
+      font: 850 14px/1 Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    .tabs button[aria-selected="true"],
+    .component-actions button[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .view {
+      display: none;
+      animation: rise-in 0.35s ease both;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    .header-block {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .hero,
+    .panel,
+    .calendar-day,
+    .agenda-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      min-height: 420px;
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--orange);
+      font-size: 17px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: 58px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 30px 0 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 40px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .goal-grid,
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .goal-card {
+      min-height: 210px;
+      padding: 22px;
+      border-left: 6px solid var(--green);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .goal-card:nth-child(2) { border-left-color: var(--blue); }
+    .goal-card:nth-child(3) { border-left-color: var(--orange); }
+
+    .goal-card span,
+    .agenda-time {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .goal-card strong {
+      display: block;
+      margin: 12px 0;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .goal-card p,
+    .calendar-day p,
+    .agenda-item p,
+    .review-grid p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .weekday {
+      padding: 8px 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .calendar-day {
+      min-height: 122px;
+      padding: 12px;
+      box-shadow: none;
+    }
+
+    .calendar-day strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .calendar-day[data-priority="high"] {
+      border-color: rgba(230, 95, 79, 0.7);
+      background: #fff7f5;
+    }
+
+    .agenda-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .agenda-item {
+      display: grid;
+      grid-template-columns: 120px 1fr 180px;
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      animation: rise-in 0.35s ease both;
+    }
+
+    .owner {
+      display: inline-flex;
+      justify-content: center;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: var(--paper-soft);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .gauge-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 420px;
+    }
+
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 920px) {
+      .planner { padding: 22px; }
+      .topline,
+      .header-block,
+      .goal-grid,
+      .review-grid,
+      .agenda-item {
+        grid-template-columns: 1fr;
+      }
+      .calendar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      h1 { font-size: 40px; }
+      h2 { font-size: 30px; }
+    }
+  </style>
+  <link rel="stylesheet" href="../../_shared/editable-runtime/editable.css">
+</head>
+<body>
+  <main class="planner" data-edit-root>
+    <header class="topline">
+      <div class="brand"><span class="brand-mark">OKR</span><span>Goals Calendar Agenda</span></div>
+      <nav class="tabs" aria-label="规划视图切换">
+        <button type="button" data-open-panel="overview" aria-selected="true">总览</button>
+        <button type="button" data-open-panel="calendar" aria-selected="false">月历</button>
+        <button type="button" data-open-panel="agenda" aria-selected="false">议程</button>
+        <button type="button" data-open-panel="review" aria-selected="false">复盘</button>
+      </nav>
+    </header>
+
+    <section class="view active" data-panel="overview">
+      <div class="header-block">
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Quarterly Planning / 2026 Q3</p>
+            <h1>增长团队 Q3 目标规划与月度议程</h1>
+            <p class="lead">把季度目标、关键结果、月度节奏和会议输出放在同一个可编辑页面中，适合管理层周会和项目推进会。</p>
+          </div>
+        </section>
+        <section class="panel gauge-wrap">
+          <h3>季度目标完成率</h3>
+          <svg class="svg-chart" viewBox="0 0 520 340" role="img" aria-label="目标完成率仪表盘">
+            <path class="gauge-track" d="M 110 250 A 150 150 0 0 1 410 250"/>
+            <path class="gauge-value" style="--value: 68" d="M 110 250 A 150 150 0 0 1 410 250"/>
+            <text class="gauge-label" x="260" y="218">68%</text>
+            <text class="gauge-caption" x="260" y="252">关键结果综合进度</text>
+          </svg>
+          <div class="component-actions">
+            <button type="button" data-gauge-value="38">启动</button>
+            <button type="button" data-gauge-value="68" aria-pressed="true">推进</button>
+            <button type="button" data-gauge-value="92">冲刺</button>
+          </div>
+        </section>
+      </div>
+      <h2>SMART 目标卡</h2>
+      <section class="goal-grid">
+        <article class="goal-card"><span>Objective 01</span><strong>新增 120 个高质量商机</strong><p>聚焦企业服务、制造、金融三个行业，SQL 转化率不低于 32%。</p></article>
+        <article class="goal-card"><span>Objective 02</span><strong>完成 3 条标准化增长路径</strong><p>沉淀内容投放、行业活动、销售外呼三类可复制打法。</p></article>
+        <article class="goal-card"><span>Objective 03</span><strong>把周会决策延迟降至 24 小时内</strong><p>每次会议必须输出负责人、截止日和下一步验证口径。</p></article>
+      </section>
+    </section>
+
+    <section class="view" data-panel="calendar">
+      <h2>7 月关键节奏月历</h2>
+      <div class="calendar">
+        <div class="weekday">Mon</div><div class="weekday">Tue</div><div class="weekday">Wed</div><div class="weekday">Thu</div><div class="weekday">Fri</div><div class="weekday">Sat</div><div class="weekday">Sun</div>
+        <article class="calendar-day"><strong>1</strong><p>目标拆解</p></article>
+        <article class="calendar-day"><strong>2</strong><p>行业名单校准</p></article>
+        <article class="calendar-day" data-priority="high"><strong>3</strong><p>管理层评审</p></article>
+        <article class="calendar-day"><strong>4</strong><p>内容主题会</p></article>
+        <article class="calendar-day"><strong>5</strong><p>客户访谈</p></article>
+        <article class="calendar-day"><strong>6</strong><p>数据清洗</p></article>
+        <article class="calendar-day"><strong>7</strong><p>周报发布</p></article>
+        <article class="calendar-day" data-priority="high"><strong>10</strong><p>渠道复盘</p></article>
+        <article class="calendar-day"><strong>14</strong><p>素材验收</p></article>
+        <article class="calendar-day" data-priority="high"><strong>18</strong><p>月中经营会</p></article>
+        <article class="calendar-day"><strong>23</strong><p>重点客户推进</p></article>
+        <article class="calendar-day"><strong>28</strong><p>月度复盘</p></article>
+      </div>
+    </section>
+
+    <section class="view" data-panel="agenda">
+      <h2>周会会议议程</h2>
+      <div class="agenda-list">
+        <article class="agenda-item"><span class="agenda-time">09:30-09:45</span><div><h3>目标进度同步</h3><p>检查本周 KR 完成率和阻塞项。</p></div><span class="owner">负责人：运营</span></article>
+        <article class="agenda-item"><span class="agenda-time">09:45-10:15</span><div><h3>关键项目决策</h3><p>确认渠道预算、行业名单和下周 A/B 测试口径。</p></div><span class="owner">负责人：增长</span></article>
+        <article class="agenda-item"><span class="agenda-time">10:15-10:30</span><div><h3>行动项锁定</h3><p>每个行动项必须包含负责人、日期、验收标准。</p></div><span class="owner">负责人：PMO</span></article>
+      </div>
+    </section>
+
+    <section class="view" data-panel="review">
+      <h2>月度复盘视图</h2>
+      <section class="review-grid">
+        <article class="panel"><h3>已达成</h3><p>SQL 数量达到 72 个，内容转化率高于基准 18%。</p></article>
+        <article class="panel"><h3>需修正</h3><p>金融行业名单质量偏低，下月调整为客户介绍与闭门会渠道。</p></article>
+        <article class="panel"><h3>下月动作</h3><p>把制造业模板扩展为 3 个场景，并新增销售跟进脚本。</p></article>
+      </section>
+    </section>
+  </main>
+  <div class="tooltip"></div>
+  <script src="../../_shared/svg-chart-components/svg-components.js"></script>
+  <script>
+    document.querySelectorAll("[data-open-panel]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.openPanel;
+        document.querySelectorAll("[data-open-panel]").forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+        document.querySelectorAll("[data-panel]").forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === key));
+      });
+    });
+  </script>
+  <script src="../../_shared/editable-runtime/editable.js" data-filename="goals-calendar-agenda-example"></script>
+</body>
+</html>

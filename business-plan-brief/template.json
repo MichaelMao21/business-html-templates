@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "business-plan-brief",
+  "name": "Business Plan Brief",
+  "tagline": "Formal Chinese-friendly business plan template for startup pitches, internal project proposals, and investment memos.",
+  "language_support": ["zh-CN", "en", "bilingual"],
+  "mood": ["formal", "confident", "structured", "executive"],
+  "occasion": [
+    "business plan",
+    "startup pitch",
+    "internal project proposal",
+    "investment memo",
+    "strategic initiative review"
+  ],
+  "tone": ["concise", "business", "evidence-led", "decision-oriented"],
+  "formality": "high",
+  "density": "medium-high",
+  "scheme": "light",
+  "chart_readiness": "high",
+  "image_dependency": "optional",
+  "animation_level": "moderate",
+  "export_targets": ["html", "png", "pdf"],
+  "best_for": "Business plans that need to explain opportunity, model, traction, financial path, team capability, and milestones in a polished report-like HTML deck.",
+  "avoid_for": "Highly playful consumer campaigns or photo-led brand stories where financial structure is secondary.",
+  "layout_types": [
+    "cover",
+    "market opportunity",
+    "business model",
+    "traction dashboard",
+    "financial forecast",
+    "team capability radar",
+    "milestone roadmap"
+  ],
+  "layout_files": [
+    "layouts/cover.html",
+    "layouts/market-opportunity.html",
+    "layouts/financial-forecast.html",
+    "layouts/roadmap.html"
+  ],
+  "shared_components": "../_shared/svg-chart-components",
+  "recommended_size": {
+    "width": 1440,
+    "height": 1800,
+    "ratio": "4:5"
+  },
+  "source_inspiration": [
+    "商业计划书正式封面",
+    "商业模式说明页",
+    "融资计划与里程碑"
+  ]
+}

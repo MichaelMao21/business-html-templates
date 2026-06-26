@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "slug": "industry-research-report",
+  "name": "Industry Research Report",
+  "tagline": "Formal industry research template for market sizing, structure, competition, trend analysis, and investment implications.",
+  "language_support": ["zh-CN", "en", "bilingual"],
+  "mood": ["serious", "analytical", "formal", "evidence-led"],
+  "occasion": ["industry research", "market analysis", "investment research", "consulting report", "competitive landscape"],
+  "tone": ["objective", "structured", "data-led", "restrained"],
+  "formality": "high",
+  "density": "high",
+  "scheme": "light",
+  "chart_readiness": "high",
+  "image_dependency": "optional",
+  "animation_level": "moderate",
+  "export_targets": ["html", "png", "pdf"],
+  "best_for": "Research-style report pages that need market logic, evidence cards, trend lines, segment comparison, and conclusion framing.",
+  "avoid_for": "Playful event agendas or brand campaign pages.",
+  "layout_types": ["research cover", "market sizing", "industry chain", "competitive matrix", "trend chart", "key conclusions"],
+  "layout_files": ["layouts/market-sizing.html", "layouts/industry-chain.html", "layouts/conclusion.html"],
+  "shared_components": "../_shared/svg-chart-components",
+  "recommended_size": {"width": 1440, "height": 1800, "ratio": "4:5"}
+}

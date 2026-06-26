@@ -1,0 +1,14 @@
+{
+  "name": "business-html-templates",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reusable HTML templates for Chinese business reports, dashboards, strategy planning, and executive presentations.",
+  "scripts": {
+    "validate": "node validate-index.js && node validate-render.js",
+    "validate:index": "node validate-index.js",
+    "validate:render": "node validate-render.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.53.0"
+  }
+}

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business HTML Template Gallery</title>
+  <style>
+    :root {
+      --bg: #eef2f0;
+      --paper: #fff;
+      --ink: #17212f;
+      --muted: #66737f;
+      --line: #d4ddd8;
+      --accent: #00a86b;
+      --accent-dark: #00572f;
+      --shadow: 0 18px 42px rgba(23, 33, 47, 0.1);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    .page { width: min(1440px, 100%); margin: 0 auto; padding: 42px; }
+    header { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; padding-bottom: 22px; border-bottom: 3px solid var(--ink); }
+    h1 { margin: 0; font-size: 52px; line-height: 1.05; letter-spacing: 0; }
+    .intro { max-width: 560px; margin: 10px 0 0; color: var(--muted); font-size: 18px; line-height: 1.5; font-weight: 650; }
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+    .filters button { height: 38px; padding: 0 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); font: 850 13px/1 Inter, sans-serif; cursor: pointer; }
+    .filters button[aria-pressed="true"] { background: var(--accent-dark); color: #fff; border-color: var(--accent-dark); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+    .template-card { display: grid; grid-template-columns: 0.9fr 1.1fr; min-height: 360px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--paper); box-shadow: var(--shadow); }
+    .preview { display: block; min-height: 100%; background: #f4f7f5; border-right: 1px solid var(--line); }
+    .preview img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+    .no-preview { height: 100%; display: grid; place-items: center; color: var(--muted); font-weight: 900; }
+    .card-body { padding: 24px; }
+    .category { margin: 0 0 8px; color: var(--accent); font-size: 13px; font-weight: 950; text-transform: uppercase; }
+    h2 { margin: 0 0 10px; font-size: 28px; line-height: 1.15; }
+    .tagline, .best { color: var(--muted); font-size: 15px; line-height: 1.5; font-weight: 650; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .chips span { padding: 6px 9px; border-radius: 999px; background: #e8f5ef; color: var(--accent-dark); font-size: 12px; font-weight: 900; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .actions a { display: inline-flex; align-items: center; height: 36px; padding: 0 12px; border-radius: 6px; background: var(--ink); color: #fff; font-size: 13px; font-weight: 900; text-decoration: none; }
+    .actions a:nth-child(n+2) { background: #eff4f2; color: var(--ink); }
+    @media (max-width: 980px) {
+      .page { padding: 22px; }
+      header, .grid, .template-card { grid-template-columns: 1fr; }
+      .preview { border-right: 0; border-bottom: 1px solid var(--line); min-height: 260px; }
+      h1 { font-size: 38px; }
+      .filters { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>Business HTML Template Gallery</h1>
+        <p class="intro">Browse reusable HTML templates for business dashboards, plans, reports, calendars, and BLM strategy work.</p>
+      </div>
+      <nav class="filters" aria-label="Template filters"><button type="button" data-filter="all" aria-pressed="true">all</button><button type="button" data-filter="business-plan">business-plan</button><button type="button" data-filter="data-dashboard">data-dashboard</button><button type="button" data-filter="planning-agenda">planning-agenda</button><button type="button" data-filter="industry-research">industry-research</button><button type="button" data-filter="strategy-planning">strategy-planning</button></nav>
+    </header>
+    <section class="grid">
+      <article class="template-card" data-category="business-plan">
+        <a class="preview" href="business-plan-brief/template.html">
+          <img src="business-plan-brief/screenshots/cover.png" alt="Business Plan Brief preview">
+        </a>
+        <div class="card-body">
+          <p class="category">business-plan</p>
+          <h2>Business Plan Brief</h2>
+          <p class="tagline">Formal Chinese-friendly business plan template for startup pitches, internal project proposals, and investment memos.</p>
+          <div class="chips"><span>concise</span><span>business</span><span>evidence-led</span><span>decision-oriented</span><span>high</span></div>
+          <p class="best"><strong>Best for:</strong> Business plans that need to explain opportunity, model, traction, financial path, team capability, and milestones in a polished report-like HTML deck.</p>
+          <div class="actions">
+            <a href="business-plan-brief/template.html">Open template</a>
+            <a href="business-plan-brief/examples/ai-sales-assistant-business-plan.html">Open example</a>
+            <a href="business-plan-brief/design.md">Docs</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="template-card" data-category="data-dashboard">
+        <a class="preview" href="data-dashboard-infographic/template.html">
+          <img src="data-dashboard-infographic/screenshots/cover.png" alt="Data Dashboard Infographic preview">
+        </a>
+        <div class="card-body">
+          <p class="category">data-dashboard</p>
+          <h2>Data Dashboard Infographic</h2>
+          <p class="tagline">Chinese-friendly business dashboard infographic for KPI reviews, growth summaries, and operating reports.</p>
+          <div class="chips"><span>structured</span><span>data-led</span><span>formal</span><span>concise</span><span>high</span></div>
+          <p class="best"><strong>Best for:</strong> One-page business dashboards that need many KPIs, compact charts, comparisons, and action notes while staying readable in Chinese.</p>
+          <div class="actions">
+            <a href="data-dashboard-infographic/template.html">Open template</a>
+            <a href="data-dashboard-infographic/examples/catl-2026-q1-report.html">Open example</a>
+            <a href="data-dashboard-infographic/design.md">Docs</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="template-card" data-category="planning-agenda">
+        <a class="preview" href="goals-calendar-agenda/template.html">
+          <img src="goals-calendar-agenda/screenshots/cover.png" alt="Goals Calendar Agenda preview">
+        </a>
+        <div class="card-body">
+          <p class="category">planning-agenda</p>
+          <h2>Goals Calendar Agenda</h2>
+          <p class="tagline">Operational planning template for OKR reviews, monthly calendars, weekly agendas, and project cadence.</p>
+          <div class="chips"><span>structured</span><span>actionable</span><span>team-oriented</span><span>medium-high</span><span>medium</span></div>
+          <p class="best"><strong>Best for:</strong> Goal-setting and calendar-style planning pages that need clear owners, dates, priorities, progress, and meeting agenda flow.</p>
+          <div class="actions">
+            <a href="goals-calendar-agenda/template.html">Open template</a>
+            <a href="goals-calendar-agenda/examples/q3-growth-planning.html">Open example</a>
+            <a href="goals-calendar-agenda/design.md">Docs</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="template-card" data-category="industry-research">
+        <a class="preview" href="industry-research-report/template.html">
+          <img src="industry-research-report/screenshots/cover.png" alt="Industry Research Report preview">
+        </a>
+        <div class="card-body">
+          <p class="category">industry-research</p>
+          <h2>Industry Research Report</h2>
+          <p class="tagline">Formal industry research template for market sizing, structure, competition, trend analysis, and investment implications.</p>
+          <div class="chips"><span>objective</span><span>structured</span><span>data-led</span><span>restrained</span><span>high</span></div>
+          <p class="best"><strong>Best for:</strong> Research-style report pages that need market logic, evidence cards, trend lines, segment comparison, and conclusion framing.</p>
+          <div class="actions">
+            <a href="industry-research-report/template.html">Open template</a>
+            <a href="industry-research-report/examples/enterprise-ai-industry-research.html">Open example</a>
+            <a href="industry-research-report/design.md">Docs</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="template-card" data-category="strategy-planning">
+        <a class="preview" href="strategy-planning-brief/template.html">
+          <img src="strategy-planning-brief/screenshots/blm-model.png" alt="Strategy Planning Brief preview">
+        </a>
+        <div class="card-body">
+          <p class="category">strategy-planning</p>
+          <h2>Strategy Planning Brief</h2>
+          <p class="tagline">BLM-inspired executive strategy planning template for gap analysis, market insight, business design, strategy execution, and strategy decoding.</p>
+          <div class="chips"><span>clear</span><span>decisive</span><span>structured</span><span>board-ready</span><span>high</span></div>
+          <p class="best"><strong>Best for:</strong> Strategy decks that need BLM-style structure: gap analysis, market insight summary matrix, strategic intent examples, three-year strategic goals, business design, organization capability, and strategy decoding.</p>
+          <div class="actions">
+            <a href="strategy-planning-brief/template.html">Open template</a>
+            <a href="strategy-planning-brief/examples/ai-customer-ops-saas-2026-blm.html">Open example</a>
+            <a href="strategy-planning-brief/README.md">Docs</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('[data-filter]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        document.querySelectorAll('.template-card').forEach((card) => {
+          card.style.display = filter === 'all' || card.dataset.category === filter ? 'grid' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

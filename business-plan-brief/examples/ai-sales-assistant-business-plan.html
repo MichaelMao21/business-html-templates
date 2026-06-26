@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 销售助理商业计划完整示例</title>
+  <link rel="stylesheet" href="../../_shared/svg-chart-components/svg-components.css">
+  <style>
+    :root {
+      --bg: #f3f0ea;
+      --paper: #ffffff;
+      --paper-soft: #f8f6f1;
+      --ink: #10243f;
+      --muted: #677282;
+      --line: #d8d3c8;
+      --blue: #2764c5;
+      --gold: #d99b2b;
+      --green: #168a64;
+      --red: #c7523a;
+      --shadow: 0 18px 45px rgba(16, 36, 63, 0.09);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #ded8cc;
+      color: var(--ink);
+    }
+
+    .deck {
+      width: min(1440px, 100%);
+      min-height: 1800px;
+      margin: 0 auto;
+      padding: 42px;
+      background:
+        linear-gradient(90deg, rgba(16, 36, 63, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(16, 36, 63, 0.04) 1px, transparent 1px),
+        var(--bg);
+      background-size: 56px 56px;
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tabs button,
+    .hero-actions span,
+    .component-actions button {
+      border-radius: 6px;
+    }
+
+    .tabs button {
+      height: 38px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--ink);
+      font: 850 14px/1 Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    .tabs button[aria-selected="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .slide {
+      display: none;
+      animation: rise-in 0.38s ease both;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .hero {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      margin-top: 34px;
+    }
+
+    .hero.active {
+      display: grid;
+    }
+
+    .hero-copy,
+    .hero-metrics,
+    .panel,
+    .roadmap article {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      min-height: 500px;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 810px;
+      margin-bottom: 22px;
+      font-size: 62px;
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 980px;
+      margin-bottom: 0;
+      font-size: 44px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 16px;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.52;
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions span {
+      padding: 9px 13px;
+      background: var(--paper-soft);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .hero-metrics {
+      display: grid;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .overview-strip {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .overview-strip article {
+      min-height: 220px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .overview-strip span {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .overview-strip strong {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .overview-strip p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .hero-metrics article {
+      padding: 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-metrics article:last-child {
+      border-bottom: 0;
+    }
+
+    .hero-metrics span,
+    .metric-stack span,
+    .roadmap span {
+      display: block;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 850;
+    }
+
+    .hero-metrics strong {
+      display: block;
+      margin: 12px 0;
+      font-size: 58px;
+      line-height: 1;
+    }
+
+    .hero-metrics em {
+      color: var(--green);
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .section-head {
+      margin: 34px 0 24px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .panel {
+      padding: 26px;
+    }
+
+    .panel.wide {
+      grid-column: 1 / -1;
+    }
+
+    .evidence-list {
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .evidence-list strong {
+      color: var(--ink);
+    }
+
+    .metric-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric-stack span {
+      min-height: 56px;
+      padding: 17px 18px;
+      border-left: 5px solid var(--gold);
+      background: var(--paper-soft);
+      color: var(--ink);
+      font-size: 18px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 24px 0;
+    }
+
+    .svg-kpi {
+      min-height: 140px;
+      background: var(--paper);
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+    }
+
+    .legend-row {
+      justify-content: flex-start;
+    }
+
+    .roadmap {
+      position: relative;
+      margin-top: 24px;
+      min-height: 660px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .roadmap-map {
+      position: absolute;
+      inset: 30px;
+      width: calc(100% - 60px);
+      height: calc(100% - 60px);
+      overflow: visible;
+    }
+
+    .roadmap-track {
+      fill: none;
+      stroke: rgba(16, 36, 63, 0.16);
+      stroke-width: 28;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .roadmap-path {
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1700;
+      stroke-dashoffset: 1700;
+      animation: draw-line 1.1s ease forwards;
+    }
+
+    .roadmap-node {
+      position: absolute;
+      width: 285px;
+      min-height: 174px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: 0 16px 35px rgba(16, 36, 63, 0.12);
+    }
+
+    .roadmap-node::before {
+      content: attr(data-step);
+      display: grid;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 14px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .roadmap-node:nth-of-type(1) {
+      left: 54px;
+      top: 62px;
+    }
+
+    .roadmap-node:nth-of-type(2) {
+      left: 388px;
+      top: 318px;
+    }
+
+    .roadmap-node:nth-of-type(3) {
+      right: 356px;
+      top: 82px;
+    }
+
+    .roadmap-node:nth-of-type(4) {
+      right: 58px;
+      bottom: 72px;
+    }
+
+    .roadmap strong {
+      display: block;
+      margin: 0 0 10px;
+      font-size: 25px;
+      line-height: 1.2;
+    }
+
+    .roadmap p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.48;
+      font-weight: 650;
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .deck {
+        padding: 22px;
+      }
+
+      .topline,
+      .hero.active,
+      .two-col,
+      .component-grid,
+      .kpi-grid,
+      .overview-strip,
+      .roadmap {
+        min-height: auto;
+        display: grid;
+        gap: 16px;
+      }
+
+      .roadmap-map {
+        display: none;
+      }
+
+      .roadmap-node {
+        position: static;
+        width: auto;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../../_shared/editable-runtime/editable.css">
+</head>
+<body>
+  <main class="deck" data-edit-root>
+    <header class="topline">
+      <div class="brand">
+        <span class="brand-mark">BP</span>
+        <span>Business Plan Brief</span>
+      </div>
+      <nav class="tabs" aria-label="商业计划书页面切换">
+        <button type="button" data-open-panel="overview" aria-selected="true">总览</button>
+        <button type="button" data-open-panel="market" aria-selected="false">市场</button>
+        <button type="button" data-open-panel="model" aria-selected="false">模式</button>
+        <button type="button" data-open-panel="finance" aria-selected="false">财务</button>
+        <button type="button" data-open-panel="roadmap" aria-selected="false">路线图</button>
+      </nav>
+    </header>
+
+    <section class="hero slide active" data-panel="overview">
+      <div class="hero-copy">
+        <div>
+          <p class="eyebrow">Business Plan / 2026</p>
+          <h1>面向 B2B 销售团队的 AI 销售助理商业计划</h1>
+          <p class="lead">用结构化客户画像、跟进建议和成交预测，帮助销售团队缩短线索判断时间，提高重点客户转化效率。</p>
+        </div>
+        <div class="hero-actions">
+          <span>种子轮沟通版</span>
+          <span>保密材料</span>
+          <span>HTML 可编辑模板</span>
+        </div>
+      </div>
+      <aside class="hero-metrics">
+        <article>
+          <span>目标市场</span>
+          <strong>86亿</strong>
+          <em>2026 SAM 估算</em>
+        </article>
+        <article>
+          <span>首年 ARR</span>
+          <strong>2,400万</strong>
+          <em>Base case</em>
+        </article>
+        <article>
+          <span>回本周期</span>
+          <strong>14个月</strong>
+          <em>销售投入回收</em>
+        </article>
+      </aside>
+      <div class="overview-strip">
+        <article>
+          <span>Investment Thesis</span>
+          <strong>先做 CRM 增强层，降低进入阻力</strong>
+          <p>不替换客户现有系统，优先解决线索判断和跟进建议两个高频痛点。</p>
+        </article>
+        <article>
+          <span>Use of Funds</span>
+          <strong>产品研发 45% / 销售 35% / 运营 20%</strong>
+          <p>资金优先投入行业模板、CRM 集成、设计伙伴转付费和渠道验证。</p>
+        </article>
+        <article>
+          <span>Key Risk</span>
+          <strong>数据接入和销售团队采用率</strong>
+          <p>通过轻量插件、标准字段映射和周度复盘机制降低部署与使用成本。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-panel="market">
+      <div class="section-head">
+        <p class="eyebrow">01 / Market Opportunity</p>
+        <h2>机会判断：销售组织正在从“人力堆叠”转向“数据驱动效率”</h2>
+      </div>
+      <div class="two-col">
+        <article class="panel">
+          <h3>市场进入理由</h3>
+          <ul class="evidence-list">
+            <li><strong>预算明确：</strong>CRM、销售自动化、BI 已经有稳定采购预算。</li>
+            <li><strong>痛点高频：</strong>线索质量判断、跟进节奏、预测准确性直接影响收入。</li>
+            <li><strong>替换阻力低：</strong>先作为 CRM 增强层进入，不必替换主系统。</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h3>市场吸引力雷达</h3>
+          <svg class="svg-chart" viewBox="0 0 520 420" role="img" aria-label="市场吸引力雷达图">
+            <polygon class="radar-grid" points="260,42 450,150 410,350 110,350 70,150"/>
+            <polygon class="radar-grid" points="260,104 386,176 360,308 160,308 134,176"/>
+            <polygon class="radar-grid" points="260,166 322,202 310,266 210,266 198,202"/>
+            <line class="grid-line" x1="260" y1="42" x2="260" y2="350"/>
+            <line class="grid-line" x1="450" y1="150" x2="110" y2="350"/>
+            <line class="grid-line" x1="70" y1="150" x2="410" y2="350"/>
+            <polygon class="radar-area" points="260,82 408,166 364,312 158,318 114,176"/>
+            <polygon class="radar-area alt" points="260,126 374,190 340,286 188,296 154,200"/>
+            <text class="axis-label" x="238" y="26">预算</text>
+            <text class="axis-label" x="454" y="148">频次</text>
+            <text class="axis-label" x="396" y="386">扩展</text>
+            <text class="axis-label" x="80" y="386">利润</text>
+            <text class="axis-label" x="16" y="148">阻力</text>
+          </svg>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-panel="model">
+      <div class="section-head">
+        <p class="eyebrow">02 / Business Model</p>
+        <h2>商业模式：先用高频插件切入，再扩展到管理预测与团队教练</h2>
+      </div>
+      <section class="kpi-grid">
+        <article class="svg-kpi">
+          <p>订阅价格</p>
+          <strong>299元</strong>
+          <span>每席位/月</span>
+        </article>
+        <article class="svg-kpi">
+          <p>团队套餐</p>
+          <strong>3.6万</strong>
+          <span>20 人起售</span>
+        </article>
+        <article class="svg-kpi">
+          <p>毛利率目标</p>
+          <strong>82%</strong>
+          <span>SaaS 交付</span>
+        </article>
+        <article class="svg-kpi">
+          <p>净收入留存</p>
+          <strong>118%</strong>
+          <span>扩席驱动</span>
+        </article>
+      </section>
+      <div class="two-col">
+        <article class="panel">
+          <h3>收入构成</h3>
+          <div class="metric-stack">
+            <span>席位订阅：销售人员日常使用，按月或按年付费。</span>
+            <span>管理看板：面向销售负责人，按团队规模收费。</span>
+            <span>行业模板：金融、制造、企业服务等场景模板包。</span>
+          </div>
+        </article>
+        <article class="panel">
+          <h3>目标完成仪表盘</h3>
+          <svg class="svg-chart" viewBox="0 0 520 340" role="img" aria-label="目标完成率仪表盘">
+            <path class="gauge-track" d="M 110 250 A 150 150 0 0 1 410 250"/>
+            <path class="gauge-value" style="--value: 76" d="M 110 250 A 150 150 0 0 1 410 250"/>
+            <text class="gauge-label" x="260" y="218">76%</text>
+            <text class="gauge-caption" x="260" y="252">年度关键里程碑</text>
+          </svg>
+          <div class="component-actions">
+            <button type="button" data-gauge-value="42">保守</button>
+            <button type="button" data-gauge-value="76" aria-pressed="true">基准</button>
+            <button type="button" data-gauge-value="91">进取</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-panel="finance">
+      <div class="section-head">
+        <p class="eyebrow">03 / Financial Forecast</p>
+        <h2>财务路径：以客户数、ARPA、毛利率三条指标跟踪增长质量</h2>
+      </div>
+      <article class="panel wide">
+        <div class="legend-row">
+          <span><i style="--c: var(--blue)"></i>客户数指数</span>
+          <span><i style="--c: var(--gold)"></i>ARPA 指数</span>
+          <span><i style="--c: var(--green)"></i>毛利率指数</span>
+        </div>
+        <svg class="svg-chart" viewBox="0 0 1240 360" role="img" aria-label="财务预测多指标折线图">
+          <line class="grid-line" x1="70" y1="70" x2="1190" y2="70"/>
+          <line class="grid-line" x1="70" y1="150" x2="1190" y2="150"/>
+          <line class="grid-line" x1="70" y1="230" x2="1190" y2="230"/>
+          <text class="tick-label" x="32" y="75">220</text>
+          <text class="tick-label" x="32" y="155">160</text>
+          <text class="tick-label" x="32" y="235">100</text>
+          <polyline class="series-line" data-series="customers" style="--c: var(--blue)" points="70,230 350,194 630,146 910,104 1190,72"/>
+          <polyline class="series-line" data-series="arpa" style="--c: var(--gold)" points="70,230 350,218 630,194 910,174 1190,142"/>
+          <polyline class="series-line" data-series="margin" style="--c: var(--green)" points="70,230 350,214 630,196 910,184 1190,174"/>
+          <g data-series="customers">
+            <circle class="series-point" style="--c: var(--blue)" cx="70" cy="230" r="8" data-tip="客户数指数 2026Q1: 100"/>
+            <circle class="series-point" style="--c: var(--blue)" cx="350" cy="194" r="8" data-tip="客户数指数 2026Q2: 128"/>
+            <circle class="series-point" style="--c: var(--blue)" cx="630" cy="146" r="8" data-tip="客户数指数 2026Q3: 164"/>
+            <circle class="series-point" style="--c: var(--blue)" cx="910" cy="104" r="8" data-tip="客户数指数 2026Q4: 198"/>
+            <circle class="series-point" style="--c: var(--blue)" cx="1190" cy="72" r="8" data-tip="客户数指数 2027Q1: 220"/>
+          </g>
+          <g data-series="arpa">
+            <circle class="series-point" style="--c: var(--gold)" cx="70" cy="230" r="8" data-tip="ARPA 指数 2026Q1: 100"/>
+            <circle class="series-point" style="--c: var(--gold)" cx="350" cy="218" r="8" data-tip="ARPA 指数 2026Q2: 108"/>
+            <circle class="series-point" style="--c: var(--gold)" cx="630" cy="194" r="8" data-tip="ARPA 指数 2026Q3: 126"/>
+            <circle class="series-point" style="--c: var(--gold)" cx="910" cy="174" r="8" data-tip="ARPA 指数 2026Q4: 140"/>
+            <circle class="series-point" style="--c: var(--gold)" cx="1190" cy="142" r="8" data-tip="ARPA 指数 2027Q1: 162"/>
+          </g>
+          <g data-series="margin">
+            <circle class="series-point" style="--c: var(--green)" cx="70" cy="230" r="8" data-tip="毛利率指数 2026Q1: 100"/>
+            <circle class="series-point" style="--c: var(--green)" cx="350" cy="214" r="8" data-tip="毛利率指数 2026Q2: 112"/>
+            <circle class="series-point" style="--c: var(--green)" cx="630" cy="196" r="8" data-tip="毛利率指数 2026Q3: 125"/>
+            <circle class="series-point" style="--c: var(--green)" cx="910" cy="184" r="8" data-tip="毛利率指数 2026Q4: 134"/>
+            <circle class="series-point" style="--c: var(--green)" cx="1190" cy="174" r="8" data-tip="毛利率指数 2027Q1: 142"/>
+          </g>
+          <text class="axis-label" x="54" y="320">2026Q1</text>
+          <text class="axis-label" x="334" y="320">2026Q2</text>
+          <text class="axis-label" x="614" y="320">2026Q3</text>
+          <text class="axis-label" x="894" y="320">2026Q4</text>
+          <text class="axis-label" x="1174" y="320">2027Q1</text>
+        </svg>
+        <div class="component-actions">
+          <button type="button" data-toggle-series="customers" aria-pressed="true">客户数</button>
+          <button type="button" data-toggle-series="arpa" aria-pressed="true">ARPA</button>
+          <button type="button" data-toggle-series="margin" aria-pressed="true">毛利率</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-panel="roadmap">
+      <div class="section-head">
+        <p class="eyebrow">04 / Roadmap</p>
+        <h2>12 个月路线图：先验证高频工作流，再扩展预测与管理场景</h2>
+      </div>
+      <div class="roadmap">
+        <svg class="roadmap-map" viewBox="0 0 1280 560" role="img" aria-label="12 个月商业计划路径图">
+          <defs>
+            <marker id="roadmap-arrow" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto" markerUnits="strokeWidth">
+              <path d="M 2 2 L 16 9 L 2 16 Z" fill="var(--gold)"/>
+            </marker>
+          </defs>
+          <path class="roadmap-track" d="M 100 145 C 280 40, 376 420, 548 354 C 710 292, 690 84, 846 112 C 1020 144, 1000 454, 1180 420"/>
+          <path class="roadmap-path" marker-end="url(#roadmap-arrow)" d="M 100 145 C 280 40, 376 420, 548 354 C 710 292, 690 84, 846 112 C 1020 144, 1000 454, 1180 420"/>
+          <circle cx="100" cy="145" r="15" fill="var(--ink)"/>
+          <circle cx="548" cy="354" r="15" fill="var(--ink)"/>
+          <circle cx="846" cy="112" r="15" fill="var(--ink)"/>
+          <circle cx="1180" cy="420" r="15" fill="var(--ink)"/>
+        </svg>
+        <article class="roadmap-node" data-step="Q1">
+          <strong>MVP 验证</strong>
+          <p>完成线索评分、跟进建议、CRM 插件，获取 8 家设计伙伴。</p>
+        </article>
+        <article class="roadmap-node" data-step="Q2">
+          <strong>付费转化</strong>
+          <p>签约 20 家试点客户，沉淀标准交付包和行业话术库。</p>
+        </article>
+        <article class="roadmap-node" data-step="Q3">
+          <strong>预测模块</strong>
+          <p>上线成交预测、风险提醒和销售负责人看板。</p>
+        </article>
+        <article class="roadmap-node" data-step="Q4">
+          <strong>规模复制</strong>
+          <p>渠道合作与行业模板扩展，进入制造、企服、金融三个场景。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div class="tooltip"></div>
+  <script src="../../_shared/svg-chart-components/svg-components.js"></script>
+  <script>
+    document.querySelectorAll("[data-open-panel]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.openPanel;
+        document.querySelectorAll("[data-open-panel]").forEach((item) => {
+          item.setAttribute("aria-selected", String(item === button));
+        });
+        document.querySelectorAll("[data-panel]").forEach((panel) => {
+          panel.classList.toggle("active", panel.dataset.panel === key);
+        });
+      });
+    });
+  </script>
+  <script src="../../_shared/editable-runtime/editable.js" data-filename="business-plan-brief-example"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "slug": "goals-calendar-agenda",
+  "name": "Goals Calendar Agenda",
+  "tagline": "Operational planning template for OKR reviews, monthly calendars, weekly agendas, and project cadence.",
+  "language_support": ["zh-CN", "en", "bilingual"],
+  "mood": ["organized", "clear", "calm", "operational"],
+  "occasion": ["goal planning", "OKR review", "monthly plan", "weekly agenda", "project cadence"],
+  "tone": ["structured", "actionable", "team-oriented"],
+  "formality": "medium-high",
+  "density": "medium",
+  "scheme": "light",
+  "chart_readiness": "medium-high",
+  "image_dependency": "none",
+  "animation_level": "moderate",
+  "export_targets": ["html", "png", "pdf"],
+  "best_for": "Goal-setting and calendar-style planning pages that need clear owners, dates, priorities, progress, and meeting agenda flow.",
+  "avoid_for": "Financial deep-dives or research reports where evidence density is more important than cadence.",
+  "layout_types": ["goal overview", "smart goal cards", "calendar grid", "agenda timeline", "progress gauge"],
+  "layout_files": ["layouts/calendar.html", "layouts/agenda.html", "layouts/goal-cards.html"],
+  "shared_components": "../_shared/svg-chart-components",
+  "recommended_size": {"width": 1440, "height": 1800, "ratio": "4:5"}
+}

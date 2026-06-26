@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-26T08:03:55.555Z",
+  "root": ".",
+  "count": 5,
+  "templates": [
+    {
+      "slug": "business-plan-brief",
+      "name": "Business Plan Brief",
+      "category": "business-plan",
+      "tagline": "Formal Chinese-friendly business plan template for startup pitches, internal project proposals, and investment memos.",
+      "best_for": "Business plans that need to explain opportunity, model, traction, financial path, team capability, and milestones in a polished report-like HTML deck.",
+      "avoid_for": "Highly playful consumer campaigns or photo-led brand stories where financial structure is secondary.",
+      "tone": [
+        "concise",
+        "business",
+        "evidence-led",
+        "decision-oriented"
+      ],
+      "formality": "high",
+      "density": "medium-high",
+      "chart_readiness": "high",
+      "animation_level": "moderate",
+      "template_file": "business-plan-brief/template.html",
+      "metadata_file": "business-plan-brief/template.json",
+      "docs_file": "business-plan-brief/design.md",
+      "design_file": "business-plan-brief/design.md",
+      "example_files": [
+        "business-plan-brief/examples/ai-sales-assistant-business-plan.html"
+      ],
+      "layout_files": [
+        "business-plan-brief/layouts/cover.html",
+        "business-plan-brief/layouts/market-opportunity.html",
+        "business-plan-brief/layouts/financial-forecast.html",
+        "business-plan-brief/layouts/roadmap.html"
+      ],
+      "screenshots": [
+        "business-plan-brief/screenshots/cover.png",
+        "business-plan-brief/screenshots/roadmap.png"
+      ]
+    },
+    {
+      "slug": "data-dashboard-infographic",
+      "name": "Data Dashboard Infographic",
+      "category": "data-dashboard",
+      "tagline": "Chinese-friendly business dashboard infographic for KPI reviews, growth summaries, and operating reports.",
+      "best_for": "One-page business dashboards that need many KPIs, compact charts, comparisons, and action notes while staying readable in Chinese.",
+      "avoid_for": "Highly emotional storytelling, photo-heavy decks, or brand manifesto presentations where data is secondary.",
+      "tone": [
+        "structured",
+        "data-led",
+        "formal",
+        "concise"
+      ],
+      "formality": "high",
+      "density": "high",
+      "chart_readiness": "high",
+      "animation_level": "none",
+      "template_file": "data-dashboard-infographic/template.html",
+      "metadata_file": "data-dashboard-infographic/template.json",
+      "docs_file": "data-dashboard-infographic/design.md",
+      "design_file": "data-dashboard-infographic/design.md",
+      "example_files": [
+        "data-dashboard-infographic/examples/catl-2026-q1-report.html",
+        "data-dashboard-infographic/examples/q2-ecommerce-review.html"
+      ],
+      "layout_files": [
+        "data-dashboard-infographic/layouts/metric-card.html",
+        "data-dashboard-infographic/layouts/bar-chart.html",
+        "data-dashboard-infographic/layouts/donut-chart.html",
+        "data-dashboard-infographic/layouts/trend-line.html"
+      ],
+      "screenshots": [
+        "data-dashboard-infographic/screenshots/cover.png",
+        "data-dashboard-infographic/screenshots/theme-blue-black.png",
+        "data-dashboard-infographic/screenshots/theme-dark-neon.png",
+        "data-dashboard-infographic/screenshots/theme-default.png",
+        "data-dashboard-infographic/screenshots/theme-green-gold.png"
+      ]
+    },
+    {
+      "slug": "goals-calendar-agenda",
+      "name": "Goals Calendar Agenda",
+      "category": "planning-agenda",
+      "tagline": "Operational planning template for OKR reviews, monthly calendars, weekly agendas, and project cadence.",
+      "best_for": "Goal-setting and calendar-style planning pages that need clear owners, dates, priorities, progress, and meeting agenda flow.",
+      "avoid_for": "Financial deep-dives or research reports where evidence density is more important than cadence.",
+      "tone": [
+        "structured",
+        "actionable",
+        "team-oriented"
+      ],
+      "formality": "medium-high",
+      "density": "medium",
+      "chart_readiness": "medium-high",
+      "animation_level": "moderate",
+      "template_file": "goals-calendar-agenda/template.html",
+      "metadata_file": "goals-calendar-agenda/template.json",
+      "docs_file": "goals-calendar-agenda/design.md",
+      "design_file": "goals-calendar-agenda/design.md",
+      "example_files": [
+        "goals-calendar-agenda/examples/q3-growth-planning.html"
+      ],
+      "layout_files": [
+        "goals-calendar-agenda/layouts/calendar.html",
+        "goals-calendar-agenda/layouts/agenda.html",
+        "goals-calendar-agenda/layouts/goal-cards.html"
+      ],
+      "screenshots": [
+        "goals-calendar-agenda/screenshots/cover.png"
+      ]
+    },
+    {
+      "slug": "industry-research-report",
+      "name": "Industry Research Report",
+      "category": "industry-research",
+      "tagline": "Formal industry research template for market sizing, structure, competition, trend analysis, and investment implications.",
+      "best_for": "Research-style report pages that need market logic, evidence cards, trend lines, segment comparison, and conclusion framing.",
+      "avoid_for": "Playful event agendas or brand campaign pages.",
+      "tone": [
+        "objective",
+        "structured",
+        "data-led",
+        "restrained"
+      ],
+      "formality": "high",
+      "density": "high",
+      "chart_readiness": "high",
+      "animation_level": "moderate",
+      "template_file": "industry-research-report/template.html",
+      "metadata_file": "industry-research-report/template.json",
+      "docs_file": "industry-research-report/design.md",
+      "design_file": "industry-research-report/design.md",
+      "example_files": [
+        "industry-research-report/examples/enterprise-ai-industry-research.html"
+      ],
+      "layout_files": [
+        "industry-research-report/layouts/market-sizing.html",
+        "industry-research-report/layouts/industry-chain.html",
+        "industry-research-report/layouts/conclusion.html"
+      ],
+      "screenshots": [
+        "industry-research-report/screenshots/cover.png"
+      ]
+    },
+    {
+      "slug": "strategy-planning-brief",
+      "name": "Strategy Planning Brief",
+      "category": "strategy-planning",
+      "tagline": "BLM-inspired executive strategy planning template for gap analysis, market insight, business design, strategy execution, and strategy decoding.",
+      "best_for": "Strategy decks that need BLM-style structure: gap analysis, market insight summary matrix, strategic intent examples, three-year strategic goals, business design, organization capability, and strategy decoding.",
+      "avoid_for": "Detailed weekly scheduling or research-heavy appendix pages.",
+      "tone": [
+        "clear",
+        "decisive",
+        "structured",
+        "board-ready"
+      ],
+      "formality": "high",
+      "density": "medium-high",
+      "chart_readiness": "high",
+      "animation_level": "moderate",
+      "template_file": "strategy-planning-brief/template.html",
+      "metadata_file": "strategy-planning-brief/template.json",
+      "docs_file": "strategy-planning-brief/README.md",
+      "design_file": "strategy-planning-brief/design.md",
+      "example_files": [
+        "strategy-planning-brief/examples/ai-customer-ops-saas-2026-blm.html"
+      ],
+      "layout_files": [
+        "strategy-planning-brief/layouts/blm-model.html",
+        "strategy-planning-brief/layouts/gap-analysis.html",
+        "strategy-planning-brief/layouts/market-insight-matrix.html",
+        "strategy-planning-brief/layouts/strategic-intent.html",
+        "strategy-planning-brief/layouts/three-year-goals.html",
+        "strategy-planning-brief/layouts/business-design.html",
+        "strategy-planning-brief/layouts/decoding-path.html"
+      ],
+      "screenshots": [
+        "strategy-planning-brief/screenshots/blm-model.png",
+        "strategy-planning-brief/screenshots/cover.png",
+        "strategy-planning-brief/screenshots/market-insight.png",
+        "strategy-planning-brief/screenshots/strategic-intent.png",
+        "strategy-planning-brief/screenshots/three-year-goals.png"
+      ]
+    }
+  ]
+}
