@@ -6,36 +6,1386 @@
   <title>格力电器 2026 BLM 战略规划汇报</title>
   <link rel="stylesheet" href="../../_shared/svg-chart-components/svg-components.css">
   <style>
-    :root { --bg:#f3f7f5; --paper:#fff; --paper-soft:#f4fbf7; --ink:#17362f; --muted:#62756f; --line:#cfe0d8; --blue:#0b6a88; --blm:#00bf72; --blm-dark:#00572f; --gold:#c9a142; --orange:#bf4b45; --shadow:0 18px 42px rgba(0,87,47,.12); font-family:Inter,"PingFang SC","Microsoft YaHei",Arial,sans-serif; }
-    *{box-sizing:border-box} body{margin:0;background:#ddebe4;color:var(--ink)} .strategy{width:min(1440px,100%);min-height:1800px;margin:0 auto;padding:42px;background:linear-gradient(90deg,rgba(0,87,47,.05) 1px,transparent 1px),linear-gradient(180deg,rgba(0,87,47,.04) 1px,transparent 1px),var(--bg);background-size:52px 52px}
-    .topline{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding-bottom:18px;border-bottom:3px solid var(--ink)}.brand{display:flex;align-items:center;gap:14px;font-size:18px;font-weight:950}.brand-mark{display:grid;width:42px;height:42px;place-items:center;border-radius:8px;background:var(--blm-dark);color:#fff}.tabs{display:flex;flex-wrap:wrap;gap:10px}.tabs button{height:38px;padding:0 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:850 14px/1 Inter,"PingFang SC","Microsoft YaHei",Arial,sans-serif;cursor:pointer}.tabs button[aria-selected=true]{border-color:var(--ink);background:var(--ink);color:#fff}
-    .page{display:none;animation:rise-in .35s ease both}.page.active{display:block}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:30px}.panel,.hero-copy,.goal-card,.stage,.node-card{border:1px solid var(--line);border-radius:8px;background:var(--paper);box-shadow:var(--shadow)}.hero-copy{min-height:500px;padding:44px;display:flex;flex-direction:column;justify-content:space-between}.eyebrow{margin:0 0 12px;color:var(--blue);font-size:17px;font-weight:950;text-transform:uppercase}h1,h2,h3,p{margin-top:0}h1{max-width:850px;margin-bottom:22px;font-size:62px;line-height:1.06}h2{margin:30px 0 20px;padding-bottom:16px;border-bottom:2px solid var(--ink);font-size:42px;line-height:1.15}.lead{color:var(--muted);font-size:24px;line-height:1.5;font-weight:650}
-    .scorecards{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;min-height:500px;padding:18px;align-content:center}.scorecards::before,.scorecards::after{content:"";position:absolute;inset:50%;width:84%;height:2px;background:linear-gradient(90deg,transparent,rgba(0,87,47,.2),transparent);transform:translate(-50%,-50%)}.scorecards::after{width:2px;height:84%;background:linear-gradient(180deg,transparent,rgba(0,87,47,.2),transparent)}.kpi-hub{position:absolute;left:50%;top:50%;z-index:3;display:grid;width:146px;height:146px;place-items:center;padding:20px;border:8px solid var(--bg);border-radius:50%;background:linear-gradient(145deg,var(--blm-dark),var(--blm));color:#fff;text-align:center;font-size:20px;line-height:1.18;font-weight:950;box-shadow:0 18px 34px rgba(0,87,47,.22);transform:translate(-50%,-50%)}.kpi-hub span{display:block;margin-top:6px;font-size:11px;opacity:.82}
-    .svg-kpi{position:relative;z-index:1;display:flex;aspect-ratio:1;min-height:0;padding:30px 24px;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(0,87,47,.18);border-radius:50%;background:radial-gradient(circle at 50% 36%,rgba(255,255,255,.96),rgba(244,251,247,.94) 58%,rgba(215,235,225,.7));box-shadow:0 20px 42px rgba(0,87,47,.13);text-align:center}.svg-kpi p{margin:0 0 12px;color:var(--muted);font-size:17px;font-weight:950}.svg-kpi strong{display:block;margin:0 0 14px;color:var(--ink);font-size:42px;line-height:.98}.svg-kpi span{display:inline-flex;max-width:178px;min-height:32px;padding:7px 12px;align-items:center;justify-content:center;border-radius:999px;background:rgba(0,191,114,.12);color:#00875a;font-size:13px;line-height:1.2;font-weight:950}
-    .strategy-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}.strategy-strip article{min-height:190px;padding:22px;border:1px solid var(--line);border-top:6px solid var(--blue);border-radius:8px;background:var(--paper);box-shadow:var(--shadow)}.strategy-strip article:nth-child(2){border-top-color:var(--gold)}.strategy-strip article:nth-child(3){border-top-color:var(--orange)}.strategy-strip article:nth-child(4){border-top-color:var(--blm)}.strategy-strip p,.panel p,.node-card p,.stage p{color:var(--muted);font-size:18px;line-height:1.5;font-weight:650}.source-note{margin:14px 0 0;color:var(--muted);font-size:12px;line-height:1.45;font-weight:650;text-align:right}
-    .gap-board,.blm-grid,.design-grid,.capability{display:grid;grid-template-columns:1fr 1fr;gap:24px}.gap-chart,.matrix,.model-card,.radar-card{min-height:520px;padding:26px;border:1px solid var(--line);border-radius:8px;background:var(--paper);box-shadow:var(--shadow)}.gap-list{display:grid;gap:18px}.gap-list article{padding:24px;border-left:6px solid var(--blm);border-radius:8px;background:var(--paper);box-shadow:var(--shadow)}
-    .matrix{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px}.matrix div{position:relative;padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--paper-soft)}.matrix .active{border:4px solid var(--orange)}.matrix h3{color:var(--blue)}.matrix ul{margin:0;padding-left:20px;color:var(--muted);font-weight:700;line-height:1.55}.axis-note{grid-column:1/-1;text-align:center;color:var(--muted);font-weight:850}.intent{display:grid;gap:18px}.intent article{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--paper);box-shadow:var(--shadow)}.badge{display:grid;width:130px;height:130px;place-items:center;border-radius:50%;background:var(--blm);color:#fff;text-align:center;font-size:24px;font-weight:950}
-    .goals{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.goal-card{min-height:430px;padding:22px;border-top:8px solid var(--blm)}.goal-card:nth-child(2){border-top-color:var(--blue)}.goal-card:nth-child(3){border-top-color:var(--gold)}.goal-card:nth-child(4){border-top-color:var(--orange)}.goal-card strong{display:block;margin:14px 0;font-size:30px}.goal-card ul{margin:0;padding-left:20px;color:var(--muted);font-size:17px;line-height:1.55;font-weight:700}
-    .decode{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;min-height:420px;padding:30px;border:1px solid var(--line);border-radius:8px;background:var(--paper);box-shadow:var(--shadow)}.stage{padding:22px}.stage span{display:grid;width:46px;height:46px;place-items:center;border-radius:50%;background:var(--blm);color:#fff;font-weight:950}.radar-legend{display:flex;gap:20px;margin-top:12px;color:var(--muted);font-weight:850}.radar-legend i{display:inline-block;width:28px;height:8px;border-radius:99px;margin-right:8px;background:var(--blue)}.radar-legend .cur{background:var(--orange)}
-    @keyframes rise-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@media(max-width:920px){.strategy{padding:22px}.topline,.hero,.scorecards,.strategy-strip,.gap-board,.blm-grid,.design-grid,.capability,.goals,.decode,.intent article{grid-template-columns:1fr}.scorecards{min-height:auto}.scorecards::before,.scorecards::after,.kpi-hub{display:none}.svg-kpi{width:min(260px,100%);margin:0 auto}h1{font-size:40px}h2{font-size:30px}.source-note{text-align:left}}
+    :root {
+      --bg: #f3f7f5;
+      --paper: #ffffff;
+      --paper-soft: #f4fbf7;
+      --ink: #17362f;
+      --muted: #62756f;
+      --line: #cfe0d8;
+      --blue: #0b6a88;
+      --blm: #00bf72;
+      --blm-dark: #00572f;
+      --blm-deep: #00875a;
+      --deep-blue: #0b6682;
+      --gold: #c9a142;
+      --green: #1f8a5b;
+      --orange: #bf4b45;
+      --lime: #cde82a;
+      --shadow: 0 18px 42px rgba(0, 87, 47, 0.12);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #ddebe4;
+      color: var(--ink);
+    }
+
+    .strategy {
+      width: min(1440px, 100%);
+      min-height: 1800px;
+      margin: 0 auto;
+      padding: 42px;
+      background:
+        linear-gradient(90deg, rgba(0, 87, 47, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0, 87, 47, 0.04) 1px, transparent 1px),
+        var(--bg);
+      background-size: 52px 52px;
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--blm-dark);
+      color: #fff;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tabs button,
+    .matrix button {
+      height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--ink);
+      font: 850 14px/1 Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    .tabs button[aria-selected="true"],
+    .matrix button[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .insight-summary {
+      display: grid;
+      grid-template-columns: 430px minmax(0, 1fr);
+      min-height: 720px;
+      border: 1px solid var(--blm);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .insight-left {
+      position: relative;
+      padding: 48px 34px;
+      background:
+        linear-gradient(140deg, rgba(0, 87, 47, 0.98), rgba(0, 191, 114, 0.95));
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .insight-left h3 {
+      margin: 22px 0 0;
+      max-width: 300px;
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+
+    .insight-icon {
+      width: 104px;
+      height: 104px;
+      margin-bottom: 26px;
+    }
+
+    .swot-rail {
+      position: absolute;
+      right: -46px;
+      top: 110px;
+      display: grid;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .swot-rail span {
+      display: grid;
+      width: 96px;
+      height: 118px;
+      place-items: center;
+      background: var(--blm-dark);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 950;
+      box-shadow: 12px 12px 22px rgba(0, 0, 0, 0.18);
+    }
+
+    .swot-rail span:nth-child(3),
+    .swot-rail span:nth-child(4) {
+      background: var(--blm);
+    }
+
+    .insight-matrix {
+      padding: 38px 30px 34px 76px;
+      display: grid;
+      grid-template-columns: 150px minmax(420px, 1fr) 168px;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .strategy-list {
+      display: grid;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .strategy-list strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--deep-blue);
+      font-size: 19px;
+      font-weight: 950;
+    }
+
+    .strategy-list ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .strategy-list li::marker {
+      color: var(--blm);
+    }
+
+    .quadrant {
+      min-width: 0;
+    }
+
+    .quadrant svg {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .intent-board {
+      display: grid;
+      gap: 22px;
+    }
+
+    .intent-row {
+      display: grid;
+      grid-template-columns: 170px 0.9fr 1.25fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .intent-badge {
+      display: grid;
+      width: 150px;
+      height: 150px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blm);
+      color: #fff;
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .intent-row:nth-child(2) .intent-badge {
+      background: var(--deep-blue);
+    }
+
+    .intent-card,
+    .intent-example {
+      min-height: 142px;
+      border: 1px solid var(--blm);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .intent-card h3 {
+      margin: 0;
+      padding: 14px 18px;
+      background: var(--blm);
+      color: #fff;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .intent-row:nth-child(2) .intent-card,
+    .intent-row:nth-child(2) .intent-example {
+      border-color: var(--deep-blue);
+    }
+
+    .intent-row:nth-child(2) .intent-card h3 {
+      background: var(--deep-blue);
+    }
+
+    .intent-card p,
+    .intent-example p {
+      margin: 0;
+      padding: 18px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .intent-example {
+      padding: 20px 24px;
+    }
+
+    .intent-example ul {
+      margin: 0;
+      padding-left: 22px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .intent-example li::marker {
+      color: var(--blm);
+    }
+
+    .three-year {
+      position: relative;
+      min-height: 720px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .goal-lane {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px 210px;
+      gap: 28px;
+      align-items: center;
+      min-height: 150px;
+      padding: 18px 0;
+      border-bottom: 1px dashed #b7c7c0;
+    }
+
+    .goal-lane:last-child {
+      border-bottom: 0;
+    }
+
+    .goal-block {
+      width: 100%;
+      min-height: 104px;
+      padding: 22px 24px;
+      background: var(--blm);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+      line-height: 1.32;
+      font-weight: 950;
+    }
+
+    .goal-lane:nth-child(2) .goal-block {
+      background: #04aa86;
+    }
+
+    .goal-lane:nth-child(3) .goal-block {
+      background: var(--blm-deep);
+    }
+
+    .goal-lane:nth-child(4) .goal-block {
+      background: var(--blm-dark);
+    }
+
+    .goal-thumb {
+      height: 102px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(0, 191, 114, 0.16), rgba(11, 102, 130, 0.08)),
+        var(--paper-soft);
+      display: grid;
+      place-items: center;
+      color: var(--deep-blue);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .goal-dim {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #4b4f55;
+      font-size: 28px;
+      line-height: 1.14;
+      font-weight: 950;
+    }
+
+    .goal-dim::before {
+      content: "<";
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blm);
+      color: #fff;
+      font-size: 26px;
+    }
+
+    .page {
+      display: none;
+      animation: rise-in 0.35s ease both;
+    }
+
+    .page.active { display: block; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .panel,
+    .hero-copy,
+    .map-node,
+    .path-node {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      min-height: 500px;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 17px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 22px;
+      font-size: 62px;
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 30px 0 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 42px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .lead,
+    .panel p,
+    .map-node p,
+    .path-node p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .lead {
+      font-size: 24px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .scorecards {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      min-height: 500px;
+      padding: 18px;
+      align-content: center;
+      isolation: isolate;
+    }
+
+    .scorecards::before,
+    .scorecards::after {
+      content: "";
+      position: absolute;
+      inset: 50%;
+      width: 84%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(0, 87, 47, 0.2), transparent);
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .scorecards::after {
+      width: 2px;
+      height: 84%;
+      background: linear-gradient(180deg, transparent, rgba(0, 87, 47, 0.2), transparent);
+    }
+
+    .kpi-hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 3;
+      display: grid;
+      width: 146px;
+      height: 146px;
+      place-items: center;
+      padding: 20px;
+      border: 8px solid var(--bg);
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--blm-dark), var(--blm));
+      color: #fff;
+      text-align: center;
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 950;
+      box-shadow: 0 18px 34px rgba(0, 87, 47, 0.22);
+      transform: translate(-50%, -50%);
+    }
+
+    .kpi-hub span {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      letter-spacing: 0;
+      opacity: 0.82;
+    }
+
+    .scorecards .svg-kpi {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      aspect-ratio: 1;
+      min-height: 0;
+      padding: 30px 24px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 87, 47, 0.18);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 36%, rgba(255, 255, 255, 0.96), rgba(244, 251, 247, 0.94) 58%, rgba(215, 235, 225, 0.7)),
+        var(--paper);
+      box-shadow: 0 20px 42px rgba(0, 87, 47, 0.13);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .scorecards .svg-kpi::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 2px solid rgba(0, 191, 114, 0.16);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .scorecards .svg-kpi::after {
+      content: "";
+      position: absolute;
+      top: 16px;
+      width: 54px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--blm);
+      box-shadow: 0 0 0 8px rgba(0, 191, 114, 0.08);
+    }
+
+    .scorecards .svg-kpi:nth-of-type(2)::after { background: var(--deep-blue); box-shadow: 0 0 0 8px rgba(11, 106, 136, 0.1); }
+    .scorecards .svg-kpi:nth-of-type(3)::after { background: var(--gold); box-shadow: 0 0 0 8px rgba(201, 161, 66, 0.12); }
+    .scorecards .svg-kpi:nth-of-type(4)::after { background: var(--orange); box-shadow: 0 0 0 8px rgba(191, 75, 69, 0.1); }
+
+    .scorecards .svg-kpi p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 17px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .scorecards .svg-kpi strong {
+      display: block;
+      margin: 0 0 14px;
+      color: var(--ink);
+      font-size: 44px;
+      line-height: 0.98;
+      text-align: center;
+    }
+
+    .scorecards .svg-kpi span {
+      display: inline-flex;
+      max-width: 178px;
+      min-height: 32px;
+      padding: 7px 12px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(0, 191, 114, 0.12);
+      color: var(--blm-deep);
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .strategy-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .strategy-strip article {
+      min-height: 190px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--blue);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .strategy-strip article:nth-child(2) { border-top-color: var(--gold); }
+    .strategy-strip article:nth-child(3) { border-top-color: var(--orange); }
+    .strategy-strip article:nth-child(4) { border-top-color: var(--blm); }
+
+    .source-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 650;
+      text-align: right;
+    }
+
+    .gap-board {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .gap-chart {
+      min-height: 620px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .gap-note {
+      display: grid;
+      gap: 18px;
+    }
+
+    .gap-note article {
+      padding: 24px;
+      border-left: 6px solid var(--blm);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .blm-board {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .blm-model {
+      min-height: 650px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .blm-model svg {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .blm-node {
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .blm-node:hover,
+    .blm-node.is-active {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .blm-node rect {
+      fill: #fff;
+      stroke: var(--blm);
+      stroke-width: 3;
+      rx: 6;
+    }
+
+    .blm-node.primary rect {
+      fill: var(--deep-blue);
+      stroke: var(--deep-blue);
+    }
+
+    .blm-node text {
+      fill: var(--ink);
+      font-size: 26px;
+      font-weight: 900;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    .blm-node.primary text {
+      fill: #fff;
+    }
+
+    .blm-panel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .blm-details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .blm-details article,
+    .design-item {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blm);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .blm-details article {
+      min-height: auto;
+    }
+
+    .blm-details h3 {
+      margin-bottom: 4px;
+      font-size: 19px;
+    }
+
+    .blm-details p {
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+
+    .business-design {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .design-list {
+      display: grid;
+      gap: 12px;
+      padding: 26px;
+      border: 4px solid var(--blm);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .design-list span {
+      display: block;
+      color: var(--blm);
+      font-size: 34px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .decode-path {
+      position: relative;
+      min-height: 650px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .decode-path svg {
+      position: absolute;
+      inset: 86px 42px auto;
+      width: calc(100% - 84px);
+      height: 320px;
+      overflow: visible;
+    }
+
+    .decode-legend {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .decode-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-soft);
+    }
+
+    .decode-legend i {
+      width: 28px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--blm);
+    }
+
+    .decode-legend .logic i {
+      background: var(--deep-blue);
+    }
+
+    .decode-stage {
+      position: absolute;
+      width: 285px;
+      min-height: 180px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .decode-stage::before {
+      content: attr(data-step);
+      display: grid;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 14px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blm);
+      color: #fff;
+      font-weight: 950;
+    }
+
+    .decode-stage:nth-of-type(1) { left: 102px; top: 318px; }
+    .decode-stage:nth-of-type(2) { left: 424px; top: 204px; }
+    .decode-stage:nth-of-type(3) { right: 372px; top: 318px; }
+    .decode-stage:nth-of-type(4) { right: 74px; top: 204px; }
+
+    .decode-banner {
+      position: absolute;
+      left: 74px;
+      right: 74px;
+      bottom: 48px;
+      padding: 22px 26px;
+      background: var(--blm);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+      text-align: center;
+      clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%);
+    }
+
+    .strategy-map {
+      position: relative;
+      min-height: 640px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .map-axis {
+      position: absolute;
+      inset: 70px;
+      border-left: 3px solid rgba(23, 33, 47, 0.28);
+      border-bottom: 3px solid rgba(23, 33, 47, 0.28);
+    }
+
+    .map-node {
+      position: absolute;
+      width: 300px;
+      min-height: 150px;
+      padding: 20px;
+      border-top: 6px solid var(--blue);
+    }
+
+    .map-node:nth-of-type(1) { left: 96px; bottom: 90px; border-top-color: var(--green); }
+    .map-node:nth-of-type(2) { left: 430px; top: 268px; border-top-color: var(--gold); }
+    .map-node:nth-of-type(3) { right: 110px; top: 94px; border-top-color: var(--blue); }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .matrix button {
+      height: 210px;
+      padding: 20px;
+      text-align: left;
+      white-space: normal;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .matrix span {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .matrix button[aria-pressed="true"] span { color: rgba(255, 255, 255, 0.78); }
+
+    .path {
+      position: relative;
+      min-height: 650px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .path svg {
+      position: absolute;
+      inset: 30px;
+      width: calc(100% - 60px);
+      height: calc(100% - 60px);
+      overflow: visible;
+    }
+
+    .path-track {
+      fill: none;
+      stroke: rgba(23, 33, 47, 0.14);
+      stroke-width: 30;
+      stroke-linecap: round;
+    }
+
+    .path-line {
+      fill: none;
+      stroke: var(--blue);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 1700;
+      stroke-dashoffset: 1700;
+      animation: draw-line 1.1s ease forwards;
+    }
+
+    .path-node {
+      position: absolute;
+      width: 300px;
+      min-height: 168px;
+      padding: 20px;
+    }
+
+    .path-node::before {
+      content: attr(data-step);
+      display: grid;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 14px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 950;
+    }
+
+    .path-node:nth-of-type(1) { left: 78px; top: 84px; }
+    .path-node:nth-of-type(2) { left: 390px; top: 330px; }
+    .path-node:nth-of-type(3) { right: 330px; top: 96px; }
+    .path-node:nth-of-type(4) { right: 70px; bottom: 74px; }
+
+    .capability {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+    }
+
+    .radar-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 850;
+    }
+
+    .radar-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .radar-dot {
+      width: 28px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--deep-blue);
+    }
+
+    .radar-dot.current {
+      background: var(--orange);
+    }
+
+    .radar-source {
+      margin: 12px 0 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 920px) {
+      .strategy { padding: 22px; }
+      .topline,
+      .hero,
+      .scorecards,
+      .strategy-strip,
+      .gap-board,
+      .blm-board,
+      .insight-summary,
+      .insight-matrix,
+      .intent-row,
+      .blm-details,
+      .business-design,
+      .design-grid,
+      .matrix,
+      .capability {
+        grid-template-columns: 1fr;
+      }
+      .strategy-map,
+      .path,
+      .decode-path { min-height: auto; display: grid; gap: 16px; }
+      .map-axis,
+      .path svg,
+      .decode-path svg { display: none; }
+      .map-node,
+      .path-node,
+      .decode-stage { position: static; width: auto; }
+      .decode-banner { position: static; clip-path: none; }
+      .swot-rail { position: static; grid-template-columns: repeat(4, 1fr); margin-top: 24px; }
+      .swot-rail span { width: auto; height: 56px; }
+      .insight-matrix { padding: 22px; }
+      .intent-badge { width: 120px; height: 120px; }
+      .goal-lane { grid-template-columns: 1fr; }
+      .goal-block { min-height: auto; }
+      .scorecards { min-height: auto; padding: 0; }
+      .scorecards::before,
+      .scorecards::after,
+      .kpi-hub { display: none; }
+      .scorecards .svg-kpi { width: min(260px, 100%); margin: 0 auto; }
+      h1 { font-size: 40px; }
+      h2 { font-size: 30px; }
+    }
   </style>
   <link rel="stylesheet" href="../../_shared/editable-runtime/editable.css">
 </head>
 <body>
-<main class="strategy" data-edit-root>
-  <header class="topline"><div class="brand"><span class="brand-mark">ST</span><span>格力电器 · BLM 战略规划</span></div><nav class="tabs"><button data-open-panel="overview" aria-selected="true">总览</button><button data-open-panel="gap" aria-selected="false">差距</button><button data-open-panel="insight" aria-selected="false">洞察</button><button data-open-panel="intent" aria-selected="false">意图</button><button data-open-panel="goals" aria-selected="false">目标</button><button data-open-panel="design" aria-selected="false">业务设计</button><button data-open-panel="decode" aria-selected="false">解码路径</button><button data-open-panel="capability" aria-selected="false">能力</button></nav></header>
-  <section class="page active" data-panel="overview"><div class="hero"><section class="hero-copy"><div><p class="eyebrow">GREE ELECTRIC / 2026</p><h1>格力电器从空调龙头转向全球化、工业化和智能家居协同</h1><p class="lead">基于 2025 年 1711 亿收入、290 亿归母净利润和 2026Q1 增长修复，格力需要在空调主业承压周期中，用高端节能、海外品牌、本地服务和工业装备构建第二增长曲线。</p></div></section><section class="scorecards"><div class="kpi-hub">战略跃迁<span>2026-2028</span></div><article class="svg-kpi"><p>2025收入</p><strong>1711亿</strong><span>年度报告口径</span></article><article class="svg-kpi"><p>2025归母净利</p><strong>290亿</strong><span>盈利韧性</span></article><article class="svg-kpi"><p>2026Q1收入</p><strong>430亿</strong><span>同比 +3.52%</span></article><article class="svg-kpi"><p>服务覆盖</p><strong>190+</strong><span>国家和地区</span></article></section></div><section class="strategy-strip"><article><h3>战略起点</h3><p>空调基本盘仍强，但行业进入高基数和存量换新阶段，增长不能只依赖国内空调单品。</p></article><article><h3>市场洞察</h3><p>国内家电短期承压，海外品牌化、节能高端化、智能家居和工业制品是结构性机会。</p></article><article><h3>战略意图</h3><p>从“中国空调龙头”升级为“全球高端舒适环境与工业能力平台”。</p></article><article><h3>业务设计</h3><p>以空调现金牛支撑海外、本地服务、智能家居和工业装备四条战役线。</p></article></section><p class="source-note">资料口径：格力电器 2025 年度报告、2026 年第一季度报告；未来三年目标为战略规划建议。</p></section>
-  <section class="page" data-panel="gap"><h2>差距分析：主业韧性与增长曲线之间的差距</h2><div class="gap-board"><article class="gap-chart"><svg class="svg-chart" viewBox="0 0 760 520"><line class="grid-line" x1="80" y1="440" x2="700" y2="440"/><line class="grid-line" x1="80" y1="440" x2="80" y2="80"/><path d="M120 420 C260 330 380 300 510 250" fill="none" stroke="var(--blue)" stroke-width="8"/><path d="M120 420 C260 380 380 366 510 350" fill="none" stroke="var(--orange)" stroke-width="8"/><path d="M510 250 C590 190 640 140 690 96" fill="none" stroke="var(--blm)" stroke-width="8"/><line x1="510" y1="350" x2="510" y2="250" stroke="var(--orange)" stroke-width="8"/><text x="530" y="306" fill="var(--orange)" font-size="30" font-weight="900">差距</text><text x="92" y="474" class="axis-label">现状</text><text x="450" y="474" class="axis-label">三年目标</text><text x="635" y="82" class="axis-label">愿景</text></svg></article><aside class="gap-list"><article><h3>业绩差距</h3><p>收入和利润恢复小幅增长，但现金流同比下滑、扣非利润微降，说明经营质量仍需修复。</p></article><article><h3>机会差距</h3><p>全球渠道、售后服务、工业装备和智能家居协同尚未形成与空调主业同等强度的利润贡献。</p></article><article><h3>组织差距</h3><p>从制造效率型组织走向全球本地化营销、服务和数字化用户运营，需要补齐海外品牌经营能力。</p></article></aside></div></section>
-  <section class="page" data-panel="insight"><h2>市场洞察总结：防御基本盘，进攻海外与服务增量</h2><div class="matrix"><div><h3>扭转型战略</h3><ul><li>传统低端空调价格战</li><li>单纯渠道压货</li></ul></div><div class="active"><h3>增长型战略</h3><ul><li>海外品牌化经营</li><li>高端节能空调</li><li>商用中央空调</li><li>服务与安装网络</li></ul></div><div><h3>防御型战略</h3><ul><li>国内存量换新</li><li>渠道库存管理</li><li>成本效率优化</li></ul></div><div><h3>多种经营型战略</h3><ul><li>工业制品</li><li>智能装备</li><li>新能源相关部件</li></ul></div><p class="axis-note">横轴：竞争地位弱 → 强；纵轴：市场增长缓慢 → 快速。格力当前适合“基本盘防御 + 海外和服务进攻”的组合战略。</p></div></section>
-  <section class="page" data-panel="intent"><h2>战略意图：使命、愿景和三年目标</h2><div class="intent"><article><div class="badge">使命<br>Why</div><div><h3>让高质量空气、温控和工业能力服务全球家庭与企业</h3><p>从单品空调制造，升级为舒适环境、节能系统和工业能力的长期提供者。</p></div></article><article><div class="badge">愿景<br>Where</div><div><h3>成为全球领先的高端舒适环境与智能制造平台</h3><p>在重点海外市场建立品牌、渠道、安装、售后和本地内容能力。</p></div></article><article><div class="badge">目标<br>What</div><div><h3>2026-2028 年形成“空调现金牛 + 海外增量 + 工业能力”的增长组合</h3><p>经营目标聚焦盈利质量、海外收入贡献、服务网络覆盖和组织数字化能力。</p></div></article></div></section>
-  <section class="page" data-panel="goals"><h2>三年战略目标：四个维度拆解</h2><div class="goals"><article class="goal-card"><h3>财务维度</h3><strong>质量优先</strong><ul><li>收入恢复稳健增长</li><li>扣非利润率稳定</li><li>现金流转正修复</li></ul></article><article class="goal-card"><h3>客户维度</h3><strong>海外突破</strong><ul><li>重点国家品牌心智提升</li><li>本地安装售后可视化</li><li>高端节能产品占比提升</li></ul></article><article class="goal-card"><h3>内部运营</h3><strong>渠道重构</strong><ul><li>库存从压货转动销</li><li>服务网点标准化</li><li>线上线下会员打通</li></ul></article><article class="goal-card"><h3>学习成长</h3><strong>全球组织</strong><ul><li>海外营销人才梯队</li><li>区域数据中台</li><li>内容电商和本地化能力</li></ul></article></div></section>
-  <section class="page" data-panel="design"><h2>业务设计：六要素</h2><div class="design-grid"><article class="node-card"><h3>客户选择</h3><p>国内高端换新家庭、海外中高端家庭、商用中央空调客户和工业企业客户。</p></article><article class="node-card"><h3>价值主张</h3><p>更节能、更可靠、更好安装维护的全周期温控与舒适环境解决方案。</p></article><article class="node-card"><h3>盈利模式</h3><p>整机销售 + 安装服务 + 维保清洗 + 商用项目 + 工业制品。</p></article><article class="node-card"><h3>活动范围</h3><p>研发制造、渠道零售、海外本地营销、售后服务、数字化会员运营。</p></article><article class="node-card"><h3>持续价值</h3><p>用服务数据、节能能力和渠道网络沉淀复购与换新机会。</p></article><article class="node-card"><h3>风险管理</h3><p>管理价格战、库存、原材料成本、汇率和海外合规风险。</p></article></div></section>
-  <section class="page" data-panel="decode"><h2>战略解码路径：四阶段推进</h2><div class="decode"><article class="stage"><span>01</span><h3>准备阶段</h3><p>统一海外重点市场、服务口径、价格体系和库存红线。</p></article><article class="stage"><span>02</span><h3>激发团队</h3><p>把国内产品、海外营销、服务和工业业务拆成季度战役。</p></article><article class="stage"><span>03</span><h3>激发组织</h3><p>建立区域经营复盘、服务标准和数字化渠道看板。</p></article><article class="stage"><span>04</span><h3>业务突破</h3><p>以海外样板市场和高端套系产品验证增长闭环。</p></article></div></section>
-  <section class="page" data-panel="capability"><h2>能力差距雷达：现状能力与三年目标对比</h2><div class="capability"><article class="panel" style="padding:28px"><h3>解读</h3><p>格力的制造、品质和空调技术能力强，关键差距在海外品牌营销、服务网络数字化、智能家居生态协同和多业务组合管理。</p><div class="radar-legend"><span><i></i>三年目标</span><span><i class="cur"></i>当前现状</span></div></article><article class="radar-card"><svg class="svg-chart" viewBox="0 0 520 430"><polygon class="radar-grid" points="260,44 450,154 410,360 110,360 70,154"/><polygon class="radar-grid" points="260,112 382,182 356,310 164,310 138,182"/><polygon class="radar-area" points="260,70 410,170 356,318 150,330 106,176"/><polygon class="radar-area alt" points="260,112 342,204 316,282 188,292 152,214"/><text class="axis-label" x="238" y="28">制造</text><text class="axis-label" x="450" y="154">海外</text><text class="axis-label" x="382" y="394">服务</text><text class="axis-label" x="68" y="394">智能</text><text class="axis-label" x="18" y="154">工业</text></svg></article></div></section>
-</main>
-<script>
-document.querySelectorAll('[data-open-panel]').forEach((btn)=>{btn.addEventListener('click',()=>{const id=btn.dataset.openPanel;document.querySelectorAll('[data-open-panel]').forEach(b=>b.setAttribute('aria-selected',String(b===btn)));document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.dataset.panel===id));});});
-</script>
-<script src="../../_shared/editable-runtime/editable.js" data-filename="gree-electric-2026-strategy-planning"></script>
+  <main class="strategy" data-edit-root>
+    <header class="topline">
+      <div class="brand"><span class="brand-mark">ST</span><span>格力电器 · BLM 战略规划</span></div>
+      <nav class="tabs" aria-label="BLM战略规划页面切换">
+        <button type="button" data-open-panel="overview" aria-selected="true">总览</button>
+        <button type="button" data-open-panel="gap" aria-selected="false">差距</button>
+        <button type="button" data-open-panel="blm" aria-selected="false">BLM模型</button>
+        <button type="button" data-open-panel="insight" aria-selected="false">洞察</button>
+        <button type="button" data-open-panel="intent" aria-selected="false">意图</button>
+        <button type="button" data-open-panel="goals" aria-selected="false">目标</button>
+        <button type="button" data-open-panel="design" aria-selected="false">业务设计</button>
+        <button type="button" data-open-panel="decode" aria-selected="false">解码路径</button>
+        <button type="button" data-open-panel="capability" aria-selected="false">能力</button>
+      </nav>
+    </header>
+
+    <section class="page active" data-panel="overview">
+      <div class="hero">
+        <section class="hero-copy">
+          <div>
+            <p class="eyebrow">GREE ELECTRIC / 2026</p>
+            <h1>格力电器「舒适环境与智能制造」战略规划与解码</h1>
+            <p class="lead">基于 2025 年收入、盈利韧性、空调主业和全球服务覆盖，围绕「舒适环境与智能制造」明确 2026-2028 年从主业质量修复、海外品牌化到服务化与工业能力增长的战略路径。</p>
+          </div>
+        </section>
+        <section class="scorecards">
+          <div class="kpi-hub" aria-hidden="true">战略跃迁<span>2026 战略基线</span></div>
+          <article class="svg-kpi"><p>2025收入</p><strong>1711亿</strong><span>年度报告口径</span></article>
+          <article class="svg-kpi"><p>2025归母净利</p><strong>290亿</strong><span>盈利韧性</span></article>
+          <article class="svg-kpi"><p>2026Q1收入</p><strong>430亿</strong><span>同比 +3.52%</span></article>
+          <article class="svg-kpi"><p>服务覆盖</p><strong>190+</strong><span>国家和地区</span></article>
+        </section>
+      </div>
+      <section class="strategy-strip">
+        <article><h3>战略起点</h3><p>空调基本盘仍是现金牛，但行业进入高基数和存量换新阶段；下一阶段核心差距不是单点产品，而是高端节能、海外品牌、本地服务与工业能力组合。</p></article>
+        <article><h3>市场洞察总结</h3><p>国内家电短期承压，海外品牌化、节能高端化、商用中央空调、智能家居和工业制品提供结构性机会。格力处于“主业强、增长需再造”的组合型坐标。</p></article>
+        <article><h3>战略意图与目标</h3><p>使命聚焦“让世界爱上中国造”，愿景升级为全球领先的高端舒适环境与智能制造平台，目标聚焦主业质量、海外品牌、服务网络和工业能力。</p></article>
+        <article><h3>业务设计与解码</h3><p>围绕空调、商用温控、智能家居、工业装备和服务网络建立闭环，拆解为高端节能、海外突破、服务运营、工业增长四条战役线。</p></article>
+      </section>
+      <p class="source-note">资料口径：事实数据取自格力电器 2025 年度报告和 2026 年第一季度报告；未来三年目标为战略规划建议，不代表公司正式披露指引。</p>
+    </section>
+
+    <section class="page" data-panel="gap">
+      <h2>差距分析：从空调龙头到全球品牌经营平台的两类差距</h2>
+      <div class="gap-board">
+        <article class="gap-chart">
+          <svg class="svg-chart" viewBox="0 0 760 560" role="img" aria-label="愿景与现实业务前景差距图">
+            <line class="grid-line" x1="80" y1="470" x2="700" y2="470"/>
+            <line class="grid-line" x1="80" y1="470" x2="80" y2="80"/>
+            <text class="axis-label" x="40" y="88">发展水平</text>
+            <text class="axis-label" x="130" y="520">现在</text>
+            <text class="axis-label" x="380" y="520">五年目标</text>
+            <text class="axis-label" x="610" y="520">愿景</text>
+            <path d="M 140 455 C 270 386, 360 318, 470 250" fill="none" stroke="rgba(23,33,47,.28)" stroke-width="10" stroke-linecap="round"/>
+            <path d="M 140 455 C 270 420, 360 388, 470 360" fill="none" stroke="var(--deep-blue)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 470 250 C 540 190, 586 142, 650 105" fill="none" stroke="var(--blm)" stroke-width="8" stroke-linecap="round"/>
+            <line x1="470" y1="360" x2="470" y2="250" stroke="var(--orange)" stroke-width="8" stroke-linecap="round"/>
+            <text x="492" y="312" fill="var(--orange)" font-size="28" font-weight="900">差距</text>
+            <circle cx="140" cy="455" r="12" fill="var(--ink)"/>
+            <circle cx="470" cy="360" r="12" fill="var(--deep-blue)"/>
+            <circle cx="470" cy="250" r="12" fill="var(--gold)"/>
+            <circle cx="650" cy="105" r="14" fill="var(--blm)"/>
+            <foreignObject x="100" y="336" width="220" height="108"><div xmlns="http://www.w3.org/1999/xhtml" style="font:800 18px Inter, sans-serif;color:#245f7f;">五年后现实业务前景<br><small style="font-weight:650;color:#657181;">假定现有业务组合和趋势不变</small></div></foreignObject>
+            <foreignObject x="360" y="156" width="250" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="font:800 18px Inter, sans-serif;color:#17212f;">五年战略目标<br><small style="font-weight:650;color:#657181;">为达成远期目标需要达到的水平</small></div></foreignObject>
+            <foreignObject x="562" y="44" width="150" height="72"><div xmlns="http://www.w3.org/1999/xhtml" style="font:900 20px Inter, sans-serif;color:#27b873;">愿景<br><small style="font-weight:650;color:#657181;">十年或更久</small></div></foreignObject>
+          </svg>
+        </article>
+        <aside class="gap-note">
+          <article><h3>业绩差距</h3><p>2025 年收入达到 1711 亿元、归母净利润 290 亿元；2026Q1 收入和利润恢复小幅增长，但扣非利润微降、经营现金流同比下降，主业质量仍需修复。</p></article>
+          <article><h3>机会差距</h3><p>格力拥有空调技术、制造效率、服务覆盖和工业能力，但真正机会在海外品牌、本地服务、商用温控、智能家居和工业装备的组合增益。</p></article>
+          <article><h3>模板用法</h3><p>短期以现金流修复、渠道动销和高端节能产品补齐业绩差距；中期以海外品牌、本地服务和工业装备填补机会差距。</p></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page" data-panel="insight">
+      <h2>市场洞察总结：防御基本盘，进攻海外与服务增量</h2>
+      <div class="insight-summary">
+        <aside class="insight-left">
+          <svg class="insight-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="36" cy="82" r="18" fill="none" stroke="#fff" stroke-width="8"/>
+            <circle cx="62" cy="58" r="18" fill="none" stroke="#fff" stroke-width="8"/>
+            <circle cx="88" cy="82" r="18" fill="none" stroke="#fff" stroke-width="8"/>
+            <path d="M35 28 L35 58 M62 22 L62 36 M88 28 L88 58 M24 48 L35 58 L46 48 M51 26 L62 37 L73 26 M77 48 L88 58 L99 48" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>市场洞察总结：国内空调与白电进入高基数再平衡，海外高温市场、节能升级、服务网络和工业制品仍有增长窗口；格力应采用“基本盘防御 + 海外进攻”的组合战略。</h3>
+          <div class="swot-rail">
+            <span>优势</span>
+            <span>劣势</span>
+            <span>机会</span>
+            <span>威胁</span>
+          </div>
+        </aside>
+        <section class="insight-matrix">
+          <div class="strategy-list">
+            <div><strong>扭转型战略</strong><ul><li>海外品牌突破</li><li>服务体验补齐</li><li>渠道效率提升</li><li>渠道动销改善</li><li>组织协同强化</li></ul></div>
+            <div><strong>防御型战略</strong><ul><li>现金流修复</li><li>库存韧性</li><li>海外合规</li></ul></div>
+          </div>
+          <div class="quadrant">
+            <svg viewBox="0 0 560 520" role="img" aria-label="市场洞察大战略矩阵">
+              <defs>
+                <marker id="axis-arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#11a8d8"/></marker>
+              </defs>
+              <line x1="80" y1="270" x2="500" y2="270" stroke="#11a8d8" stroke-width="5" marker-end="url(#axis-arrow)"/>
+              <line x1="300" y1="450" x2="300" y2="74" stroke="#11a8d8" stroke-width="5" marker-end="url(#axis-arrow)"/>
+              <text x="20" y="277" fill="#555" font-size="22" font-weight="900">竞争地位弱</text>
+              <text x="410" y="277" fill="#555" font-size="22" font-weight="900">竞争地位强</text>
+              <text x="235" y="64" fill="#555" font-size="22" font-weight="900">市场增长迅速</text>
+              <text x="235" y="486" fill="#555" font-size="22" font-weight="900">市场增长缓慢</text>
+              <text x="142" y="160" fill="var(--deep-blue)" font-size="25" font-weight="950">扭转型战略</text>
+              <text x="354" y="160" fill="var(--deep-blue)" font-size="23" font-weight="950">增长型战略</text>
+              <text x="142" y="380" fill="var(--deep-blue)" font-size="25" font-weight="950">防御型战略</text>
+              <text x="352" y="380" fill="var(--deep-blue)" font-size="25" font-weight="950">多种经营型战略</text>
+              <g class="current-position" aria-label="当前战略坐标，可根据公司实际洞察移动">
+                <circle cx="390" cy="185" r="12" fill="#ff0050"/>
+                <path d="M390 185 L426 185" stroke="#ff0050" stroke-width="5" marker-end="url(#axis-arrow)"/>
+                <rect x="410" y="134" width="104" height="48" rx="8" fill="#fff" stroke="#ff0050" stroke-width="2"/>
+                <text x="462" y="154" fill="var(--deep-blue)" font-size="15" font-weight="900" text-anchor="middle">格力坐标</text>
+                <text x="462" y="172" fill="var(--muted)" font-size="13" font-weight="800" text-anchor="middle">增长型</text>
+              </g>
+              <text x="64" y="298" fill="#555" font-size="18">0</text><text x="178" y="298" fill="#555" font-size="18">1.5</text><text x="292" y="298" fill="#555" font-size="18">2.5</text><text x="420" y="298" fill="#555" font-size="18">4.5</text>
+              <text x="310" y="446" fill="#555" font-size="18">0</text><text x="310" y="345" fill="#555" font-size="18">1.5</text><text x="310" y="245" fill="#555" font-size="18">3</text><text x="310" y="145" fill="#555" font-size="18">4.5</text><text x="310" y="92" fill="#555" font-size="18">5</text>
+            </svg>
+          </div>
+          <div class="strategy-list">
+            <div><strong>增长型战略</strong><ul><li>高端节能空调</li><li>商用中央空调</li><li>本地服务网络</li><li>海外渠道协同</li><li>全球品牌经营</li><li>服务伙伴</li></ul></div>
+            <div><strong>多种经营型战略</strong><ul><li>工业制品</li><li>智能装备</li><li>新能源相关部件</li></ul></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" data-panel="intent">
+      <h2>战略意图举例：从空调龙头到全球舒适环境平台</h2>
+      <div class="intent-board">
+        <article class="intent-row">
+          <div class="intent-badge">1.使命<br>Why</div>
+          <div class="intent-card"><h3>我们为什么存在<br>10年以上</h3><p>让全球家庭和企业获得更节能、更可靠、更好服务的舒适环境与工业能力。</p></div>
+          <div class="intent-example"><ul><li>使命：好空调、好服务、好制造走向全球</li><li>愿景：全球高端舒适环境与智能制造平台</li></ul></div>
+        </article>
+        <article class="intent-row">
+          <div class="intent-badge">2.愿景<br>Where</div>
+          <div class="intent-card"><h3>我们要到哪里去<br>5-10年</h3><p>成为全球领先的高端舒适环境和智能制造平台，在家用空调、商用温控、智能家居、工业装备和服务网络上形成协同优势。</p></div>
+          <div class="intent-example"><ul><li>愿景示例：从空调制造品牌升级为舒适环境服务平台</li><li>关键判断：用安装售后、渠道动销和服务数据放大长期价值</li></ul></div>
+        </article>
+        <article class="intent-row">
+          <div class="intent-badge">3.目标<br>What</div>
+          <div class="intent-card"><h3>使命愿景的具象化<br>3-5年</h3><p>到 2028 年，形成空调主业、海外品牌、服务网络、智能家居和工业制品的高质量增长闭环，提升盈利质量和全球经营能力。</p></div>
+          <div class="intent-example"><ul><li>使命愿景的具体化：高端节能、海外品牌、服务收入、工业能力、全球经营质量</li><li>所有目标必须能被业务战役承接</li></ul></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" data-panel="goals">
+      <h2>三年战略目标建议：从四个维度解码经营结果</h2>
+      <div class="three-year">
+        <div class="goal-lane">
+          <div class="goal-block">保持收入和利润高质量增长，修复经营现金流，提升高端节能产品、服务和工业业务利润贡献</div>
+          <div class="goal-thumb">财务曲线 / 阶梯增长</div>
+          <div class="goal-dim">财务<br>维度</div>
+        </div>
+        <div class="goal-lane">
+          <div class="goal-block">提升国内高端换新用户、海外中高端家庭、商用中央空调客户和工业企业客户的复购与服务满意度</div>
+          <div class="goal-thumb">区域覆盖 / 客户地图</div>
+          <div class="goal-dim">客户<br>维度</div>
+        </div>
+        <div class="goal-lane">
+          <div class="goal-block">打通产品研发、渠道动销、安装售后、会员运营和海外服务体系，提升交付效率、售后服务能力与全球渠道协同</div>
+          <div class="goal-thumb">协同交付 / 伙伴网络</div>
+          <div class="goal-dim">内部<br>运营<br>维度</div>
+        </div>
+        <div class="goal-lane">
+          <div class="goal-block">继续扩大节能技术、智能制造、海外营销和服务数字化投入，建设全球经营、服务运营和工业业务复合型人才梯队</div>
+          <div class="goal-thumb">人才梯队 / 学习成长</div>
+          <div class="goal-dim">学习<br>成长<br>维度</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" data-panel="blm">
+      <h2>BLM 模型：把舒适环境战略转成组织执行闭环</h2>
+      <div class="blm-board">
+        <article class="blm-model">
+          <svg viewBox="0 0 850 600" role="img" aria-label="BLM业务领先模型">
+            <rect x="80" y="58" width="650" height="54" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="405" y="91" fill="var(--blm)" font-size="26" font-weight="900" text-anchor="middle">领导力</text>
+            <rect x="80" y="140" width="320" height="330" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="240" y="178" fill="var(--blm)" font-size="25" font-weight="900" text-anchor="middle">战略</text>
+            <rect x="420" y="140" width="310" height="330" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="575" y="178" fill="var(--blm)" font-size="25" font-weight="900" text-anchor="middle">执行</text>
+            <rect x="80" y="494" width="650" height="54" fill="none" stroke="var(--ink)" stroke-width="2"/><text x="405" y="528" fill="var(--blm)" font-size="26" font-weight="900" text-anchor="middle">价值观</text>
+            <g class="blm-node primary is-active" data-blm-title="市场洞察" data-blm-text="围绕环境、行业、客户、竞争和自身能力判断格力增长坐标。" data-blm-details="[[&quot;看环境&quot;,&quot;以旧换新、能效政策、海外高温需求、全球合规和原材料波动共同影响家电竞争。&quot;],[&quot;看行业&quot;,&quot;国内白电进入高基数再平衡，海外高温市场、商用温控和服务化仍有增长窗口。&quot;],[&quot;看客户&quot;,&quot;高端换新用户、海外家庭和商用客户需要节能、可靠、可安装、可维护的完整体验。&quot;],[&quot;看竞争&quot;,&quot;竞争从单品价格转向能效、安装、售后、渠道动销和品牌信任。&quot;],[&quot;看自己&quot;,&quot;格力具备空调技术、制造效率、服务覆盖和品牌信任优势。&quot;]]"><rect x="184" y="198" width="120" height="58"/><text x="244" y="228">市场洞察</text></g>
+            <g class="blm-node" data-blm-title="战略意图" data-blm-text="明确格力为什么赢、未来赢在哪里、三年内用什么目标承接。" data-blm-details="[[&quot;使命 Why&quot;,&quot;让全球家庭和企业获得更节能、更可靠、更好服务的舒适环境。&quot;],[&quot;愿景 Where&quot;,&quot;成为全球领先的高端舒适环境与智能制造平台。&quot;],[&quot;目标 What&quot;,&quot;提升高端产品占比、海外品牌动销、服务收入和工业能力贡献。&quot;]]"><rect x="120" y="285" width="118" height="58"/><text x="179" y="315">战略意图</text></g>
+            <g class="blm-node" data-blm-title="业务设计" data-blm-text="定义舒适环境与智能制造业务的客户选择、价值主张、盈利模式和风险边界。" data-blm-details="[[&quot;客户选择&quot;,&quot;聚焦国内高端换新家庭、海外中高端家庭、商用中央空调客户和工业企业客户。&quot;],[&quot;价值主张&quot;,&quot;空调作为现金牛，商用温控作为增长场景，服务网络作为体验层，工业能力作为第二曲线。&quot;],[&quot;盈利模式&quot;,&quot;整机利润、安装维保、清洗延保、商用项目和工业制品共同驱动。&quot;],[&quot;活动范围&quot;,&quot;自建节能技术、压缩机、电机、控制器、核心制造和服务标准。&quot;],[&quot;持续价值&quot;,&quot;通过会员运营、安装售后数据、渠道动销和服务订阅形成复利。&quot;],[&quot;风险管理&quot;,&quot;管理价格战、库存、原材料成本、汇率、海外合规和服务质量风险。&quot;]]"><rect x="250" y="285" width="118" height="58"/><text x="309" y="315">业务设计</text></g>
+            <g class="blm-node" data-blm-title="创新焦点" data-blm-text="识别节能技术、智能家居、服务数字化和海外本地化的创新焦点。" data-blm-details="[[&quot;服务系统&quot;,&quot;围绕统一服务体验打通销售、安装、维保和会员运营入口。&quot;],[&quot;AI 服务&quot;,&quot;把 AI 和物联网能力嵌入节能控制、故障预警和主动服务。&quot;],[&quot;服务体验&quot;,&quot;围绕安装、清洗、维修、配件和商用项目交付建立差异化。&quot;],[&quot;零售服务&quot;,&quot;让门店、电商、服务网点和海外经销商承接换新复购。&quot;]]"><rect x="184" y="382" width="120" height="58"/><text x="244" y="412">创新焦点</text></g>
+            <g class="blm-node" data-blm-title="关键任务" data-blm-text="把舒适环境战略拆成少数可复盘、可负责、可衡量的关键战役。" data-blm-details="[[&quot;高端节能空调&quot;,&quot;持续提升节能、静音、健康、可靠性和高端用户心智。&quot;],[&quot;海外突破&quot;,&quot;提升本地渠道、安装售后、内容营销和重点市场动销。&quot;],[&quot;服务运营&quot;,&quot;提升安装、清洗、维保、延保和会员复购的标准化能力。&quot;],[&quot;全球运营&quot;,&quot;强化重点海外市场渠道、合规、服务和品牌经营质量。&quot;]]"><rect x="450" y="285" width="118" height="58"/><text x="509" y="315">关键任务</text></g>
+            <g class="blm-node" data-blm-title="正式组织" data-blm-text="用正式组织、流程和治理机制承接主业、海外、服务和工业协同。" data-blm-details="[[&quot;跨业务机制&quot;,&quot;建立空调、商用温控、海外营销、服务运营和工业业务共同决策机制。&quot;],[&quot;产品节奏&quot;,&quot;用统一经营节奏会协调产品、渠道、安装、服务和海外动销。&quot;],[&quot;经营复盘&quot;,&quot;按月跟踪收入、利润、现金流、库存、服务收入和海外动销。&quot;],[&quot;风险治理&quot;,&quot;对产品质量、海外合规、库存和服务质量风险设置升级机制。&quot;]]"><rect x="586" y="285" width="118" height="58"/><text x="645" y="315">正式组织</text></g>
+            <g class="blm-node" data-blm-title="人才" data-blm-text="识别海外营销、服务运营、智能制造和复合型管理人才缺口。" data-blm-details="[[&quot;海外人才&quot;,&quot;补强海外渠道、安装售后、商用项目和服务质量体系。&quot;],[&quot;数字人才&quot;,&quot;建设服务数字化、IoT控制、数据产品和平台工程能力。&quot;],[&quot;全球化人才&quot;,&quot;补强海外渠道、合规、品牌内容和本地服务团队。&quot;],[&quot;复合型管理者&quot;,&quot;培养懂制造、渠道、服务、海外和工业业务协同的负责人。&quot;]]"><rect x="518" y="382" width="118" height="58"/><text x="577" y="412">人才</text></g>
+            <g class="blm-node" data-blm-title="氛围与文化" data-blm-text="让用户价值、工程质量、服务协同和长期主义支撑战略执行。" data-blm-details="[[&quot;用户价值&quot;,&quot;以高端换新用户、海外家庭和商用客户体验作为跨业务共同语言。&quot;],[&quot;工程文化&quot;,&quot;保持产品工程和供应链效率，同时强化安装售后和服务质量底线。&quot;],[&quot;生态协同&quot;,&quot;减少单渠道最优，转向销售、安装、服务和复购全旅程最优。&quot;],[&quot;长期主义&quot;,&quot;用季度复盘校准节奏，但避免牺牲长期品牌、渠道信任和服务口碑。&quot;]]"><rect x="500" y="198" width="154" height="58"/><text x="577" y="228">氛围与文化</text></g>
+            <path d="M304 228 L518 228 M238 314 L250 314 M244 256 L244 382 M368 314 L450 314 M568 314 L586 314 M577 256 L577 382" stroke="rgba(23,33,47,.32)" stroke-width="2" fill="none"/>
+            <polygon points="402,305 422,325 402,345 382,325" fill="var(--blm)"/>
+            <polygon points="740,285 780,325 740,365" fill="var(--blm)"/>
+            <text x="806" y="302" fill="var(--blm)" font-size="24" font-weight="900">市场结果</text>
+            <ellipse cx="810" cy="348" rx="44" ry="24" fill="none" stroke="var(--blm)" stroke-width="2"/><text x="810" y="356" fill="var(--ink)" font-size="22" font-weight="900" text-anchor="middle">差距</text>
+          </svg>
+        </article>
+        <aside class="blm-panel">
+          <p class="eyebrow">Selected Node</p>
+          <h3 id="blm-title">市场洞察</h3>
+          <p id="blm-text">用五看确保洞察全面性：环境、行业、客户、竞争、自己。</p>
+          <div class="blm-details" id="blm-details"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page" data-panel="design">
+      <h2>业务设计：从空调规模转向全球服务经营系统</h2>
+      <div class="business-design">
+        <aside class="design-list">
+          <span>1. 客户选择</span>
+          <span>2. 价值主张</span>
+          <span>3. 盈利模式</span>
+          <span>4. 活动范围</span>
+          <span>5. 持续价值</span>
+          <span>6. 风险管理</span>
+        </aside>
+        <section class="design-grid">
+          <article class="design-item"><h3>客户选择</h3><p>聚焦国内高端换新家庭、海外中高端家庭、商用中央空调客户和工业企业客户，避免低毛利、低服务复购、低品牌沉淀的分散投入。</p></article>
+          <article class="design-item"><h3>价值主张</h3><p>用高端节能空调作为入口、海外品牌作为移动空间、智能家居作为家庭场景、智能服务作为体验层，提供连续一致的智能生活。</p></article>
+          <article class="design-item"><h3>盈利模式</h3><p>整机利润 + 安装维保 + 清洗延保 + 商用项目 + 工业制品；提升客户全生命周期价值。</p></article>
+          <article class="design-item"><h3>活动范围</h3><p>自建核心节能技术、压缩机、电机、控制器和服务标准；渠道、安装、内容服务和区域伙伴协同。</p></article>
+          <article class="design-item"><h3>持续价值</h3><p>通过会员运营、服务数据、安装维保、渠道动销和品牌口碑形成长期复利。</p></article>
+          <article class="design-item"><h3>风险管理</h3><p>管理价格战、库存、原材料成本、汇率、海外合规、服务质量和组织复杂度。</p></article>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" data-panel="decode">
+      <h2>战略解码路径：四阶段推动海外、服务和高质量增长</h2>
+      <div class="decode-path">
+        <div class="decode-legend" aria-label="战略解码双线说明">
+          <span class="emotion"><i></i>情感线：形成共识、激发团队</span>
+          <span class="logic"><i></i>逻辑线：目标拆解、行动复盘</span>
+        </div>
+        <svg viewBox="0 0 1280 360" role="img" aria-label="战略解码路径">
+          <path d="M 70 185 C 214 48, 328 48, 460 185 S 706 322, 838 185 S 1068 48, 1210 185" fill="none" stroke="rgba(36,95,127,.16)" stroke-width="34" stroke-linecap="round"/>
+          <path d="M 70 185 C 214 48, 328 48, 460 185 S 706 322, 838 185 S 1068 48, 1210 185" fill="none" stroke="var(--deep-blue)" stroke-width="8" stroke-linecap="round" class="path-line"/>
+        </svg>
+        <article class="decode-stage" data-step="01"><h3>准备阶段</h3><p>统一 2026 战略主题、差距定义、海外与服务优先级和资源边界；明确不做清单与风险红线。</p></article>
+        <article class="decode-stage" data-step="02"><h3>激发团队</h3><p>管理层共同确认舒适环境与智能制造愿景、三年目标和四大战役，形成研发、制造、渠道、服务和海外团队共同语言。</p></article>
+        <article class="decode-stage" data-step="03"><h3>激发组织</h3><p>将高端节能空调、服务交付、智能家居协同和全球运营拆成季度 OKR 与经营复盘节奏。</p></article>
+        <article class="decode-stage" data-step="04"><h3>业务突破</h3><p>用重点海外市场和高端换新用户验证战略，建立从产品发布、渠道转化、安装售后到服务复购的增长闭环。</p></article>
+        <div class="decode-banner">持续辅导：用月度经营会、渠道动销会和季度战略复盘校准节奏</div>
+      </div>
+    </section>
+
+    <section class="page" data-panel="capability">
+      <h2>能力差距雷达：现状能力与三年目标对比</h2>
+      <div class="capability">
+        <article class="panel"><h3>解读</h3><p>雷达图用于判断战略目标对组织能力的要求。当前优势在空调技术、制造效率和服务覆盖，关键差距在海外品牌经营、服务数字化、智能家居协同和多业务组合管理。</p></article>
+        <article class="panel">
+          <svg class="svg-chart" viewBox="0 0 520 420" role="img" aria-label="能力差距雷达图">
+            <polygon class="radar-grid" points="260,42 450,150 410,350 110,350 70,150"/>
+            <polygon class="radar-grid" points="260,104 386,176 360,308 160,308 134,176"/>
+            <polygon class="radar-grid" points="260,166 322,202 310,266 210,266 198,202"/>
+            <line class="grid-line" x1="260" y1="42" x2="260" y2="350"/><line class="grid-line" x1="450" y1="150" x2="110" y2="350"/><line class="grid-line" x1="70" y1="150" x2="410" y2="350"/>
+            <polygon class="radar-area" points="260,78 410,168 366,312 156,318 112,174"/>
+            <polygon class="radar-area alt" points="260,132 360,190 330,286 190,300 150,204"/>
+            <text class="axis-label" x="228" y="26">产品</text><text class="axis-label" x="438" y="148">全球化</text><text class="axis-label" x="386" y="386">服务交付</text><text class="axis-label" x="70" y="386">智能服务</text><text class="axis-label" x="16" y="148">组织协同</text>
+          </svg>
+          <div class="radar-legend"><span><i class="radar-dot"></i>三年目标能力</span><span><i class="radar-dot current"></i>格力 2025 现状评估</span></div>
+          <p class="radar-source">评分口径：基于公开披露信息和本页战略判断形成的定性评估，不代表格力官方指标，也不是行业平均水准。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div class="tooltip"></div>
+  <script src="../../_shared/svg-chart-components/svg-components.js"></script>
+  <script>
+    document.querySelectorAll("[data-open-panel]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.openPanel;
+        document.querySelectorAll("[data-open-panel]").forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+        document.querySelectorAll("[data-panel]").forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === key));
+      });
+    });
+    document.querySelectorAll(".matrix button").forEach((button) => {
+      button.addEventListener("click", () => document.querySelectorAll(".matrix button").forEach((item) => item.setAttribute("aria-pressed", String(item === button))));
+    });
+    function selectBlmNode(node) {
+      const detailRoot = document.getElementById("blm-details");
+      const details = JSON.parse(node.dataset.blmDetails || "[]");
+      document.querySelectorAll(".blm-node").forEach((item) => item.classList.remove("is-active"));
+      node.classList.add("is-active");
+      document.getElementById("blm-title").textContent = node.dataset.blmTitle;
+      document.getElementById("blm-text").textContent = node.dataset.blmText;
+      detailRoot.innerHTML = details.map(([title, body]) => `<article><h3>${title}</h3><p>${body}</p></article>`).join("");
+    }
+    document.querySelectorAll(".blm-node").forEach((node) => {
+      node.addEventListener("click", () => selectBlmNode(node));
+    });
+    const initialBlmNode = document.querySelector(".blm-node.is-active") || document.querySelector(".blm-node");
+    if (initialBlmNode) selectBlmNode(initialBlmNode);
+  </script>
+  <script src="../../_shared/editable-runtime/editable.js" data-filename="gree-electric-2026-strategy-planning"></script>
 </body>
 </html>
