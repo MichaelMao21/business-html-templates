@@ -207,7 +207,8 @@
       "design_file": "weekly-report-brief/design.md",
       "example_files": [
         "weekly-report-brief/examples/product-growth-weekly-report.html",
-        "weekly-report-brief/examples/codex-business-templates-weekly-report-2026-w26.html"
+        "weekly-report-brief/examples/codex-business-templates-weekly-report-2026-w26.html",
+        "weekly-report-brief/examples/codex-all-projects-weekly-report-2026-w26.html"
       ],
       "layout_files": [
         "weekly-report-brief/layouts/summary.html",
